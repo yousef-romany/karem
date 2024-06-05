@@ -1,3 +1,4 @@
+"use client"
 import {
   Navbar as NextUINavbar,
   NavbarContent,
@@ -12,10 +13,13 @@ import NextLink from "next/link";
 // import { Image } from "@nextui-org/image";
 import Image from "next/image";
 
+
+
 import { siteConfig } from "@/config/site";
 import { ThemeSwitch } from "@/components/theme-switch";
 import { TwitterIcon, GithubIcon, DiscordIcon } from "@/components/icons";
 import logo from "@/public/logo.png";
+import { LanguageSwitch } from "./LanguageSwitch";
 
 export const Navbar = () => {
   return (
@@ -51,6 +55,7 @@ export const Navbar = () => {
           <Link isExternal aria-label="Github" href={siteConfig.links.github}>
             <GithubIcon className="text-default-500" />
           </Link>
+          <LanguageSwitch />
           <ThemeSwitch />
         </NavbarItem>
       </NavbarContent>
@@ -72,8 +77,8 @@ export const Navbar = () => {
                   index === 2
                     ? "primary"
                     : index === siteConfig.navMenuItems.length - 1
-                      ? "danger"
-                      : "foreground"
+                    ? "danger"
+                    : "foreground"
                 }
                 href="#"
                 size="lg"
