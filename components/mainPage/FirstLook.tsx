@@ -31,6 +31,10 @@ const FirstLook = () => {
           },
           // when window width is >= 640px
           640: {
+            slidesPerView: 1,
+            spaceBetween: 0,
+          },
+          860: {
             slidesPerView: 3,
             spaceBetween: 0,
           },
