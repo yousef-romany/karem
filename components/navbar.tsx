@@ -14,7 +14,7 @@ import Image from "next/image";
 
 import { siteConfig } from "@/config/site";
 import { ThemeSwitch } from "@/components/theme-switch";
-import logo from "@/public/logo.png";
+import logo from "@/public/mainLogo.png";
 import { LanguageSwitch } from "./LanguageSwitch";
 import RevalHorezontail from "./animation/RevalHorezontail";
 
@@ -24,14 +24,16 @@ export const Navbar = () => {
       <NavbarContent className="basis-1/5 mobile:basis-full" justify="start">
         <NavbarBrand as="li" className="gap-3 max-w-fit">
           <NextLink className="flex justify-start items-center gap-1" href="/">
-            <Image alt={"logo"} className="max-w-[200px] h-auto" src={logo} />
+            <Image alt={"logo"} className="max-w-[50px] h-auto" src={logo} />
           </NextLink>
         </NavbarBrand>
         <ul className="labtop:flex tablet:flex mobile:hidden gap-4 justify-start ml-2">
           {siteConfig.navItems.map((item) => (
             <NavbarItem key={item.href}>
               <RevalHorezontail>
-                <NextLink href={item.href}>{item.label}</NextLink>
+                <NextLink href={item.href}>
+                  <h1 className="text-primary">{item.label}</h1>
+                </NextLink>
               </RevalHorezontail>
             </NavbarItem>
           ))}
@@ -47,7 +49,6 @@ export const Navbar = () => {
           <ThemeSwitch />
         </NavbarItem>
       </NavbarContent>
-
       <NavbarContent
         className="labtop:hidden tablet:hidden mobile:flex basis-1 pl-4"
         justify="end"

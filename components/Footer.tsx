@@ -8,7 +8,7 @@ const Footer = () => {
       <div className="flex flex-col justify-center items-center gap-8">
         <Image src={Logo} className="max-w-[180px] h-auto" alt="logo" />
         <RevalHorezontail>
-          <h1>© 2023 Travel Pulse. All rights reserved</h1>
+          <h1 className="text-content1">© 2023 Travel Pulse. All rights reserved</h1>
         </RevalHorezontail>
       </div>
     </div>

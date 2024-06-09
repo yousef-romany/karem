@@ -9,9 +9,9 @@ module.exports = {
   ],
   theme: {
     screens: {
-      'tablet': '768px',
-      'mobile': '320px',
-      'labtop': '1440px'
+      tablet: "768px",
+      mobile: "320px",
+      labtop: "1440px",
     },
     extend: {
       fontFamily: {
@@ -27,9 +27,24 @@ module.exports = {
         light: {
           colors: {
             foreground: "white",
-            background: "#1b4b4d",
+            background: "#012e3d",
             primary: {
-              DEFAULT: "#c6a25a",
+              DEFAULT: "#e6d3a0",
+              colors: "white",
+              foreground: "white",
+            },
+            secondary: {
+              DEFAULT: "#DBC078",
+              colors: "white",
+              foreground: "white",
+            },
+            content1: {
+              DEFAULT: "#d0ad50",
+              colors: "white",
+              foreground: "white",
+            },
+            content2: {
+              DEFAULT: "#02546f",
               colors: "white",
               foreground: "white",
             },
@@ -37,10 +52,26 @@ module.exports = {
         },
         dark: {
           colors: {
+            background: "#00080b",
             foreground: "white",
             default: "white",
             primary: {
-              DEFAULT: "#c6a25a",
+              DEFAULT: "#d0ad50",
+              colors: "white",
+              foreground: "white",
+            },
+            secondary: {
+              DEFAULT: "#DBC078",
+              colors: "white",
+              foreground: "white",
+            },
+            content1: {
+              DEFAULT: "#e6d3a0",
+              colors: "white",
+              foreground: "white",
+            },
+            content2: {
+              DEFAULT: "#02546f",
               colors: "white",
               foreground: "white",
             },

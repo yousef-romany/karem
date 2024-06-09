@@ -3,29 +3,29 @@
 @tailwind utilities;
 
 body {
-    top: 0px !important;
+  top: 0px !important;
 }
-iframe.skiptranslate { visibility: hidden !important; }
+iframe.skiptranslate {
+  visibility: hidden !important;
+}
 .imageOne {
-    background-image: url("../public/statues-karnak-temple.jpg");
-    box-shadow: inset 10px 10px 170px 10px rgb(94, 94, 94);
+  background-image: url("../public/statues-karnak-temple.jpg");
+  box-shadow: inset 10px 10px 170px 10px rgb(94, 94, 94);
 }
 .imageTwo {
-    background-image: url("../public/columns-karnak-temple.jpg");
-    box-shadow: inset 10px 10px 170px 10px rgb(94, 94, 94);
+  background-image: url("../public/columns-karnak-temple.jpg");
+  box-shadow: inset 10px 10px 170px 10px rgb(94, 94, 94);
 }
 .imageTHREE {
-    background-image: url("../public/wall-karnak-temple-luxor-egypt.jpg");
-    box-shadow: inset 10px 10px 170px 10px rgb(94, 94, 94);
+  background-image: url("../public/wall-karnak-temple-luxor-egypt.jpg");
+  box-shadow: inset 10px 10px 170px 10px rgb(94, 94, 94);
 }
-
 .swiper-pagination-bullet-active {
-    background-color: #c6a25a !important;
-    width: 30px !important;
-    border-radius: 10px !important;
-    transition-duration: 1s;
-    transition-delay: 0;
-    transition-property: all;
-    transition-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
-
-  }
+  background-color: #d0ad50 !important;
+  width: 30px !important;
+  border-radius: 10px !important;
+  transition-duration: 1s;
+  transition-delay: 0;
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+}
