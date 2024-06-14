@@ -1,6 +1,5 @@
 import "@/styles/globals.css";
 import { Metadata, Viewport } from "next";
-import { Link } from "@nextui-org/link";
 import clsx from "clsx";
 
 import { Providers } from "./providers";
@@ -8,7 +7,6 @@ import { Providers } from "./providers";
 import { siteConfig } from "@/config/site";
 import { fontSans } from "@/config/fonts";
 import { Navbar } from "@/components/navbar";
-import { Head, Main, NextScript } from "next/document";
 import Script from "next/script";
 import Footer from "@/components/Footer";
 
@@ -22,6 +20,15 @@ export const metadata: Metadata = {
     icon: "/favicon.ico",
   },
 };
+
+import { Roboto } from 'next/font/google'
+
+const roboto = Roboto({
+  weight: '400', // if single weight, otherwise you use array like [400, 500, 700],
+  style: 'normal', // if single style, otherwise you use array like ['normal', 'italic']
+  subsets: ['vietnamese'],
+})
+
 
 export const viewport: Viewport = {
   themeColor: [

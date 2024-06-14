@@ -41,9 +41,9 @@ const MainSectionCard = () => {
         {/* end header */}
         {/* body */}
         <div className="flex flex-wrap justify-between items-center gap-4">
-          <CardDestiantion image={image} title={"Croatia"} route={"/destination/croatia"} />
-          <CardDestiantion image={image} title={"Croatia"} route={"/destination/croatia"} />
-          <CardDestiantion image={image} title={"Croatia"} route={"/destination/croatia"} />
+          <CardDestiantion image={image} title={"Croatia"} path={"/destination/croatia"} />
+          <CardDestiantion image={image} title={"Croatia"} path={"/destination/croatia"} />
+          <CardDestiantion image={image} title={"Croatia"} path={"/destination/croatia"} />
         </div>
         {/* end body */}
       </div>

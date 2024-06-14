@@ -31,7 +31,7 @@ const SearchComponentDestination = () => {
       {/* start filter search */}
       <div className="flex flex-wrap gap-6">
         <Input
-          type="email"
+          type="text"
           color="primary"
           variant={"bordered"}
           label="Search for places, hotels or restaurants"
@@ -75,17 +75,17 @@ const SearchComponentDestination = () => {
         <CardDestiantion
           image={image}
           title={"Croatia"}
-          route={"/destination/croatia"}
+          path={"/destination/croatia"}
         />
         <CardDestiantion
           image={image}
           title={"Croatia"}
-          route={"/destination/croatia"}
+          path={"/destination/croatia"}
         />
         <CardDestiantion
           image={image}
           title={"Croatia"}
-          route={"/destination/croatia"}
+          path={"/destination/croatia"}
         />
       </div>
       {/* end view data */}

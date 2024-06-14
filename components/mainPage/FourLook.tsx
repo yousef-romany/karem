@@ -1,13 +1,10 @@
 import { memo } from "react";
 import RevalHorezontail from "../animation/RevalHorezontail";
-import { Link } from "@nextui-org/link";
-
-import { Card, CardBody, CardFooter } from "@nextui-org/card";
 import image from "@/public/franch.png";
-import Image from "next/image";
 
 import { Button } from "@nextui-org/button";
 import { useRouter } from "next/navigation";
+import CardReview from "../review/CardReview";
 
 const FourLook = () => {
   let route = useRouter();
@@ -31,54 +28,27 @@ const FourLook = () => {
             </div>
             <RevalHorezontail>
               <Button
-                href="/destination"
-                as={Link}
+                onPress={() => route.push("/reviews")}
                 color="primary"
                 variant="bordered"
               >
-                View All Destination
+                View All Reviews
               </Button>
             </RevalHorezontail>
           </div>
           {/* end header */}
           {/* body */}
           <div className="flex flex-wrap justify-between items-center gap-4">
-            <RevalHorezontail>
-              <Card
-                className="!rounded-3xl !bg-transparent"
-                isPressable
-                onPress={() => route.push(`/travel`)}
-              >
-                <CardBody className="overflow-visible p-0">
-                  <Image
-                    alt={"my image"}
-                    className="w-full object-cover h-[360px]"
-                    src={image}
-                  />
-                </CardBody>
-                <CardFooter className="flex flex-col items-start gap-4">
-                  <div className="text-large flex justify-between items-center w-full">
-                    <b className="text-primary font-semibold">
-                      Prague, Ukraine
-                    </b>
-                    <p className="text-sm font-light">
-                      Feb 27, 2023 . 4 min read
-                    </p>
-                  </div>
-                  <div className="max-w-[530px] text-left flex flex-col gap-4">
-                    <h1 className="text-primary text-2xl font-bold">
-                      The Petrin Hill
-                    </h1>
-                    <p>
-                      I visited Prague, the beautiful capital city of the Czech
-                      Republic, and one of my favorite places in the city was
-                      the Petrin Hill. The Petrin Hill is a green oasis in the
-                      heart of Prague.
-                    </p>
-                  </div>
-                </CardFooter>
-              </Card>
-            </RevalHorezontail>
+            <CardReview
+              image={image}
+              location={"Prague, Ukraine"}
+              time={"Feb 27, 2023 . 4 min read"}
+              title={"The Petrin Hill"}
+              discript={`I visited Prague, the beautiful capital city of the Czech
+              Republic, and one of my favorite places in the city was the Petrin
+              Hill. The Petrin Hill is a green oasis in the heart of Prague.`}
+              path={"one"}
+            />
           </div>
           {/* end body */}
         </div>
