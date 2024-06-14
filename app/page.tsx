@@ -1,6 +1,7 @@
 "use client";
 
 import FirstLook from "@/components/mainPage/FirstLook";
+import FourLook from "@/components/mainPage/FourLook";
 import SecoundLook from "@/components/mainPage/SecoundLook";
 import TheredLook from "@/components/mainPage/TheredLook";
 
@@ -11,6 +12,7 @@ export default function Home() {
         <FirstLook />
         <SecoundLook />
         <TheredLook />
+        <FourLook />
       </section>
     </>
   );
