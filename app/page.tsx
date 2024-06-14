@@ -8,7 +8,7 @@ import TheredLook from "@/components/mainPage/TheredLook";
 export default function Home() {
   return (
     <>
-      <section className="flex flex-col items-center justify-center gap-">
+      <section className="flex flex-col items-center justify-center gap-4">
         <FirstLook />
         <SecoundLook />
         <TheredLook />
