@@ -16,7 +16,7 @@ const CardDestiantion = ({ image, title, path }: dataTypeProps) => {
       <Card
         className="!rounded-3xl !bg-transparent"
         isPressable
-        onPress={() => route.push("/destination/croatia")}
+        onPress={() => route.push(path)}
       >
         <CardBody className="overflow-visible p-0">
           <Image
@@ -26,7 +26,7 @@ const CardDestiantion = ({ image, title, path }: dataTypeProps) => {
           />
         </CardBody>
         <CardFooter className="text-large justify-between">
-          <b className="text-primary">Croatia</b>
+          <b className="text-primary">{title}</b>
         </CardFooter>
       </Card>
     </RevalHorezontail>

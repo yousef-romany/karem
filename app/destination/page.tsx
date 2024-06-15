@@ -23,10 +23,10 @@ export default function DestinationPage() {
           </div>
         </div>
       </div>
+      {/* end image destination */}
       {/* start section For all destination */}
       <SearchComponentDestination />
       {/* end section For all destination */}
-      {/* end image destination */}
     </section>
   );
 }
