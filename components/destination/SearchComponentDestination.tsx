@@ -1,5 +1,5 @@
 "use client";
-import { memo, useState } from "react";
+import { memo, useEffect, useState } from "react";
 import { Input } from "@nextui-org/input";
 import CardDestiantion from "./CardDestiantion";
 import image from "@/public/test.png";
