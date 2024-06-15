@@ -21,15 +21,6 @@ export const metadata: Metadata = {
   },
 };
 
-import { Roboto } from 'next/font/google'
-
-const roboto = Roboto({
-  weight: '400', // if single weight, otherwise you use array like [400, 500, 700],
-  style: 'normal', // if single style, otherwise you use array like ['normal', 'italic']
-  subsets: ['vietnamese'],
-})
-
-
 export const viewport: Viewport = {
   themeColor: [
     { media: "(prefers-color-scheme: light)", color: "white" },
