@@ -94,20 +94,19 @@ const TravelFeatured = () => {
                 id="discount"
                 endContent={"%"}
               />
-              <Select
-                label="Status"
-                placeholder="Select status Discount"
-                className="max-w-3xl"
+              <select
+                className="max-w-3xl text-black"
                 name="statusDiscount"
                 id="statusDiscount"
               >
-                <SelectItem value={"true"} key={1}>
+                <option value="">Select status Discount</option>
+                <option value={"true"} key={1}>
                   True
-                </SelectItem>
-                <SelectItem value={"false"} key={2}>
+                </option>
+                <option value={"false"} key={2}>
                   False
-                </SelectItem>
-              </Select>
+                </option>
+              </select>
               <Button type="submit" color="primary">
                 Submit
               </Button>

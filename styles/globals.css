@@ -36,3 +36,16 @@ iframe.skiptranslate {
   transition-property: all;
   transition-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
 }
+.outline {
+  color: white; /* Unfortunately you can't use transparent here … */
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
+    1px 1px 0 #000;
+}
+@supports ((text-stroke: 2px white) or (-webkit-text-stroke: 2px white)) {
+  .outline {
+    color: transparent;
+    -webkit-text-stroke: 2px white;
+    text-stroke: 2px white;
+    text-shadow: none;
+  }
+}

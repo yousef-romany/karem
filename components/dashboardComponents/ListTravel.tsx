@@ -20,15 +20,24 @@ const ListTravel = () => {
       .then((resData) => setItems(resData))
       .catch((error) => console.log(error));
   }, []);
-  const { isOpen, onOpen, onOpenChange } = useDisclosure();
+  const { isOpen, onOpen, onOpenChange, onClose } = useDisclosure();
   let [id, setId]: any = useState();
+  let [statusModal, setStatusModal]: any = useState(false);
   const handleEditeOrDelete = (id: string) => {
     setId(id);
     onOpen();
+    setStatusModal(true);
+  };
+  const changeStatusModal = () => {
+    fetch("/api/travel")
+      .then((res) => res.json())
+      .then((resData) => setItems(resData))
+      .catch((error) => console.log(error));
+    setStatusModal(false);
   };
   return (
     <>
-      <Table aria-label="Example table with dynamic content">
+      <Table aria-label="travels Items">
         <TableHeader>
           <TableColumn className="!text-black">Image</TableColumn>
           <TableColumn className="!text-black">title</TableColumn>
@@ -41,7 +50,7 @@ const ListTravel = () => {
           <TableColumn className="!text-black">Status for Discount</TableColumn>
           <TableColumn className="!text-black">Edite Or Delete</TableColumn>
         </TableHeader>
-        <TableBody>
+        <TableBody emptyContent={"No rows to display."}>
           {items?.map((item: any, key: number) => {
             return (
               <TableRow key={key}>
@@ -74,12 +83,16 @@ const ListTravel = () => {
           })}
         </TableBody>
       </Table>
-      <ModalEditeANDDeleteTravel
-        isOpen={isOpen}
-        onOpen={onOpen}
-        onOpenChange={onOpenChange}
-        id={id}
-      />
+      {statusModal ? (
+        <ModalEditeANDDeleteTravel
+          isOpen={isOpen}
+          onOpen={onOpen}
+          onOpenChange={onOpenChange}
+          onClose={onClose}
+          id={id}
+          changeStatusModal={changeStatusModal}
+        />
+      ) : null}
     </>
   );
 };

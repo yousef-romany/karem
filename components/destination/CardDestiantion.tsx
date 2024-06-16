@@ -1,32 +1,31 @@
 import { memo } from "react";
 import RevalHorezontail from "../animation/RevalHorezontail";
 import { Card, CardBody, CardFooter } from "@nextui-org/card";
-import Image from "next/image";
+import { Image } from "@nextui-org/image";
 import { useRouter } from "next/navigation";
 
 interface dataTypeProps {
     image: any;
-    title: string;
-    path: string;
+    location: string;
 }
-const CardDestiantion = ({ image, title, path }: dataTypeProps) => {
+const CardDestiantion = ({ image, location }: dataTypeProps) => {
   let route = useRouter();
   return (
     <RevalHorezontail>
       <Card
         className="!rounded-3xl !bg-transparent"
         isPressable
-        onPress={() => route.push(path)}
+        onPress={() => route.push(`/destination/${location}`)}
       >
         <CardBody className="overflow-visible p-0">
           <Image
             alt={"my image"}
-            className="w-full object-cover h-[360px]"
+            className="w-full object-cover max-w-[360px] h-[360px]"
             src={image}
           />
         </CardBody>
         <CardFooter className="text-large justify-between">
-          <b className="text-primary">{title}</b>
+          <b className="text-primary">{location}</b>
         </CardFooter>
       </Card>
     </RevalHorezontail>

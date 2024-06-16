@@ -2,60 +2,38 @@
 import { memo, useEffect, useState } from "react";
 import { Input } from "@nextui-org/input";
 import CardDestiantion from "./CardDestiantion";
-import image from "@/public/test.png";
 
 const SearchComponentDestination = () => {
-  let [data, setData]: any[] = useState([
-    {
-      image: image,
-      title: "Croatia",
-      path: "/destination/croatia",
-    },
-    {
-      image: image,
-      title: "Luxor",
-      path: "/destination/luxor",
-    },
-    {
-      image: image,
-      title: "Aswain",
-      path: "/destination/aswain",
-    },
-    {
-      image: image,
-      title: "Cairo",
-      path: "/destination/cairo",
-    },
-  ]);
-  let [basicData, setBasicData]: any[] = useState([
-    {
-      image: image,
-      title: "Croatia",
-      path: "/destination/croatia",
-    },
-    {
-      image: image,
-      title: "Luxor",
-      path: "/destination/luxor",
-    },
-    {
-      image: image,
-      title: "Aswain",
-      path: "/destination/aswain",
-    },
-    {
-      image: image,
-      title: "Cairo",
-      path: "/destination/cairo",
-    },
-  ]);
+  let [data, setData]: any[] = useState([]);
+  let [basicData, setBasicData]: any[] = useState([]);
+  useEffect(() => {
+    fetch("/api/destination")
+      .then((res) => res.json())
+      .then((resData: any) => {
+        let data =  resData.reduce((accumulator: any, current: any) => {
+          let exists = accumulator.find((item: any) => {
+            return item.location == current.location;
+          });
+          if(!exists) { 
+            accumulator = accumulator.concat(current);
+          }
+          return accumulator;
+        }, []);
+        setData(data);
+        setBasicData(data);
+        console.log(data);
+        console.log(Object.keys(data));
+        
+      })
+      .catch((error) => console.log(error));
+  }, []);
   const handleSearch = (valueSearch: any) => {
     if (valueSearch === "") {
       setData(basicData);
       return;
     } else {
       let filteredData = data.filter((element: any) => {
-        return element.title
+        return element.location
           .toLowerCase()
           .startsWith(valueSearch.toLowerCase());
       });
@@ -82,9 +60,8 @@ const SearchComponentDestination = () => {
           return (
             <CardDestiantion
               key={key}
-              image={item.image}
-              title={item.title}
-              path={item.path}
+              image={item.url}
+              location={item.location}
             />
           );
         })}
