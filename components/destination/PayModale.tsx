@@ -83,7 +83,7 @@ const PayModale = ({
             <ModalHeader className="flex flex-col gap-1">
               Pay Details, Methods
             </ModalHeader>
-            <ModalBody>
+            <ModalBody className="!max-h-[400px] !overflow-y-scroll">
               <div className="w-full h-fit">
                 <h1>Name Product: {nameProduct}</h1>
                 <h1>total Passengers : {totalPassenger}</h1>

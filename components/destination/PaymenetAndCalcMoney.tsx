@@ -52,7 +52,7 @@ const PaymenetAndCalcMoney = ({
           </div>
         </CardHeader>
         <Divider />
-        <CardBody>
+        <CardBody className="flex flex-col gap-4">
           <Input
             type="number"
             label="Number passenger"
@@ -70,6 +70,11 @@ const PaymenetAndCalcMoney = ({
             onPress={() => {
               if (totalMoney && numberPassenger) {
                 onOpen();
+                if (numberPassenger < minimal) {
+                  alert(
+                    `This Travel the Minimal Passenger for SubScription is ${minimal} !!!`
+                  );
+                }
                 return;
               }
               alert("Please select number of Passengers!!!");
