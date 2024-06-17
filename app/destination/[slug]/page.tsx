@@ -1,5 +1,6 @@
 "use client";
 
+import CardTravelWithMoreDetails from "@/components/destination/CardTravelWithMoreDetails";
 import { Image } from "@nextui-org/image";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
@@ -27,6 +28,22 @@ const Posts = () => {
         <h1 className="outline text-[80px] absolute top-[50%] left-[50%] translate-y-[-50%] translate-x-[-50%] z-[9]">
           {pathname.slice(13)}
         </h1>
+      </div>
+      <div className="w-full h-fit flex flex-wrap px-6 py-2 gap-4">
+        {data?.map((item: any, key: number) => {
+          return (
+            <CardTravelWithMoreDetails
+              id={item?.id}
+              key={key}
+              title={item?.title}
+              location={item?.location}
+              discount={item?.discount}
+              statusDiscount={item?.statusDiscount}
+              image={item?.url}
+              price={item?.price}
+            />
+          );
+        })}
       </div>
     </div>
   );
