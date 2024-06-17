@@ -1,9 +1,5 @@
 "use client";
-import {
-  PayPalScriptProvider,
-  PayPalButtons,
-  FUNDING,
-} from "@paypal/react-paypal-js";
+
 import { memo, useState } from "react";
 interface dataTypeProps {
   price: any;
@@ -11,12 +7,17 @@ interface dataTypeProps {
   discount: any;
   id: any;
   minimal: any;
+  location: any;
+  title: any;
 }
 import { Card, CardHeader, CardBody, CardFooter } from "@nextui-org/card";
 import Image from "next/image";
 import { Divider } from "@nextui-org/divider";
 import logo from "@/public/mainLogo.png";
 import { Input } from "@nextui-org/input";
+import { Button } from "@nextui-org/button";
+import PayModale from "./PayModale";
+import { useDisclosure } from "@nextui-org/modal";
 
 const PaymenetAndCalcMoney = ({
   price,
@@ -24,9 +25,13 @@ const PaymenetAndCalcMoney = ({
   discount,
   id,
   minimal,
+  title,
+  location,
 }: dataTypeProps) => {
   let [numberPassenger, setNumberPassenger]: any = useState(minimal);
   let [totalMoney, setTotalMoney]: any = useState(discount);
+  const { isOpen, onOpen, onOpenChange } = useDisclosure();
+
   const handleChange = (value: any) => {
     setNumberPassenger(value);
     if (statusDiscount == "true") {
@@ -35,14 +40,15 @@ const PaymenetAndCalcMoney = ({
       setTotalMoney(price * value);
     }
   };
+
   return (
     <div className="w-full h-fit">
       <Card isBlurred className="w-full">
         <CardHeader className="flex gap-3">
           <Image alt="nextui logo" height={40} src={logo} width={40} />
           <div className="flex flex-col">
-            <p className="text-md">Zoe HoliDay</p>
-            <p className="text-small text-default-500">ZoeHoliDay.org</p>
+            <p className="text-md">Zoe HoliDay Payment</p>
+            <p className="text-small text-default-500">ZoeHoliDay.com</p>
           </div>
         </CardHeader>
         <Divider />
@@ -55,37 +61,31 @@ const PaymenetAndCalcMoney = ({
             min={minimal}
             onChange={(e: any) => handleChange(e.target.value)}
           />
-          {totalMoney} $
+          Total: {totalMoney} $ , Passenger: {numberPassenger}
         </CardBody>
         <Divider />
-        <CardFooter>
-          <PayPalScriptProvider
-            options={{
-              clientId: "AXXL9Zy4gU8R2iMkav-yourclientid",
+        <CardFooter className="w-full h-fit flex justify-center items-start flex-col gap-3">
+          <Button
+            color={"secondary"}
+            onPress={() => {
+              if (totalMoney && numberPassenger) {
+                onOpen();
+                return;
+              }
+              alert("Please select number of Passengers!!!");
+              return;
             }}
           >
-            <PayPalButtons
-              style={{ layout: "vertical", color: "silver" }}
-              createOrder={async (data, actions) => {
-                const res = await fetch("/api/checkout", {
-                  method: "POST",
-                  headers: {
-                    "Content-Type": "application/json",
-                  },
-                });
-                const order = await res.json();
-                console.log(order);
-                return order.id;
-              }}
-              onCancel={(data) => {
-                console.log("Cancelled:", data);
-              }}
-              onApprove={(data, actions) => {
-                console.log("Approved:", data);
-                actions.order.capture();
-              }}
-            />
-          </PayPalScriptProvider>
+            Subscription
+          </Button>
+          <PayModale
+            isOpen={isOpen}
+            onOpen={onOpen}
+            onOpenChange={onOpenChange}
+            nameProduct={`${title}/${location}`}
+            coast={totalMoney}
+            totalPassenger={numberPassenger}
+          />
         </CardFooter>
       </Card>
     </div>

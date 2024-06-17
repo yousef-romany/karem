@@ -63,5 +63,8 @@
 		"tailwind-variants": "^0.1.20",
 		"tailwindcss": "3.4.3",
 		"typescript": "5.0.4"
+	},
+	"devDependencies": {
+		"@types/paypal__checkout-server-sdk": "^1.0.8"
 	}
 }

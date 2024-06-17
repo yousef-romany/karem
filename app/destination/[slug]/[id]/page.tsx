@@ -39,12 +39,12 @@ const Posts = () => {
         <meta name="description" content={data?.details} />
       </Head>
       <div className="flex flex-col gap-4 justify-center items-start px-4">
-        <div className="w-full  h-fit flex justify-center overflow-hidden">
+        <div className="w-full h-fit flex justify-center overflow-hidden">
           <RevalHorezontail>
             <Image
               src={data?.url}
               alt={data?.title}
-              className="h-auto !object-content"
+              className="h-auto !object-contain max-w-[780px]"
             />
           </RevalHorezontail>
         </div>
@@ -100,6 +100,8 @@ const Posts = () => {
           discount={data?.price - (data?.discount / 100) * data?.price}
           minimal={data?.minimal}
           id={data?.id}
+          location={data?.location}
+          title={data?.title}
         />
       </div>
     </>

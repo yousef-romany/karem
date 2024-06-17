@@ -2,12 +2,7 @@
 
 import { Card, CardBody } from "@nextui-org/card";
 import { Tabs, Tab } from "@nextui-org/tabs";
-import { Accordion, AccordionItem } from "@nextui-org/accordion";
-import { memo, useEffect, useState } from "react";
-import { Input, Textarea } from "@nextui-org/input";
-import { Button } from "@nextui-org/button";
-import { addDoc, collection, getDocs } from "firebase/firestore";
-import db from "@/utils/firestore";
+import { memo } from "react";
 import TravelFeatured from "@/components/dashboardComponents/TravelFeatured";
 
 const Dashboard = () => {
