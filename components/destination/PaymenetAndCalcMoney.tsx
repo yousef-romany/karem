@@ -59,21 +59,31 @@ const PaymenetAndCalcMoney = ({
         </CardBody>
         <Divider />
         <CardFooter>
-          <PayPalScriptProvider options={undefined}          // options={{
-          //   "client-id": process.env.NEXT_PUBLIC_PAYPAL_CLIENT_ID as string,
-          //   currency: "PHP",
-          // }}
+          <PayPalScriptProvider
+            options={{
+              clientId: "AXXL9Zy4gU8R2iMkav-yourclientid",
+            }}
           >
             <PayPalButtons
-              style={{
-                color: "gold",
-                shape: "rect",
-                label: "pay",
-                height: 50,
+              style={{ layout: "vertical", color: "silver" }}
+              createOrder={async (data, actions) => {
+                const res = await fetch("/api/checkout", {
+                  method: "POST",
+                  headers: {
+                    "Content-Type": "application/json",
+                  },
+                });
+                const order = await res.json();
+                console.log(order);
+                return order.id;
               }}
-              fundingSource={FUNDING.PAYPAL}
-              // createOrder={createPayPalOrder}
-              // onApprove={onApprove}
+              onCancel={(data) => {
+                console.log("Cancelled:", data);
+              }}
+              onApprove={(data, actions) => {
+                console.log("Approved:", data);
+                actions.order.capture();
+              }}
             />
           </PayPalScriptProvider>
         </CardFooter>
