@@ -44,7 +44,7 @@ const Posts = () => {
             <Image
               src={data?.url}
               alt={data?.title}
-              className="h-auto !object-contain max-w-[780px]"
+              className="h-auto !object-contain w-full max-w-[780px]"
             />
           </RevalHorezontail>
         </div>
