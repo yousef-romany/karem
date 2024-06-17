@@ -72,8 +72,9 @@ const Posts = () => {
         <Divider />
         <RevalHorezontail>
           <div className="text-primary text-[30px] flex">
-            <h1 className="text-[30px]">Minimal Number of Passenger : </h1>
-            <h2 className="px-4">{data?.minimal}</h2>
+            <h1 className="text-[30px]">
+              Minimal Number of Passenger : {data?.minimal}
+            </h1>
           </div>
         </RevalHorezontail>
         <Divider />
