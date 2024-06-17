@@ -50,14 +50,14 @@ const Posts = () => {
         </div>
         <RevalHorezontail>
           <div className="text-primary text-[40px] flex">
-            <h1 className="text-[36px]">Title : </h1>
+            <h1 className="text-[30px]">Title : </h1>
             <h2 className="px-4">{data?.title}</h2>
           </div>
         </RevalHorezontail>
         <Divider />
         <RevalHorezontail>
           <div className="text-primary text-[40px] flex">
-            <h1 className="text-[36px]">Location : </h1>
+            <h1 className="text-[30px]">Location : </h1>
             <h2 className="px-4">{data?.location}</h2>
           </div>
         </RevalHorezontail>
@@ -65,21 +65,21 @@ const Posts = () => {
 
         <RevalHorezontail>
           <div className="text-primary text-[40px]">
-            <h1 className="text-[36px]">Details : </h1>
+            <h1 className="text-[30px]">Details : </h1>
             <h2 className="px-4">{data?.details}</h2>
           </div>
         </RevalHorezontail>
         <Divider />
         <RevalHorezontail>
           <div className="text-primary text-[40px] flex">
-            <h1 className="text-[36px]">Minimal Number of Passenger : </h1>
+            <h1 className="text-[30px]">Minimal Number of Passenger : </h1>
             <h2 className="px-4">{data?.minimal}</h2>
           </div>
         </RevalHorezontail>
         <Divider />
         <RevalHorezontail>
           <div className="text-primary text-[40px]">
-            <h1 className="text-[36px]">Pricing : </h1>
+            <h1 className="text-[30px]">Pricing : </h1>
             {data?.statusDiscount == "true" ? (
               <div className="flex gap-2">
                 <h1 className="line-through text-danger">{data?.price} $</h1>
