@@ -8,7 +8,6 @@ export async function GET(request: NextRequest, { params }: { params: any }) {
   // query
   let q = query(collection(db, "travels"), where("location", "==", location));
   const docSnap = await getDocs(q);
-  return Response.json(
-    docSnap?.docs?.map((doc: any) => ({ ...doc.data(), id: doc.id }))
-  );
+  let data = docSnap?.docs?.map((doc: any) => ({ ...doc.data(), id: doc.id }));
+  return Response.json(data);
 }
