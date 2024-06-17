@@ -69,12 +69,13 @@ const PaymenetAndCalcMoney = ({
             color={"secondary"}
             onPress={() => {
               if (totalMoney && numberPassenger) {
-                onOpen();
                 if (numberPassenger < minimal) {
                   alert(
                     `This Travel the Minimal Passenger for SubScription is ${minimal} !!!`
                   );
+                  return;
                 }
+                onOpen();
                 return;
               }
               alert("Please select number of Passengers!!!");
