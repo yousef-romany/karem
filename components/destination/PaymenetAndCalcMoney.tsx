@@ -61,7 +61,7 @@ const PaymenetAndCalcMoney = ({
             min={minimal}
             onChange={(e: any) => handleChange(e.target.value)}
           />
-          Total: {totalMoney} $ , Passenger: {numberPassenger}
+          
         </CardBody>
         <Divider />
         <CardFooter className="w-full h-fit flex justify-center items-start flex-col gap-3">
