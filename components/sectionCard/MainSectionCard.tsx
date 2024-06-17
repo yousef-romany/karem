@@ -1,5 +1,5 @@
 import { Button } from "@nextui-org/button";
-import { memo } from "react";
+import { memo, useEffect, useState } from "react";
 import { Card, CardBody, CardFooter } from "@nextui-org/card";
 
 import image from "@/public/test.png";
@@ -11,6 +11,25 @@ import { useRouter } from "next/navigation";
 
 const MainSectionCard = () => {
   let route = useRouter();
+  let [data, setData]: any[] = useState([]);
+  useEffect(() => {
+    fetch("/api/destination")
+      .then((res) => res.json())
+      .then((resData: any) => {
+        let data = resData.reduce((accumulator: any, current: any) => {
+          let exists = accumulator.find((item: any) => {
+            return item.location == current.location;
+          });
+          if (!exists) {
+            accumulator = accumulator.concat(current);
+          }
+          return accumulator;
+        }, []);
+        setData(data);
+        console.log(data.slice(0, 3));
+      })
+      .catch((error) => console.log(error));
+  }, []);
   return (
     <>
       <div className="flex flex-col w-full h-fit gap-6">
@@ -41,9 +60,15 @@ const MainSectionCard = () => {
         {/* end header */}
         {/* body */}
         <div className="flex flex-wrap justify-between items-center gap-4">
-          <CardDestiantion image={image} title={"Croatia"} path={"/destination/croatia"} />
-          <CardDestiantion image={image} title={"Croatia"} path={"/destination/croatia"} />
-          <CardDestiantion image={image} title={"Croatia"} path={"/destination/croatia"} />
+          {data?.slice(0, 3)?.map((item: any, key: number) => {
+            return (
+              <CardDestiantion
+                key={key}
+                image={item?.url}
+                location={item?.location}
+              />
+            );
+          })}
         </div>
         {/* end body */}
       </div>
