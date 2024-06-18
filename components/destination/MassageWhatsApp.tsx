@@ -48,7 +48,7 @@ const MassageWhatsApp = ({ nameProduct, coast, totalPassenger }: any) => {
         />
       </div>
       <Link
-        href={`https://wa.me/01282066148?text=${massage}`}
+        href={`https://wa.me/201282066148?text=${massage}`}
         color={"secondary"}
         isExternal
       >
