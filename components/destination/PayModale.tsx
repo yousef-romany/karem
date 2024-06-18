@@ -14,6 +14,7 @@ import {
   PayPalButtonsComponentProps,
 } from "@paypal/react-paypal-js";
 import { Button } from "@nextui-org/button";
+import MassageWhatsApp from "./MassageWhatsApp";
 const paypalScriptOptions: any = {
   "client-id":
     "AbG7zxYMCuJdESNUce3_y2RfN4eNdutjVfGVRlKiCXReAfNi1V9T-aaBmkZHpYtrklEFbCe3NDpvrgua",
@@ -74,7 +75,7 @@ const PayModale = ({
       classNames={{
         backdrop:
           "bg-gradient-to-t from-zinc-900 to-zinc-900/10 backdrop-opacity-20",
-          base: "bg-primary"
+        base: "bg-primary",
       }}
     >
       <ModalContent>
@@ -103,7 +104,11 @@ const PayModale = ({
                   </PayPalScriptProvider>
                 </Tab>
                 <Tab key="2" title="Pay when you meet team" className="w-full">
-                  <h1>Pay when you meet team</h1>
+                  <MassageWhatsApp
+                    nameProduct={nameProduct}
+                    coast={coast}
+                    totalPassenger={totalPassenger}
+                  />
                 </Tab>
               </Tabs>
             </ModalBody>
