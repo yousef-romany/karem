@@ -2,34 +2,35 @@
 import { memo, useEffect, useState } from "react";
 import { Input } from "@nextui-org/input";
 import CardDestiantion from "./CardDestiantion";
+import { useQuery } from "@tanstack/react-query";
+import CardSkeleton from "../skeleton/CardSkeleton";
 
 const SearchComponentDestination = () => {
-  let [data, setData]: any[] = useState([]);
+  let [dataState, setDataState]: any[] = useState([]);
   let [basicData, setBasicData]: any[] = useState([]);
-  useEffect(() => {
-    fetch("/api/destination")
-      .then((res) => res.json())
-      .then((resData: any) => {
-        let data =  resData.reduce((accumulator: any, current: any) => {
-          let exists = accumulator.find((item: any) => {
-            return item.location == current.location;
-          });
-          if(!exists) { 
-            accumulator = accumulator.concat(current);
-          }
-          return accumulator;
-        }, []);
-        setData(data);
-        setBasicData(data);
-        console.log(data);
-        console.log(Object.keys(data));
-        
-      })
-      .catch((error) => console.log(error));
-  }, []);
+  const { isPending, error, data }: any = useQuery({
+    queryKey: ["repoData"],
+    queryFn: () =>
+      fetch("/api/destination")
+        .then((res) => res.json())
+        .then((resData: any) => {
+          let data = resData.reduce((accumulator: any, current: any) => {
+            let exists = accumulator.find((item: any) => {
+              return item.location == current.location;
+            });
+            if (!exists) {
+              accumulator = accumulator.concat(current);
+            }
+            return accumulator;
+          }, []);
+          setDataState(data);
+          setBasicData(data);
+        })
+        .catch((error) => console.log(error)),
+  });
   const handleSearch = (valueSearch: any) => {
     if (valueSearch === "") {
-      setData(basicData);
+      setDataState(basicData);
       return;
     } else {
       let filteredData = data.filter((element: any) => {
@@ -37,7 +38,7 @@ const SearchComponentDestination = () => {
           .toLowerCase()
           .startsWith(valueSearch.toLowerCase());
       });
-      setData(filteredData);
+      setDataState(filteredData);
       return;
     }
   };
@@ -55,17 +56,25 @@ const SearchComponentDestination = () => {
       </div>
       {/* end filter search */}
       {/* start view data */}
-      <div className="flex flex-wrap gap-6">
-        {data?.map((item: any, key: number) => {
-          return (
-            <CardDestiantion
-              key={key}
-              image={item.url}
-              location={item.location}
-            />
-          );
-        })}
-      </div>
+      {isPending ? (
+        <div className="flex flex-wrap justify-between items-center gap-4">
+          {[1, 2, 3, 4, 5, 6, 7, 8].map((item: number, key: number) => (
+            <CardSkeleton key={key} />
+          ))}
+        </div>
+      ) : (
+        <div className="flex flex-wrap gap-6">
+          {dataState?.map((item: any, key: number) => {
+            return (
+              <CardDestiantion
+                key={key}
+                image={item.url}
+                location={item.location}
+              />
+            );
+          })}
+        </div>
+      )}
       {/* end view data */}
     </div>
   );

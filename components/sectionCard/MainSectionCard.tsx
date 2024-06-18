@@ -1,35 +1,35 @@
+"use client";
 import { Button } from "@nextui-org/button";
 import { memo, useEffect, useState } from "react";
-import { Card, CardBody, CardFooter } from "@nextui-org/card";
-
-import image from "@/public/test.png";
-import Image from "next/image";
 import RevalHorezontail from "../animation/RevalHorezontail";
-import { Link } from "@nextui-org/link";
 import CardDestiantion from "../destination/CardDestiantion";
 import { useRouter } from "next/navigation";
 
+import { useQuery } from "@tanstack/react-query";
+import CardSkeleton from "../skeleton/CardSkeleton";
+
 const MainSectionCard = () => {
   let route = useRouter();
-  let [data, setData]: any[] = useState([]);
-  useEffect(() => {
-    fetch("/api/destination")
-      .then((res) => res.json())
-      .then((resData: any) => {
-        let data = resData.reduce((accumulator: any, current: any) => {
-          let exists = accumulator.find((item: any) => {
-            return item.location == current.location;
-          });
-          if (!exists) {
-            accumulator = accumulator.concat(current);
-          }
-          return accumulator;
-        }, []);
-        setData(data);
-        console.log(data.slice(0, 3));
-      })
-      .catch((error) => console.log(error));
-  }, []);
+  let [dataState, setDataState]: any[] = useState([]);
+  const { isPending, error, data }: any = useQuery({
+    queryKey: ["repoData"],
+    queryFn: () =>
+      fetch("/api/destination")
+        .then((res) => res.json())
+        .then((resData: any) => {
+          let dataVar = resData.reduce((accumulator: any, current: any) => {
+            let exists = accumulator.find((item: any) => {
+              return item.location == current.location;
+            });
+            if (!exists) {
+              accumulator = accumulator.concat(current);
+            }
+            return accumulator;
+          }, []);
+          setDataState(dataVar);
+        })
+        .catch((error) => console.log(error)),
+  });
   return (
     <>
       <div className="flex flex-col w-full h-fit gap-6">
@@ -59,17 +59,25 @@ const MainSectionCard = () => {
         </div>
         {/* end header */}
         {/* body */}
-        <div className="flex flex-wrap justify-between items-center gap-4">
-          {data?.slice(0, 3)?.map((item: any, key: number) => {
-            return (
-              <CardDestiantion
-                key={key}
-                image={item?.url}
-                location={item?.location}
-              />
-            );
-          })}
-        </div>
+        {isPending ? (
+          <div className="flex flex-wrap justify-between items-center gap-4">
+            {[1, 2, 3].map((item: number, key: number) => (
+              <CardSkeleton key={key} />
+            ))}
+          </div>
+        ) : (
+          <div className="flex flex-wrap justify-between items-center gap-4">
+            {dataState?.slice(0, 3)?.map((item: any, key: number) => {
+              return (
+                <CardDestiantion
+                  key={key}
+                  image={item?.url}
+                  location={item?.location}
+                />
+              );
+            })}
+          </div>
+        )}
         {/* end body */}
       </div>
     </>
