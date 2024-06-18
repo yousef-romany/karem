@@ -17,11 +17,6 @@ const MassageWhatsApp = ({ nameProduct, coast, totalPassenger }: any) => {
         And the Coast is ${coast}.
         and I will paid when meet the Team.
     `;
-  const handleClick = () => {
-    alert(name);
-    alert(number);
-    alert(country);
-  };
   return (
     <div className="flex flex-col gap-4">
       <h1 className="text-danger font-semibold">
@@ -56,11 +51,8 @@ const MassageWhatsApp = ({ nameProduct, coast, totalPassenger }: any) => {
         href={`https://wa.me/01282066148?text=${massage}`}
         color={"secondary"}
         isExternal
-        onClick={handleClick}
       >
-        <Button color="secondary">
-          send
-        </Button>
+        <Button color="secondary">send</Button>
       </Link>
     </div>
   );
