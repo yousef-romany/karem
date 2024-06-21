@@ -19,11 +19,6 @@ const MassageWhatsApp = ({ nameProduct, coast, totalPassenger }: any) => {
     `;
   return (
     <div className="flex flex-col gap-4">
-      <h1 className="text-danger font-semibold">
-        {" "}
-        Warning: If the agreement is reached and then violated, we will put you
-        on the Black list.
-      </h1>
       <div className="flex flex-col gap-4">
         <Input
           type="tel"

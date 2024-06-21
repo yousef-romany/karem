@@ -17,6 +17,14 @@ export const siteConfig = {
       href: "/explore",
     },
     {
+      label: "Offers",
+      href: "/offers",
+    },
+    {
+      label: "Reviews",
+      href: "/reviews",
+    },
+    {
       label: "Support",
       href: "/support",
     },
@@ -37,6 +45,14 @@ export const siteConfig = {
     {
       label: "Explore",
       href: "/explore",
+    },
+    {
+      label: "Offers",
+      href: "/offers",
+    },
+    {
+      label: "Reviews",
+      href: "/reviews",
     },
     {
       label: "Support",

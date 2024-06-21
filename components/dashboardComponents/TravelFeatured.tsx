@@ -93,10 +93,10 @@ const TravelFeatured = () => {
                 placeholder="Enter Discount"
                 name="discount"
                 id="discount"
-                endContent={"%"}
+                endContent={<i className="text-primary">%</i>}
               />
               <select
-                className="max-w-3xl text-black"
+                className="text-black bg-primary rounded-sm max-w-[260px] min-h-[40px] text-center"
                 name="statusDiscount"
                 id="statusDiscount"
               >
@@ -108,6 +108,15 @@ const TravelFeatured = () => {
                   False
                 </option>
               </select>
+              <Input
+                type="number"
+                defaultValue="0"
+                label="Discount When Pay With Credit Card"
+                placeholder="Enter Discount"
+                name="discountPay"
+                id="discountPay"
+                endContent={<i className="text-primary">$</i>}
+              />
               <Button type="submit" color="primary">
                 Submit
               </Button>
