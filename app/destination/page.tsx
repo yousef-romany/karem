@@ -4,6 +4,7 @@ import destination from "@/public/destenation.png";
 import SearchComponentDestination from "@/components/destination/SearchComponentDestination";
 
 export default function DestinationPage() {
+  
   return (
     <section className="h-fit w-full flex flex-col gap-4">
       {/* start image destination */}

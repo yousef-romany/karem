@@ -30,6 +30,7 @@ const TravelFeatured = () => {
         location: location,
         discount: discount,
         statusDiscount: statusDiscount,
+        explore: false,
       });
       console.log("Document written with ID: ", docRef.id);
       e.target.reset();
