@@ -22,7 +22,7 @@ const MainSectionCardForTheredLook = () => {
   let route: any = useRouter();
   let [dataState, setDataState]: any[] = useState([]);
   const { isPending, error, data }: any = useQuery({
-    queryKey: ["repoData"],
+    queryKey: ["repoDataExplore"],
     queryFn: () =>
       fetch("/api/explore")
         .then((res) => res.json())
