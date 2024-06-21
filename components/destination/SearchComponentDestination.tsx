@@ -1,9 +1,10 @@
 "use client";
-import { memo, useEffect, useState } from "react";
+import { memo, useState } from "react";
 import { Input } from "@nextui-org/input";
 import CardDestiantion from "./CardDestiantion";
 import { useQuery } from "@tanstack/react-query";
 import CardSkeleton from "../skeleton/CardSkeleton";
+import { IoReloadOutline } from "react-icons/io5";
 
 const SearchComponentDestination = () => {
   let [dataState, setDataState]: any[] = useState([]);
@@ -33,14 +34,17 @@ const SearchComponentDestination = () => {
       setDataState(basicData);
       return;
     } else {
-      let filteredData = data.filter((element: any) => {
+      let filteredData = dataState?.filter((element: any) => {
         return element.location
-          .toLowerCase()
-          .startsWith(valueSearch.toLowerCase());
+          ?.toLowerCase()
+          ?.startsWith(valueSearch.toLowerCase());
       });
       setDataState(filteredData);
       return;
     }
+  };
+  const handleRefresh = () => {
+    setDataState(basicData);
   };
   return (
     <div className="w-full h-fit min-h-[500px] flex flex-col gap-6 px-10">
@@ -52,6 +56,14 @@ const SearchComponentDestination = () => {
           variant={"bordered"}
           label="Search for places by name"
           onChange={(e: any) => handleSearch(e.target.value)}
+          endContent={
+            <IoReloadOutline
+              size={30}
+              className="cursor-pointer"
+              color="primary"
+              onClick={handleRefresh}
+            />
+          }
         />
       </div>
       {/* end filter search */}
