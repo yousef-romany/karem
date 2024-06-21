@@ -1,7 +1,7 @@
 "use client";
 import { memo } from "react";
 import { Card, CardBody, CardFooter } from "@nextui-org/card";
-import Image from "next/image";
+import { Image } from "@nextui-org/image";
 import RevalHorezontail from "../animation/RevalHorezontail";
 import { useRouter } from "next/navigation";
 interface dataTypeProps {
@@ -10,7 +10,7 @@ interface dataTypeProps {
   time: string;
   title: string;
   discript: string;
-  path: string;
+  id: any;
 }
 
 const CardReview = ({
@@ -19,7 +19,7 @@ const CardReview = ({
   time,
   title,
   discript,
-  path,
+  id
 }: dataTypeProps) => {
   let route = useRouter();
   return (
@@ -27,7 +27,7 @@ const CardReview = ({
       <Card
         className="!rounded-3xl !bg-transparent"
         isPressable
-        onPress={() => route.push(`/reviews/${path}`)}
+        onPress={() => route.push(`/reviews/${id}`)}
       >
         <CardBody className="overflow-visible p-0">
           <Image
@@ -43,9 +43,7 @@ const CardReview = ({
           </div>
           <div className="max-w-[530px] text-left flex flex-col gap-4">
             <h1 className="text-primary text-2xl font-bold">{title}</h1>
-            <p>
-              {discript}
-            </p>
+            <p>{discript.slice(0,30) + "....."}</p>
           </div>
         </CardFooter>
       </Card>

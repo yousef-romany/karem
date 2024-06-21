@@ -12,7 +12,7 @@ import RevalHorezontail from "../animation/RevalHorezontail";
 const FirstLook = () => {
   return (
     <div className="w-full h-fit flex flex-wrap">
-      <div className="relative h-screen w-full">
+      <div className="relative h-[90vh] w-full">
         <h1 className="z-[9] absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%]">
           <RevalHorezontail>
             <h1 className="labtop:text-[40px] tablet:text-[40px] text-primary mobile:text-[24px] font-semibold text-center">
@@ -44,14 +44,14 @@ const FirstLook = () => {
               spaceBetween: 0,
             },
             860: {
-              slidesPerView: 3,
+              slidesPerView: 1,
               spaceBetween: 0,
             },
           }}
           modules={[Pagination]}
         >
           <SwiperSlide>
-            <div className="flex items-end justify-center p-6 h-full bg-cover bg-center imageOne">
+            <div className="flex items-end justify-center p-6 h-full bg-cover bg-center imageOne !object-contain">
               <div className="w-full">
                 <RevalHorezontail>
                   <Link className="text-[26px] flex cursor-pointer text-secondary font-medium">

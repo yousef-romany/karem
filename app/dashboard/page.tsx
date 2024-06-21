@@ -5,6 +5,7 @@ import { Tabs, Tab } from "@nextui-org/tabs";
 import { memo } from "react";
 import TravelFeatured from "@/components/dashboardComponents/TravelFeatured";
 import ExploreFeatured from "@/components/dashboardComponents/ExploreFeatured";
+import ReviewsFeatured from "@/components/dashboardComponents/ReviewsFeatured";
 
 const Dashboard = () => {
   
@@ -18,13 +19,8 @@ const Dashboard = () => {
           <Tab key="Explore" title="Explore">
             <ExploreFeatured />
           </Tab>
-          <Tab key="videos" title="Videos">
-            <Card>
-              <CardBody>
-                Excepteur sint occaecat cupidatat non proident, sunt in culpa
-                qui officia deserunt mollit anim id est laborum.
-              </CardBody>
-            </Card>
+          <Tab key="Reviews" title="Reviews">
+            <ReviewsFeatured />
           </Tab>
         </Tabs>
       </div>

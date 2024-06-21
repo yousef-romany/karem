@@ -1,5 +1,5 @@
 "use client";
-import { memo } from "react";
+import { memo, useState } from "react";
 import {
   Modal,
   ModalContent,
@@ -32,6 +32,7 @@ const PayModale = ({
   nameProduct,
   coast,
   totalPassenger,
+  discountPay,
 }: any) => {
   let paypalbuttonTransactionProps: PayPalButtonsComponentProps = {
     style: { layout: "vertical" },
@@ -67,6 +68,7 @@ const PayModale = ({
       });
     },
   };
+  let [selected, setSelected]: any = useState("1");
   return (
     <Modal
       backdrop="opaque"
@@ -88,9 +90,14 @@ const PayModale = ({
               <div className="w-full h-fit">
                 <h1>Name Product: {nameProduct}</h1>
                 <h1>total Passengers : {totalPassenger}</h1>
-                <h1>Coast : {coast}</h1>
+                <h1>
+                  Coast :{" "}
+                  {selected == "2"
+                    ? parseFloat(coast) - parseFloat(discountPay)
+                    : coast}
+                </h1>
               </div>
-              <Tabs>
+              <Tabs selectedKey={selected} onSelectionChange={setSelected}>
                 <Tab
                   key="1"
                   title="Pay Now"
@@ -106,7 +113,7 @@ const PayModale = ({
                 <Tab key="2" title="Pay when you meet team" className="w-full">
                   <MassageWhatsApp
                     nameProduct={nameProduct}
-                    coast={coast}
+                    coast={parseFloat(coast) - parseFloat(discountPay)}
                     totalPassenger={totalPassenger}
                   />
                 </Tab>

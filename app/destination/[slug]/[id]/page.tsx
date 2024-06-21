@@ -21,6 +21,7 @@ const Posts = () => {
     title: "",
     url: "",
     id: "",
+    discountPay: "",
   });
   useEffect(() => {
     setId(pathname.split("/")[3]);
@@ -28,7 +29,6 @@ const Posts = () => {
       .then((res) => res.json())
       .then((resData) => {
         setData(resData);
-        console.log(resData);
       })
       .catch((error) => console.log(error));
   }, []);
@@ -103,6 +103,7 @@ const Posts = () => {
           id={data?.id}
           location={data?.location}
           title={data?.title}
+          discountPay={data?.discountPay}
         />
       </div>
     </>

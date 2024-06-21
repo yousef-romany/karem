@@ -20,6 +20,7 @@ const TravelFeatured = () => {
     let location = e?.target["location"].value;
     let discount = e?.target["discount"].value;
     let statusDiscount = e?.target["statusDiscount"].value;
+    let discountPay = e?.target["discountPay"].value;
     try {
       const docRef = await addDoc(collection(db, "travels"), {
         url: url,
@@ -31,6 +32,7 @@ const TravelFeatured = () => {
         discount: discount,
         statusDiscount: statusDiscount,
         explore: false,
+        discountPay: discountPay 
       });
       console.log("Document written with ID: ", docRef.id);
       e.target.reset();

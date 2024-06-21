@@ -9,6 +9,7 @@ interface dataTypeProps {
   minimal: any;
   location: any;
   title: any;
+  discountPay: any;
 }
 import { Card, CardHeader, CardBody, CardFooter } from "@nextui-org/card";
 import Image from "next/image";
@@ -27,6 +28,7 @@ const PaymenetAndCalcMoney = ({
   minimal,
   title,
   location,
+  discountPay
 }: dataTypeProps) => {
   let [numberPassenger, setNumberPassenger]: any = useState(minimal);
   let [totalMoney, setTotalMoney]: any = useState(discount);
@@ -91,6 +93,7 @@ const PaymenetAndCalcMoney = ({
             nameProduct={`${title}/${location}`}
             coast={totalMoney}
             totalPassenger={numberPassenger}
+            discountPay={discountPay}
           />
         </CardFooter>
       </Card>

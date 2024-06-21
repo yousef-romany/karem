@@ -17,6 +17,7 @@ iframe.skiptranslate {
 .imageOne {
   background-image: url("../public/statues-karnak-temple.jpg") !important;
   box-shadow: inset 10px 10px 170px 10px rgb(94, 94, 94) !important;
+  max-width: 100%;
 }
 .imageTwo {
   background-image: url("../public/columns-karnak-temple.jpg") !important;
