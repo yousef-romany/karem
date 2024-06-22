@@ -55,7 +55,6 @@ const Posts = () => {
             <h2 className="px-4">{data?.details}</h2>
           </div>
         </RevalHorezontail>
-        <Divider />
       </div>
     </>
   );

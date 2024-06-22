@@ -8,6 +8,7 @@ import { Input, Textarea } from "@nextui-org/input";
 import { Button } from "@nextui-org/button";
 import db from "@/utils/firestore";
 import { addDoc, collection } from "firebase/firestore";
+import CardSkeleton from "@/components/skeleton/CardSkeleton";
 const Reviews = () => {
   let [dataState, setDataState]: any[] = useState([]);
   let [dataReviewState, setDataReviewState]: any[] = useState([]);
@@ -136,16 +137,21 @@ const Reviews = () => {
       </div>
       {/* end image review */}
       <div className="flex flex-wrap justify-between items-center gap-4 px-10 py-16 relative">
-        {dataReviewState?.map((item: any, key: number) => (
-          <CardReview
-            image={item?.urlTravel}
-            location={item?.travelId}
-            time={"Feb 27, 2023 . 4 min read"}
-            title={item?.name}
-            discript={item?.details}
-            id={item?.id}
-          />
-        ))}
+        {isPending
+          ? [1, 2, 3, 4, 5]?.map((item: number, key: number) => (
+              <CardSkeleton key={key} />
+            ))
+          : dataReviewState?.map((item: any, key: number) => (
+              <CardReview
+              key={key}
+                image={item?.urlTravel}
+                location={item?.travelId}
+                time={"Feb 27, 2023 . 4 min read"}
+                title={item?.name}
+                discript={item?.details}
+                id={item?.id}
+              />
+            ))}
       </div>
     </section>
   );
