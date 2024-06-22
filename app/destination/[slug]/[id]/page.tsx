@@ -50,23 +50,20 @@ const Posts = () => {
         </div>
         <RevalHorezontail>
           <div className="text-primary text-[20px] flex">
-            <h1 className="text-[20px]">Title : </h1>
-            <h2 className="px-4">{data?.title}</h2>
+            <h1 className="text-[20px]">Title : {data?.title}</h1>
           </div>
         </RevalHorezontail>
         <Divider />
         <RevalHorezontail>
           <div className="text-primary text-[20px] flex">
-            <h1 className="text-[20px]">Location : </h1>
-            <h2 className="px-4">{data?.location}</h2>
+            <h1 className="text-[20px]">Location : {data?.location}</h1>
           </div>
         </RevalHorezontail>
         <Divider />
 
         <RevalHorezontail>
           <div className="text-primary text-[20px]">
-            <h1 className="text-[20px]">Details : </h1>
-            <h2 className="px-4">{data?.details}</h2>
+            <h1 className="text-[20px]">Details : {data?.details}</h1>
           </div>
         </RevalHorezontail>
         <Divider />
