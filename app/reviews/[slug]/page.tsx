@@ -35,23 +35,23 @@ const Posts = () => {
           </RevalHorezontail>
         </div>
         <RevalHorezontail>
-          <div className="text-primary text-[24px] flex">
-            <h1 className="text-[24px]">User Name : </h1>
+          <div className="text-primary text-[20px] flex">
+            <h1 className="text-[20px]">User Name : </h1>
             <h2 className="px-4">{data?.name}</h2>
           </div>
         </RevalHorezontail>
         <Divider />
         <RevalHorezontail>
-          <div className="text-primary text-[24px] flex">
-            <h1 className="text-[24px]">email : </h1>
+          <div className="text-primary text-[20px] flex">
+            <h1 className="text-[20px]">email : </h1>
             <h2 className="px-4">{data?.email}</h2>
           </div>
         </RevalHorezontail>
         <Divider />
 
         <RevalHorezontail>
-          <div className="text-primary text-[24px]">
-            <h1 className="text-[24px]">Details : </h1>
+          <div className="text-primary text-[20px]">
+            <h1 className="text-[20px]">Details : </h1>
             <h2 className="px-4">{data?.details}</h2>
           </div>
         </RevalHorezontail>
