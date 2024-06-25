@@ -26,12 +26,14 @@ const Footer = () => {
             <RevalHorezontail>
               <div className="flex gap-2 justify-center items-center text-secondary">
                 <FaSquarePhone size={25} className="text-primary" />{" "}
+                {/* WIP: set real phone number */}
                 <p>+201282066148</p>
               </div>
             </RevalHorezontail>
             <RevalHorezontail>
               <div className="flex gap-2 justify-center items-center text-secondary">
                 <CgMail size={25} className="text-primary" />{" "}
+                {/* WIP: set real Gmail */}
                 <p>yousefromany527@gmail.com</p>
               </div>
             </RevalHorezontail>

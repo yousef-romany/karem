@@ -40,17 +40,13 @@ export const Navbar = () => {
         </ul>
       </NavbarContent>
 
-      {/* <NavbarContent
-        className="hidden labtop:flex tablet:flex mobile:flex labtop:basis-1/5 tablet:basis-1/5 mobile:basis-full"
-        justify="end"
-      ></NavbarContent> */}
       <NavbarContent className="basis-1 pl-4" justify="end">
         <NavbarItem className="labtop:flex tablet:flex mobile:flex gap-2">
           <LanguageSwitch />
           <ThemeSwitch />
         </NavbarItem>
         <NavbarItem className="labtop:hidden tablet:hidden mobile:flex basis-1 pl-4">
-          <NavbarMenuToggle />
+          <NavbarMenuToggle className="!text-white" />
         </NavbarItem>
       </NavbarContent>
 

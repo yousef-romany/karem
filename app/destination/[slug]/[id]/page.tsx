@@ -62,8 +62,8 @@ const Posts = () => {
         <Divider />
 
         <RevalHorezontail>
-          <div className="text-primary text-[20px]">
-            <h1 className="text-[20px]">Details : {data?.details}</h1>
+          <div className="text-primary text-[20px] !break-all">
+            <p className="text-[20px] !break-all">Details : {data?.details}</p>
           </div>
         </RevalHorezontail>
         <Divider />
