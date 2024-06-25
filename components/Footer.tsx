@@ -35,18 +35,18 @@ const Footer = () => {
                 <p>yousefromany527@gmail.com</p>
               </div>
             </RevalHorezontail>
-            <RevalHorezontail>
+            {/* <RevalHorezontail>
               <div className="flex gap-2 justify-center items-center text-secondary">
                 <MdLocationOn size={25} className="text-primary" />
                 <p>66 Eleatemad ST, Luxor, Egypt</p>
               </div>
-            </RevalHorezontail>
+            </RevalHorezontail> */}
           </div>
         </div>
         <div className="flex flex-wrap w-fit h-fit gap-6 justify-between">
           <div className="flex flex-col gap-4">
             <RevalHorezontail>
-              <h1 className="text-primary text-[30px]">More Details</h1>
+              <h1 className="text-primary text-[30px]">More Details:</h1>
             </RevalHorezontail>
             <div className="flex flex-col gap-2 items-start">
               <RevalHorezontail>
@@ -97,7 +97,7 @@ const Footer = () => {
           </div>
           <div className="flex flex-col gap-4">
             <RevalHorezontail>
-              <h1 className="text-primary text-[30px]">Contacts</h1>
+              <h1 className="text-primary text-[30px]">Contacts: </h1>
             </RevalHorezontail>
             <div className="flex flex-col gap-2 items-start">
               <RevalHorezontail>
