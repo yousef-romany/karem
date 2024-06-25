@@ -63,3 +63,15 @@ iframe.skiptranslate {
   background-color: theme(backgroundColor.primary) !important;
   border: theme(borderColor.primary) !important;
 }
+@media only screen and (max-width: 600px) {
+  .sk-sitejabber-item-item,
+  .sk-sitejabber-item-sizer,
+  .sk-sitejabber-item {
+    position: none !important;
+    width: 100% !important;
+  }
+  .sk-sitejabber-item {
+    display: flex !important;
+    flex-direction: column !important;
+  }
+}

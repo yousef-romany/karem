@@ -14,8 +14,10 @@ export default function Home() {
         <TheredLook />
         <FourLook />
         <div className="p-10">
-
-        <div className="sk-ww-tripadvisor-reviews" data-embed-id="25429830"></div>
+          <div
+            className="sk-ww-tripadvisor-reviews"
+            data-embed-id="25429830"
+          ></div>
         </div>
       </section>
     </>

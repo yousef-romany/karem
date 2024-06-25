@@ -64,7 +64,10 @@ export default function RootLayout({
           <div className="flex flex-col h-fit relative gap-10">
             <div className="min-h-screen">
               <Navbar />
+              <div className="p-4">
+
               {children}
+              </div>
             </div>
             <Footer />
           </div>
