@@ -10,6 +10,7 @@
 }
 body {
   top: 0px !important;
+  /* background-color: #d2d2d2; */
 }
 iframe.skiptranslate {
   visibility: hidden !important;
@@ -48,4 +49,17 @@ iframe.skiptranslate {
     text-stroke: 2px white;
     text-shadow: none;
   }
+}
+
+.sk-bio-content,
+.sk-bio-name a,
+.tutorial_link,
+.sk-ww-tripadvisor-reviews-reviewer a strong,
+.sk-google-review-button-more {
+  color: theme(textColor.primary) !important;
+}
+.sk-sitejabber-reviews-load-more-posts {
+  color: white !important;
+  background-color: theme(backgroundColor.primary) !important;
+  border: theme(borderColor.primary) !important;
 }

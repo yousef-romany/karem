@@ -27,6 +27,7 @@ const MainSectionCard = () => {
             return accumulator;
           }, []);
           setDataState(dataVar);
+          return dataVar;
         })
         .catch((error) => console.log(error)),
   });

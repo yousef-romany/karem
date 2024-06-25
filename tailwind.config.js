@@ -26,17 +26,20 @@ module.exports = {
       themes: {
         light: {
           colors: {
-            foreground: "white",
-            background: "#012e3d",
+            foreground: "#012e3d",
+            background: "#e5e5e5",
             primary: {
-              DEFAULT: "#e6d3a0",
+              DEFAULT: "#DBC078",
               colors: "white",
               foreground: "white",
             },
             secondary: {
-              DEFAULT: "#DBC078",
+              DEFAULT: "#e6d3a0",
               colors: "white",
               foreground: "white",
+            },
+            success: {
+              DEFAULT: "#012e3d",
             },
             content1: {
               DEFAULT: "#d0ad50",
@@ -64,6 +67,10 @@ module.exports = {
               DEFAULT: "#DBC078",
               colors: "white",
               foreground: "white",
+            },
+
+            success: {
+              DEFAULT: "#00080b",
             },
             content1: {
               DEFAULT: "#e6d3a0",

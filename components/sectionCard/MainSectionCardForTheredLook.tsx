@@ -28,6 +28,7 @@ const MainSectionCardForTheredLook = () => {
         .then((res) => res.json())
         .then((resData: any) => {
           setDataState(resData);
+          return resData;
         })
         .catch((error) => console.log(error)),
   });

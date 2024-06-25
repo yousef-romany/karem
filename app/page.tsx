@@ -13,6 +13,10 @@ export default function Home() {
         <SecoundLook />
         <TheredLook />
         <FourLook />
+        <div className="p-10">
+
+        <div className="sk-ww-tripadvisor-reviews" data-embed-id="25429830"></div>
+        </div>
       </section>
     </>
   );

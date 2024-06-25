@@ -20,7 +20,7 @@ import RevalHorezontail from "./animation/RevalHorezontail";
 
 export const Navbar = () => {
   return (
-    <NextUINavbar maxWidth="xl" position="sticky">
+    <NextUINavbar maxWidth="xl" position="sticky" className="bg-success">
       <NavbarContent className="basis-1/5 mobile:basis-full" justify="start">
         <NavbarBrand as="li" className="gap-3 max-w-fit">
           <NextLink className="flex justify-start items-center gap-1" href="/">
@@ -58,11 +58,11 @@ export const Navbar = () => {
 
       <NavbarMenu>
         <div className="mx-4 mt-2 flex flex-col gap-2">
-          {siteConfig.navMenuItems.map((item, index) => (
+          {siteConfig?.navMenuItems?.map((item, index) => (
             <NavbarMenuItem key={`${item}-${index}`}>
               <RevalHorezontail>
-                <Link color={"primary"} href="#" size="lg">
-                  {item.label}
+                <Link color={"primary"} href={item?.href} size="lg">
+                  {item?.label}
                 </Link>
               </RevalHorezontail>
             </NavbarMenuItem>

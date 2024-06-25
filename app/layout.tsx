@@ -28,7 +28,6 @@ export const viewport: Viewport = {
   ],
 };
 
-
 export default function RootLayout({
   children,
 }: {
@@ -49,6 +48,11 @@ export default function RootLayout({
           src="//translate.google.com/translate_a/element.js?cb=TranslateInit"
           strategy="afterInteractive"
         />
+        <Script
+          src="https://widgets.sociablekit.com/tripadvisor-reviews/widget.js"
+          async
+          defer
+        />
       </head>
       <body
         className={clsx(
@@ -57,14 +61,13 @@ export default function RootLayout({
         )}
       >
         <Providers themeProps={{ attribute: "class", defaultTheme: "dark" }}>
-          
-            <div className="flex flex-col h-fit relative gap-10">
-              <div className="min-h-screen">
-                <Navbar />
-                {children}
-              </div>
-              <Footer />
+          <div className="flex flex-col h-fit relative gap-10">
+            <div className="min-h-screen">
+              <Navbar />
+              {children}
             </div>
+            <Footer />
+          </div>
         </Providers>
       </body>
     </html>

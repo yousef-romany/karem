@@ -18,6 +18,7 @@ const FourLook = () => {
         .then((res) => res.json())
         .then((resData: any) => {
           setDataReviewState(resData);
+          return resData;
         })
         .catch((error) => console.log(error)),
   });
