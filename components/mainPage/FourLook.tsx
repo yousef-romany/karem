@@ -25,7 +25,7 @@ const FourLook = () => {
 
   return (
     <>
-      <div className="w-full h-fit px-10 py-16 relative">
+      <div className="w-full h-fit labtop:p-10 mobile:p-5 py-16 relative">
         <div className="flex flex-col w-full h-fit gap-6">
           {/* header */}
           <div className="flex justify-between items-center flex-wrap gap-4">

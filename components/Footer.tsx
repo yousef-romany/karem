@@ -43,84 +43,86 @@ const Footer = () => {
             </RevalHorezontail>
           </div>
         </div>
-        <div className="flex flex-col gap-4">
-          <RevalHorezontail>
-            <h1 className="text-primary text-[30px]">More Details</h1>
-          </RevalHorezontail>
-          <div className="flex flex-col gap-2 items-start">
+        <div className="flex flex-wrap w-fit h-fit gap-6 justify-between">
+          <div className="flex flex-col gap-4">
             <RevalHorezontail>
-              <Button
-                variant="light"
-                as={Link}
-                size="lg"
-                href="/review"
-                className="text-secondary"
-              >
-                <h1>Reviews</h1>
-              </Button>
+              <h1 className="text-primary text-[30px]">More Details</h1>
             </RevalHorezontail>
-            <RevalHorezontail>
-              <Button
-                variant="light"
-                as={Link}
-                size="lg"
-                href="/offers"
-                className="text-secondary"
-              >
-                Offers
-              </Button>
-            </RevalHorezontail>
-            <RevalHorezontail>
-              <Button
-                variant="light"
-                as={Link}
-                size="lg"
-                href="/explore"
-                className="text-secondary"
-              >
-                Explore
-              </Button>
-            </RevalHorezontail>
-            <RevalHorezontail>
-              <Button
-                variant="light"
-                as={Link}
-                size="lg"
-                href="/home"
-                className="text-secondary"
-              >
-                Home
-              </Button>
-            </RevalHorezontail>
+            <div className="flex flex-col gap-2 items-start">
+              <RevalHorezontail>
+                <Button
+                  variant="light"
+                  as={Link}
+                  size="lg"
+                  href="/review"
+                  className="text-secondary"
+                >
+                  <h1>Reviews</h1>
+                </Button>
+              </RevalHorezontail>
+              <RevalHorezontail>
+                <Button
+                  variant="light"
+                  as={Link}
+                  size="lg"
+                  href="/offers"
+                  className="text-secondary"
+                >
+                  Offers
+                </Button>
+              </RevalHorezontail>
+              <RevalHorezontail>
+                <Button
+                  variant="light"
+                  as={Link}
+                  size="lg"
+                  href="/explore"
+                  className="text-secondary"
+                >
+                  Explore
+                </Button>
+              </RevalHorezontail>
+              <RevalHorezontail>
+                <Button
+                  variant="light"
+                  as={Link}
+                  size="lg"
+                  href="/home"
+                  className="text-secondary"
+                >
+                  Home
+                </Button>
+              </RevalHorezontail>
+            </div>
           </div>
-        </div>
-        <div className="flex flex-col gap-4">
-          <RevalHorezontail>
-            <h1 className="text-primary text-[30px]">Contacts</h1>
-          </RevalHorezontail>
-          <div className="flex flex-col gap-2 items-start">
+          <div className="flex flex-col gap-4">
             <RevalHorezontail>
-              <Button
-                variant="light"
-                as={Link}
-                size="lg"
-                href="/about"
-                className="text-secondary"
-              >
-                <h1>About us</h1>
-              </Button>
+              <h1 className="text-primary text-[30px]">Contacts</h1>
             </RevalHorezontail>
-            <RevalHorezontail>
-              <Button
-                variant="light"
-                as={Link}
-                size="lg"
-                href="/support"
-                className="text-secondary"
-              >
-                Support
-              </Button>
-            </RevalHorezontail>
+            <div className="flex flex-col gap-2 items-start">
+              <RevalHorezontail>
+                <Button
+                  variant="light"
+                  as={Link}
+                  size="lg"
+                  href="/about"
+                  className="text-secondary"
+                >
+                  <h1>About us</h1>
+                </Button>
+              </RevalHorezontail>
+              <RevalHorezontail>
+                <Button
+                  variant="light"
+                  as={Link}
+                  size="lg"
+                  href="/support"
+                  className="text-secondary"
+                >
+                  Support
+                </Button>
+              </RevalHorezontail>
+            </div>
           </div>
         </div>
       </div>

@@ -13,7 +13,7 @@ export default function Home() {
         <SecoundLook />
         <TheredLook />
         <FourLook />
-        <div className="p-10">
+        <div className="labtop:p-10 mobile:p-5">
           <div
             className="sk-ww-tripadvisor-reviews"
             data-embed-id="25429830"
