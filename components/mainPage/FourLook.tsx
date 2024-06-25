@@ -28,7 +28,7 @@ const FourLook = () => {
       <div className="w-full h-fit labtop:p-10 mobile:p-5 py-16 relative">
         <div className="flex flex-col w-full h-fit gap-6">
           {/* header */}
-          <div className="flex justify-between items-center flex-wrap gap-4">
+          <div className="flex justify-between items-center flex-wrap gap-4 bg-success px-4 py-2 !rounded-xl">
             <div className="flex flex-col justify-between">
               <RevalHorezontail>
                 <h1 className="text-primary text-[26px] font-bold">
@@ -53,7 +53,7 @@ const FourLook = () => {
           </div>
           {/* end header */}
           {/* body */}
-          <div className="flex flex-wrap justify-between items-center gap-4">
+          <div className="flex flex-wrap justify-between items-center gap-4 px-4">
             {isPending
               ? [1, 2, 3, 4, 5]?.map((item: number, key: number) => (
                   <CardSkeleton key={key} />

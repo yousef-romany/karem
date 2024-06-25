@@ -25,7 +25,7 @@ const CardReview = ({
   return (
     <RevalHorezontail>
       <Card
-        className="!rounded-3xl !bg-transparent"
+        className="!rounded-3xl !bg-success pb-4"
         isPressable
         onPress={() => route.push(`/reviews/${id}`)}
       >
@@ -38,12 +38,12 @@ const CardReview = ({
         </CardBody>
         <CardFooter className="flex flex-col items-start gap-4">
           <div className="text-large flex justify-between items-center w-full">
-            <b className="text-primary font-semibold">{location}</b>
-            <p className="text-sm font-light">{time}</p>
+            <b className="text-secondary font-semibold">Name Travel:  {location}</b>
+            {/* <p className="text-sm font-light">{time}</p> */}
           </div>
           <div className="max-w-[530px] text-left flex flex-col gap-4">
-            <h1 className="text-primary text-2xl font-bold">{title}</h1>
-            <p>{discript.slice(0,30) + "....."}</p>
+            <h1 className="text-primary text-2xl font-bold">Passenger: {title}</h1>
+            <p className="text-secondary">{discript.slice(0,30) + "....."}</p>
           </div>
         </CardFooter>
       </Card>

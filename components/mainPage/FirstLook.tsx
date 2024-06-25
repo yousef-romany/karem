@@ -6,7 +6,8 @@ import { Swiper, SwiperSlide } from "swiper/react";
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/pagination";
-import { Pagination } from "swiper/modules";
+import "swiper/css/autoplay";
+import { Autoplay, Pagination } from "swiper/modules";
 import RevalHorezontail from "../animation/RevalHorezontail";
 
 const FirstLook = () => {
@@ -21,72 +22,74 @@ const FirstLook = () => {
           </RevalHorezontail>
         </h1>
         <div className="relative w-full h-full flex justify-center items-center">
-
-        <Swiper
-        className="!w-full !h-full"
-          spaceBetween={0}
-          pagination={{
-            clickable: true,
-          }}
-          breakpoints={{
-            320: {
-              slidesPerView: 1,
-              spaceBetween: 0,
-            },
-            // when window width is >= 480px
-            480: {
-              slidesPerView: 1,
-              spaceBetween: 0,
-            },
-            // when window width is >= 640px
-            640: {
-              slidesPerView: 1,
-              spaceBetween: 0,
-            },
-            860: {
-              slidesPerView: 1,
-              spaceBetween: 0,
-            },
-          }}
-          modules={[Pagination]}
-        >
-          <SwiperSlide>
-            <div className="flex items-end justify-center p-6 h-full bg-cover bg-center imageOne !object-contain">
-              <div className="w-full">
-                <RevalHorezontail>
-                  <Link className="text-[26px] flex cursor-pointer text-secondary font-medium">
-                    Why you should reconsider The Inca Trail, Peru Trip
-                    <FaArrowRight size={60} />
-                  </Link>
-                </RevalHorezontail>
+          <Swiper
+            className="!w-full !h-full"
+            spaceBetween={0}
+            pagination={{
+              clickable: true,
+            }}
+            breakpoints={{
+              320: {
+                slidesPerView: 1,
+                spaceBetween: 0,
+              },
+              // when window width is >= 480px
+              480: {
+                slidesPerView: 1,
+                spaceBetween: 0,
+              },
+              // when window width is >= 640px
+              640: {
+                slidesPerView: 1,
+                spaceBetween: 0,
+              },
+              860: {
+                slidesPerView: 1,
+                spaceBetween: 0,
+              },
+            }}
+            autoplay={{
+              delay: 3000,
+            }}
+            modules={[Pagination, Autoplay]}
+          >
+            <SwiperSlide>
+              <div className="flex items-end justify-center p-6 h-full bg-cover bg-center imageOne !object-contain">
+                <div className="w-full">
+                  <RevalHorezontail>
+                    <Link className="text-[26px] flex cursor-pointer text-secondary font-medium">
+                      Why you should reconsider The Inca Trail, Peru Trip
+                      <FaArrowRight size={60} />
+                    </Link>
+                  </RevalHorezontail>
+                </div>
               </div>
-            </div>
-          </SwiperSlide>
-          <SwiperSlide>
-            <div className="flex items-end justify-center p-6 h-full bg-cover bg-center imageTwo">
-              <div className="w-full">
-                <RevalHorezontail>
-                  <Link className="text-[26px] flex cursor-pointer text-secondary font-medium">
-                    The Hidden Powers of The Northern Lights, Iceland
-                    <FaArrowRight size={60} />
-                  </Link>
-                </RevalHorezontail>
+            </SwiperSlide>
+            <SwiperSlide>
+              <div className="flex items-end justify-center p-6 h-full bg-cover bg-center imageTwo">
+                <div className="w-full">
+                  <RevalHorezontail>
+                    <Link className="text-[26px] flex cursor-pointer text-secondary font-medium">
+                      The Hidden Powers of The Northern Lights, Iceland
+                      <FaArrowRight size={60} />
+                    </Link>
+                  </RevalHorezontail>
+                </div>
               </div>
-            </div>
-          </SwiperSlide>
-          <SwiperSlide>
-            <div className="flex items-end justify-center p-6 h-full bg-cover bg-center imageTHREE">
-              <div className="w-full">
-                <RevalHorezontail>
-                  <Link className="text-[26px] flex cursor-pointer text-secondary font-medium">
-                    10 Facts you didn’t know about The Blue Hole, Belize
-                    <FaArrowRight size={60} />
-                  </Link>
-                </RevalHorezontail>
+            </SwiperSlide>
+            <SwiperSlide>
+              <div className="flex items-end justify-center p-6 h-full bg-cover bg-center imageTHREE">
+                <div className="w-full">
+                  <RevalHorezontail>
+                    <Link className="text-[26px] flex cursor-pointer text-secondary font-medium">
+                      10 Facts you didn’t know about The Blue Hole, Belize
+                      <FaArrowRight size={60} />
+                    </Link>
+                  </RevalHorezontail>
+                </div>
               </div>
-            </div>
-          </SwiperSlide>
-        </Swiper>
+            </SwiperSlide>
+          </Swiper>
         </div>
       </div>
     </div>

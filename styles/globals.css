@@ -63,6 +63,12 @@ iframe.skiptranslate {
   background-color: theme(backgroundColor.primary) !important;
   border: theme(borderColor.primary) !important;
 }
+.sk-ww-tripadvisor-reviews-content {
+  background-color: theme(backgroundColor.success) !important;
+}
+.sk-ww-tripadvisor-reviews-review-text {
+  color: theme(textColor.secondary) !important;
+}
 @media only screen and (max-width: 600px) {
   .sk-sitejabber-item-item,
   .sk-sitejabber-item-sizer,
