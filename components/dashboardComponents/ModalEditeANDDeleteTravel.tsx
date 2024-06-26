@@ -1,3 +1,4 @@
+"use client";
 import { useEffect, useState } from "react";
 import {
   Modal,
@@ -19,29 +20,40 @@ const ModalEditeANDDeleteTravel = ({
   onClose,
   changeStatusModal,
 }: any) => {
-  let [item, setItem]: any = useState({});
+  let [url, seturl]: any = useState();
+  let [title, settitle]: any = useState();
+  let [details, setdetails]: any = useState();
+  let [price, setprice]: any = useState();
+  let [minimal, setminimal]: any = useState();
+  let [location, setlocation]: any = useState();
+  let [discount, setdiscount]: any = useState();
+  let [statusDiscount, setstatusDiscount]: any = useState();
   useEffect(() => {
-    fetch(`/api/travel/${id || 0}`)
-      .then((res) => res.json())
-      .then((resData) => {
-        setItem(resData);
-      })
-      .catch((error) => console.log(error));
-    if (!item.url) {
-      onClose();
-    }
+    realFn();
   }, [id]);
   useEffect(() => {
-    fetch(`/api/travel/${id || 0}`)
+    realFn();
+  }, []);
+  const realFn = async () => {
+    console.log(id);
+    await fetch(`/api/travel/${id}`)
       .then((res) => res.json())
       .then((resData) => {
-        setItem(resData);
+        seturl(resData?.url);
+        settitle(resData?.title);
+        setdetails(resData?.details);
+        setprice(resData?.price);
+        setminimal(resData?.minimal);
+        setlocation(resData?.location);
+        setdiscount(resData?.discount);
+        setstatusDiscount(resData?.statusDiscount);
       })
       .catch((error) => console.log(error));
-    if (!item.url) {
+    if (!url) {
       onClose();
+      return;
     }
-  }, []);
+  };
   const handleSubmitEdite = async (e: any, close: any) => {
     e.preventDefault();
     let url = e?.target["url"].value;
@@ -60,16 +72,16 @@ const ModalEditeANDDeleteTravel = ({
       minimal: minimal,
       location: location,
       discount: discount,
-      statusDiscount: statusDiscount || item?.statusDiscount,
+      statusDiscount: statusDiscount || statusDiscount,
     });
-    close();
     changeStatusModal();
+    close();
   };
   const handleDelete = async (close: any) => {
     const itemRef = doc(db, "travels", id);
     await deleteDoc(itemRef);
-    close();
     changeStatusModal();
+    close();
   };
   return (
     <Modal
@@ -91,7 +103,8 @@ const ModalEditeANDDeleteTravel = ({
                   placeholder="Enter Image URL"
                   name="url"
                   id="url"
-                  defaultValue={item?.url}
+                  value={url}
+                  onValueChange={(event:any) => seturl(event?.target?.value)}
                 />
                 <Input
                   type="text"
@@ -99,7 +112,8 @@ const ModalEditeANDDeleteTravel = ({
                   placeholder="Enter Title"
                   name="title"
                   id="title"
-                  defaultValue={item?.title}
+                  value={title}
+                  onValueChange={(event:any) => settitle(event?.target?.value)}
                 />
                 <Textarea
                   label="Details"
@@ -107,7 +121,8 @@ const ModalEditeANDDeleteTravel = ({
                   className="max-w-3xl"
                   name="details"
                   id="details"
-                  defaultValue={item?.details}
+                  value={details}
+                  onValueChange={(event:any) => setdetails(event?.target?.value)}
                 />
                 <Input
                   type="number"
@@ -115,7 +130,8 @@ const ModalEditeANDDeleteTravel = ({
                   placeholder="Price For One $"
                   name="price"
                   id="price"
-                  defaultValue={item?.price}
+                  value={price}
+                  onValueChange={(event:any) => setprice(event?.target?.value)}
                 />
                 <Input
                   type="number"
@@ -123,7 +139,8 @@ const ModalEditeANDDeleteTravel = ({
                   placeholder="minimal number of Passenger"
                   name="minimal"
                   id="minimal"
-                  defaultValue={item?.minimal}
+                  value={minimal}
+                  onValueChange={(event:any) => setminimal(event?.target?.value)}
                 />
                 <Input
                   type="text"
@@ -131,7 +148,8 @@ const ModalEditeANDDeleteTravel = ({
                   placeholder="Enter Location"
                   name="location"
                   id="location"
-                  defaultValue={item?.location}
+                  value={location}
+                  onValueChange={(event:any) => setlocation(event?.target?.value)}
                 />
                 <Input
                   type="number"
@@ -140,13 +158,15 @@ const ModalEditeANDDeleteTravel = ({
                   name="discount"
                   id="discount"
                   endContent={"%"}
-                  defaultValue={item?.discount}
+                  value={discount}
+                  onValueChange={(event:any) => setdiscount(event?.target?.value)}
                 />
                 <select
                   className="max-w-3xl text-black"
                   name="statusDiscount"
                   id="statusDiscount"
-                  defaultValue={item?.statusDiscount}
+                  value={statusDiscount}
+                  onChange={(event: any) => setstatusDiscount(event?.target?.value)}
                 >
                   <option value="">Select status Discount</option>
                   <option value={"true"} key={1}>

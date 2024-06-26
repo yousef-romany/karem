@@ -21,19 +21,23 @@ const ListTravel = () => {
       .catch((error) => console.log(error));
   }, []);
   const { isOpen, onOpen, onOpenChange, onClose } = useDisclosure();
-  let [id, setId]: any = useState();
+  let [idState, setId]: any = useState();
   let [statusModal, setStatusModal]: any = useState(false);
   const handleEditeOrDelete = (id: string) => {
     setId(id);
-    onOpen();
-    setStatusModal(true);
+    if (id) {
+      setStatusModal(true);
+      onOpen();
+      return;
+    }
+    return;
   };
   const changeStatusModal = () => {
+    setStatusModal(false);
     fetch("/api/travel")
       .then((res) => res.json())
       .then((resData) => setItems(resData))
       .catch((error) => console.log(error));
-    setStatusModal(false);
   };
   return (
     <>
@@ -89,7 +93,7 @@ const ListTravel = () => {
           onOpen={onOpen}
           onOpenChange={onOpenChange}
           onClose={onClose}
-          id={id}
+          id={idState}
           changeStatusModal={changeStatusModal}
         />
       ) : null}

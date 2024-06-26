@@ -13,7 +13,7 @@ const CardDestiantion = ({ image, location }: dataTypeProps) => {
   return (
     <RevalHorezontail>
       <Card
-        className="!rounded-3xl pb-4 !bg-success"
+        className="!rounded-3xl pb-4 !bg-success max-w-[400px]"
         isPressable
         onPress={() => route.push(`/destination/${location}`)}
       >
