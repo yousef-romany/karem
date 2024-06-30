@@ -49,8 +49,8 @@ export default function RootLayout({
           strategy="afterInteractive"
         />
         <Script
-          src="https://widgets.sociablekit.com/tripadvisor-reviews/widget.js"
-          async
+          src="https://static.elfsight.com/platform/platform.js"
+          data-use-service-core
           defer
         />
       </head>

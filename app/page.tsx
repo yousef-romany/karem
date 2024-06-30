@@ -41,10 +41,7 @@ export default function Home() {
             </RevalHorezontail>
           </div>
           {/* WIP: set real widget */}
-          <div
-            className="sk-ww-tripadvisor-reviews"
-            data-embed-id="25429830"
-          ></div>
+          <div className="elfsight-app-2177c3e1-089e-46d7-8e03-74bb30fdd225 !bg-background" data-elfsight-app-lazy></div>
         </div>
       </section>
     </>

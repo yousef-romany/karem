@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -51,27 +51,6 @@ iframe.skiptranslate {
   }
 }
 
-.sk-bio-content,
-.sk-bio-name a,
-.tutorial_link,
-.sk-ww-tripadvisor-reviews-reviewer a strong,
-.sk-google-review-button-more {
-  color: theme(textColor.primary) !important;
-}
-.sk-sitejabber-reviews-load-more-posts {
-  color: white !important;
-  background-color: theme(backgroundColor.primary) !important;
-  border: theme(borderColor.primary) !important;
-}
-.sk-ww-tripadvisor-reviews-content {
-  background-color: theme(backgroundColor.success) !important;
-}
-.sk-ww-tripadvisor-reviews-review-text {
-  color: theme(textColor.secondary) !important;
-}
-.sk-bio-container {
-  display: none !important;
-}
 @media only screen and (max-width: 600px) {
   .sk-sitejabber-item-item,
   .sk-sitejabber-item-sizer,
@@ -83,4 +62,32 @@ iframe.skiptranslate {
     display: flex !important;
     flex-direction: column !important;
   }
+}
+/* href="" */
+a[href="https://elfsight.com/tripadvisor-reviews-widget/?utm_source=websites&utm_medium=clients&utm_content=tripadvisor-reviews&utm_term=localhost&utm_campaign=free-widget"]
+{
+  display: none !important;
+}
+.Background__Base-sc-4lq1r6-1 {
+  background-color: theme(backgroundColor.success) !important;
+}
+.klCrXV,
+.iYrOhH {
+  background-color: theme(backgroundColor.primary) !important;
+}
+.ant-steps-item-description {
+  color: theme(colors.secondary) !important;
+}
+.ant-steps-item-title {
+  color: theme(colors.primary) !important;
+}
+.ant-steps-item-icon {
+  background-color: theme(backgroundColor.primary) !important;
+  border-color: theme(backgroundColor.primary) !important;
+}
+.ant-steps-item-icon span {
+  color: white !important;
+}
+.ant-steps-item-tail::after {
+  background-color: theme(backgroundColor.primary) !important;
 }

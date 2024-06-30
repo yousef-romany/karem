@@ -13,6 +13,8 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/autoplay";
 import { Autoplay } from "swiper/modules";
+import { Steps } from "antd";
+const description = "This is a description.";
 
 const Posts = () => {
   const pathname = usePathname();
@@ -79,7 +81,10 @@ const Posts = () => {
               modules={[Autoplay]}
             >
               {data["url"]?.map((item: string, key: number) => (
-                <SwiperSlide key={key} className="flex justify-center items-center">
+                <SwiperSlide
+                  key={key}
+                  className="flex justify-center items-center"
+                >
                   <Image
                     alt={data?.title}
                     className="w-full object-cover max-w-[360px] h-[360px]"
@@ -133,6 +138,33 @@ const Posts = () => {
             )}
           </div>
         </RevalHorezontail>
+        <Divider />
+        <Steps
+          className="!text-primary"
+          direction="vertical"
+          size="small"
+          current={0}
+          items={[
+            { title: "Finished", description },
+            {
+              title: "In Progress",
+              description,
+            },
+            {
+              title: "Waiting",
+              description,
+            },
+            {
+              title: "In Progress",
+              description,
+            },
+            {
+              title: "Waiting",
+              description,
+            },
+          ]}
+        />
+
         <Divider />
         <PaymenetAndCalcMoney
           price={data?.price}
