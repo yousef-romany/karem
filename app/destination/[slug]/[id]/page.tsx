@@ -7,6 +7,12 @@ import { useEffect, useState } from "react";
 import { Divider } from "@nextui-org/divider";
 import RevalHorezontail from "@/components/animation/RevalHorezontail";
 import PaymenetAndCalcMoney from "@/components/destination/PaymenetAndCalcMoney";
+import { Swiper, SwiperSlide } from "swiper/react";
+// Import Swiper styles
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/autoplay";
+import { Autoplay } from "swiper/modules";
 
 const Posts = () => {
   const pathname = usePathname();
@@ -19,7 +25,7 @@ const Posts = () => {
     price: 0,
     statusDiscount: "",
     title: "",
-    url: "",
+    url: [""],
     id: "",
     discountPay: "",
   });
@@ -41,11 +47,47 @@ const Posts = () => {
       <div className="flex flex-col gap-4 justify-center items-start px-4">
         <div className="w-full h-fit flex justify-center overflow-hidden">
           <RevalHorezontail>
-            <Image
-              src={data?.url}
-              alt={data?.title}
-              className="h-auto !object-contain w-full max-w-[780px]"
-            />
+            <Swiper
+              className="w-full"
+              spaceBetween={0}
+              pagination={{
+                clickable: true,
+              }}
+              breakpoints={{
+                320: {
+                  slidesPerView: 2,
+                  spaceBetween: 5,
+                },
+                // when window width is >= 480px
+                480: {
+                  slidesPerView: 2,
+                  spaceBetween: 10,
+                },
+                // when window width is >= 640px
+                640: {
+                  slidesPerView: 2,
+                  spaceBetween: 20,
+                },
+                860: {
+                  slidesPerView: 3,
+                  spaceBetween: 30,
+                },
+              }}
+              autoplay={{
+                delay: 3000,
+              }}
+              modules={[Autoplay]}
+            >
+              {data["url"]?.map((item: string, key: number) => (
+                <SwiperSlide key={key} className="flex justify-center items-center">
+                  <Image
+                    alt={data?.title}
+                    className="w-full object-cover max-w-[360px] h-[360px]"
+                    src={item}
+                  />
+                </SwiperSlide>
+              ))}
+            </Swiper>
           </RevalHorezontail>
         </div>
         <RevalHorezontail>

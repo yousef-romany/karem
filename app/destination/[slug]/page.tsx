@@ -9,7 +9,7 @@ import { useEffect, useState } from "react";
 
 const Posts = () => {
   const pathname = usePathname();
-  let [dataState, setDataState] = useState([{ url: "" }]);
+  let [dataState, setDataState] = useState([{ url: [""] }]);
   const { isPending, error, data }: any = useQuery({
     queryKey: ["repoData"],
     queryFn: () =>
@@ -17,7 +17,6 @@ const Posts = () => {
         .then((res) => res.json())
         .then((resData) => {
           setDataState(resData);
-          console.log(resData);
         })
         .catch((error) => console.log(error)),
   });

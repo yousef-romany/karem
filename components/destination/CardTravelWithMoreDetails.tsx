@@ -9,10 +9,11 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/autoplay";
 import { Autoplay, Pagination } from "swiper/modules";
+import Link from "next/link";
 
 interface dataTypeProps {
   id: string;
-  image: string[];
+  image: any;
   location: string;
   title: string;
   statusDiscount: string;
@@ -52,10 +53,9 @@ const CardTravelWithMoreDetails = ({
             ))}
           </Swiper>
         </CardBody>
-        <CardFooter>
+        <CardFooter className="flex flex-col items-center">
           <div
             className="text-large justify-between w-full flex"
-            onClick={() => route.push(`/destination/${location}/${id}`)}
           >
             <b className="text-primary">{title.slice(0, 10)}...</b>
             {statusDiscount == "true" ? (
@@ -70,6 +70,7 @@ const CardTravelWithMoreDetails = ({
               <h1 className="text-primary">{price} $</h1>
             )}
           </div>
+          <Link className="underline" href={`/destination/${location}/${id}`}>View More</Link>
         </CardFooter>
       </Card>
     </RevalHorezontail>
