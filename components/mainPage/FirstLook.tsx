@@ -16,7 +16,7 @@ const FirstLook = () => {
       <div className="relative h-[90vh] w-full">
         <h1 className="z-[9] absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%]">
           <RevalHorezontail>
-            <h1 className="labtop:text-[40px] tablet:text-[40px] !font-[cursive] text-secondary mobile:text-[30px] font-semibold text-center drop-shadow-xl">
+            <h1 className="labtop:text-[40px] tablet:text-[40px] text-secondary mobile:text-[30px] font-semibold text-center drop-shadow-xl">
               UNVEIL THE TREASURES OF EGYPT
             </h1>
           </RevalHorezontail>
