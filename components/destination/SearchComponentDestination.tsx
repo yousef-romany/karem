@@ -80,7 +80,7 @@ const SearchComponentDestination = () => {
             return (
               <CardDestiantion
                 key={key}
-                image={item.url}
+                image={item.url[0]}
                 location={item.location}
               />
             );

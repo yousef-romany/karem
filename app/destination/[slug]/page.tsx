@@ -25,7 +25,7 @@ const Posts = () => {
     <div className="flex flex-col gap-4">
       <div className="max-h-[90vh] w-full h-auto relative opacity-90 !object-contain overflow-hidden">
         <Image
-          src={dataState[0]?.url}
+          src={dataState[0]?.url[0]}
           alt={pathname.slice(13)}
           className="w-full h-auto z-[9] !object-contain"
         />
