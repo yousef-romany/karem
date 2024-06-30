@@ -49,8 +49,8 @@ const Posts = () => {
           </RevalHorezontail>
         </div>
         <RevalHorezontail>
-          <div className="text-primary text-[20px] flex">
-            <h1 className="text-[20px]">Title : {data?.title}</h1>
+          <div className="text-primary text-[20px] flex !break-all">
+            <h1 className="text-[20px] !break-all">Title : {data?.title}</h1>
           </div>
         </RevalHorezontail>
         <Divider />

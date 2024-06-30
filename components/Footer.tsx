@@ -7,7 +7,7 @@ import { FaSquarePhone } from "react-icons/fa6";
 import { CgMail } from "react-icons/cg";
 import { LiaTripadvisor } from "react-icons/lia";
 import { RiFacebookBoxFill } from "react-icons/ri";
-import { IoLogoInstagram } from "react-icons/io5";
+import { IoLogoInstagram, IoLogoWhatsapp } from "react-icons/io5";
 import getYourGuid from "@/public/getyourguide.svg";
 import viaTour from "@/public/viatour.svg";
 import { Button } from "@nextui-org/button";
@@ -48,6 +48,11 @@ const Footer = () => {
               alt="get your guid"
               className="text-primary max-w-[22.5px]"
             />
+          </li>
+        </Link>
+        <Link href={"https://tripadvisor.com/"}>
+          <li>
+            <IoLogoWhatsapp size={25} className="text-primary" />
           </li>
         </Link>
       </ul>
