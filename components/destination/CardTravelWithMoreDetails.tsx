@@ -46,7 +46,7 @@ const CardTravelWithMoreDetails = ({
               <SwiperSlide key={key}>
                 <Image
                   alt={"my image"}
-                  className="w-full object-cover max-w-[360px] h-[360px]"
+                  className="w-full object-cover max-w-full h-[360px]"
                   src={item}
                 />
               </SwiperSlide>

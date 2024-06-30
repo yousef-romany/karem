@@ -97,7 +97,7 @@ const ModalEditeANDDeleteTravel = ({
             </ModalHeader>
             <form onSubmit={(e: any) => handleSubmitEdite(e, onClose)}>
               <ModalBody>
-                <Input
+                {/* <Input
                   type="url"
                   label="URL"
                   placeholder="Enter Image URL"
@@ -105,7 +105,8 @@ const ModalEditeANDDeleteTravel = ({
                   id="url"
                   value={url}
                   onValueChange={(event:any) => seturl(event?.target?.value)}
-                />
+
+                /> */}
                 <Input
                   type="text"
                   label="Title"

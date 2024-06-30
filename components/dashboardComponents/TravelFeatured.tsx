@@ -7,9 +7,14 @@ import { addDoc, collection } from "firebase/firestore";
 import db from "@/utils/firestore";
 import { Card, CardBody } from "@nextui-org/card";
 import ListTravel from "./ListTravel";
+import { Image } from "@nextui-org/image";
+import { Steps } from "antd";
 
 const TravelFeatured = () => {
   let [urlState, setUrlState]: any = useState([]);
+  let [previewSteps, setPreviewSteps]: any = useState([]);
+  let [TitleStep, setTitleStepState]: any = useState("");
+  let [DiscriptionStep, setDiscriptionStepState]: any = useState("");
   let InputURLRef: any = useRef();
   const handleSubmit = async (e: any) => {
     e?.preventDefault();
@@ -22,30 +27,45 @@ const TravelFeatured = () => {
     let discount = e?.target["discount"].value;
     let statusDiscount = e?.target["statusDiscount"].value;
     let discountPay = e?.target["discountPay"].value;
-    if (!urlState.length) return;
-    try {
-      const docRef = await addDoc(collection(db, "travels"), {
-        url: urlState,
-        title: title,
-        details: details,
-        price: price,
-        minimal: minimal,
-        location: location,
-        discount: discount,
-        statusDiscount: statusDiscount,
-        explore: false,
-        discountPay: discountPay,
-      });
-      console.log("Document written with ID: ", docRef.id);
-      e.target.reset();
-    } catch (e) {
-      console.error("Error adding document: ", e);
+    if (urlState.length && previewSteps.length) {
+      try {
+        const docRef = await addDoc(collection(db, "travels"), {
+          url: urlState,
+          title: title,
+          details: details,
+          price: price,
+          minimal: minimal,
+          location: location,
+          discount: discount,
+          statusDiscount: statusDiscount,
+          explore: false,
+          discountPay: discountPay,
+          steps: previewSteps,
+        });
+        console.log("Document written with ID: ", docRef.id);
+        e.target.reset();
+        setPreviewSteps([])
+        setUrlState([])
+      } catch (e) {
+        console.error("Error adding document: ", e);
+      }
+    } else {
+      alert("you forget images or steps");
     }
   };
   const handleButtonUrl = () => {
     let value: any = InputURLRef?.current?.value;
-    urlState.push(value);
+    setUrlState((prev: any) => [...prev, value]);
     alert(`Done, we add : ${value}`);
+  };
+  const handleAddStep = (event: any) => {
+    setPreviewSteps((prev: any) => [
+      ...prev,
+      {
+        title: TitleStep,
+        description: DiscriptionStep,
+      },
+    ]);
   };
   return (
     <Accordion className="w-full">
@@ -65,9 +85,20 @@ const TravelFeatured = () => {
                 <Button size="lg" onClick={handleButtonUrl}>
                   +
                 </Button>
-                <Button size="lg" onClick={() => setUrlState([])}>
+                <Button
+                  size="lg"
+                  onClick={() => setUrlState([])}
+                  color="danger"
+                >
                   Reset
                 </Button>
+              </div>
+              <div className="w-full flex flex-col gap-4">
+                {urlState?.map((item: string, key: number) => (
+                  <div key={key} className="flex gap-4 items-center">
+                    <Image src={item} alt="image" className="max-w-[100px]" />
+                  </div>
+                ))}
               </div>
               <Input
                 type="text"
@@ -83,6 +114,46 @@ const TravelFeatured = () => {
                 name="details"
                 id="details"
               />
+              <div className="flex justify-center items-center gap-2 w-full h-fit flex-wrap">
+                <div className="flex flex-col gap-2">
+                  <Input
+                    isRequired
+                    type="text"
+                    label="title Step"
+                    placeholder="Enter title Step"
+                    name="titleSteps"
+                    id="titleSteps"
+                    onChange={(e) => setTitleStepState(e.target.value)}
+                  />
+                  <Input
+                    isRequired
+                    type="text"
+                    label="Discription Step"
+                    placeholder="Enter Discription Step"
+                    name="DiscriptionStep"
+                    id="DiscriptionStep"
+                    onChange={(e) => setDiscriptionStepState(e.target.value)}
+                  />
+                  <Button size="lg" type="submit" onClick={handleAddStep}>
+                    +
+                  </Button>
+                  <Button
+                    size="lg"
+                    type="submit"
+                    color="danger"
+                    onClick={() => setPreviewSteps([])}
+                  >
+                    Reset
+                  </Button>
+                </div>
+                <Steps
+                  className="!text-primary"
+                  direction="vertical"
+                  size="small"
+                  current={0}
+                  items={previewSteps}
+                />
+              </div>
               <Input
                 type="number"
                 label="Price"

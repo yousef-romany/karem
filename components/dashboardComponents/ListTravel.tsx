@@ -12,6 +12,13 @@ import { Image } from "@nextui-org/image";
 import { Button } from "@nextui-org/button";
 import { useDisclosure } from "@nextui-org/modal";
 import ModalEditeANDDeleteTravel from "./ModalEditeANDDeleteTravel";
+import { Swiper, SwiperSlide } from "swiper/react";
+// Import Swiper styles
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/autoplay";
+import { Autoplay } from "swiper/modules";
+
 const ListTravel = () => {
   let [items, setItems]: any = useState([]);
   useEffect(() => {
@@ -59,11 +66,50 @@ const ListTravel = () => {
             return (
               <TableRow key={key}>
                 <TableCell>
-                  <Image
-                    src={item.url}
-                    alt={"logo"}
-                    className="max-w-[200px]"
-                  />
+                  <Swiper
+                    className="w-[300px]"
+                    spaceBetween={0}
+                    pagination={{
+                      clickable: true,
+                    }}
+                    breakpoints={{
+                      320: {
+                        slidesPerView: 1,
+                        spaceBetween: 5,
+                      },
+                      // when window width is >= 480px
+                      480: {
+                        slidesPerView: 1,
+                        spaceBetween: 10,
+                      },
+                      // when window width is >= 640px
+                      640: {
+                        slidesPerView: 1,
+                        spaceBetween: 20,
+                      },
+                      860: {
+                        slidesPerView: 1,
+                        spaceBetween: 30,
+                      },
+                    }}
+                    autoplay={{
+                      delay: 3000,
+                    }}
+                    modules={[Autoplay]}
+                  >
+                    {item["url"]?.map((itemImage: string, key: number) => (
+                      <SwiperSlide
+                        key={key}
+                        className="flex justify-center items-center"
+                      >
+                        <Image
+                          alt={item?.title}
+                          className="w-full object-cover max-w-[300px] h-[360px]"
+                          src={itemImage}
+                        />
+                      </SwiperSlide>
+                    ))}
+                  </Swiper>
                 </TableCell>
                 <TableCell className="!text-black">{item.title}</TableCell>
                 <TableCell className="!text-black">{item.details}</TableCell>

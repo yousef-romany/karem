@@ -14,7 +14,6 @@ import "swiper/css/pagination";
 import "swiper/css/autoplay";
 import { Autoplay } from "swiper/modules";
 import { Steps } from "antd";
-const description = "This is a description.";
 
 const Posts = () => {
   const pathname = usePathname();
@@ -30,6 +29,7 @@ const Posts = () => {
     url: [""],
     id: "",
     discountPay: "",
+    steps: []
   });
   useEffect(() => {
     setId(pathname.split("/")[3]);
@@ -144,25 +144,7 @@ const Posts = () => {
           direction="vertical"
           size="small"
           current={0}
-          items={[
-            { title: "Finished", description },
-            {
-              title: "In Progress",
-              description,
-            },
-            {
-              title: "Waiting",
-              description,
-            },
-            {
-              title: "In Progress",
-              description,
-            },
-            {
-              title: "Waiting",
-              description,
-            },
-          ]}
+          items={data?.steps}
         />
 
         <Divider />
