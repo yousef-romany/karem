@@ -9,8 +9,8 @@ module.exports = {
   ],
   theme: {
     screens: {
-      tablet: "768px",
       mobile: "320px",
+      tablet: "768px",
       labtop: "1440px",
     },
     extend: {

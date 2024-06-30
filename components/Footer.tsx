@@ -5,13 +5,52 @@ import RevalHorezontail from "./animation/RevalHorezontail";
 import { Divider } from "@nextui-org/divider";
 import { FaSquarePhone } from "react-icons/fa6";
 import { CgMail } from "react-icons/cg";
-import { MdLocationOn } from "react-icons/md";
+import { LiaTripadvisor } from "react-icons/lia";
+import { RiFacebookBoxFill } from "react-icons/ri";
+import { IoLogoInstagram } from "react-icons/io5";
+import getYourGuid from "@/public/getyourguide.svg";
+import viaTour from "@/public/viatour.svg";
 import { Button } from "@nextui-org/button";
 import Link from "next/link";
 
 const Footer = () => {
   return (
     <div className="w-full h-fit py-[78px] px-4 bg-success flex flex-col gap-[80px]">
+      <ul className="w-full flex justify-center items-center gap-6">
+        <Link href={"https://tripadvisor.com/"}>
+          <li>
+            <LiaTripadvisor size={25} className="text-primary" />
+          </li>
+        </Link>
+        <Link href={"https://tripadvisor.com/"}>
+          <li>
+            <RiFacebookBoxFill size={25} className="text-primary" />
+          </li>
+        </Link>
+        <Link href={"https://tripadvisor.com/"}>
+          <li>
+            <IoLogoInstagram size={25} className="text-primary" />
+          </li>
+        </Link>
+        <Link href={"https://tripadvisor.com/"}>
+          <li>
+            <Image
+              src={getYourGuid}
+              alt="get your guid"
+              className="text-primary max-w-[22.5px]"
+            />
+          </li>
+        </Link>
+        <Link href={"https://tripadvisor.com/"}>
+          <li>
+            <Image
+              src={viaTour}
+              alt="get your guid"
+              className="text-primary max-w-[22.5px]"
+            />
+          </li>
+        </Link>
+      </ul>
       <div className="w-full h-fit flex  gap-12 flex-wrap justify-center">
         <div className="flex flex-col justify-center items-center gap-8 max-w-[300px]">
           <Image src={Logo} className="max-w-[180px] h-auto" alt="logo" />
@@ -37,12 +76,6 @@ const Footer = () => {
                 <p>yousefromany527@gmail.com</p>
               </div>
             </RevalHorezontail>
-            {/* <RevalHorezontail>
-              <div className="flex gap-2 justify-center items-center text-secondary">
-                <MdLocationOn size={25} className="text-primary" />
-                <p>66 Eleatemad ST, Luxor, Egypt</p>
-              </div>
-            </RevalHorezontail> */}
           </div>
         </div>
         <div className="flex flex-wrap w-fit h-fit gap-6 justify-between">
