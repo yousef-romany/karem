@@ -25,11 +25,11 @@ const Posts = () => {
       <div className="max-h-[90vh] w-full h-auto relative opacity-90 !object-contain overflow-hidden">
         <Image
           src={dataState[0]?.url[0]}
-          alt={pathname.slice(13)}
+          alt={pathname?.slice(13)}
           className="w-full h-auto z-[9] !object-contain"
         />
         <h1 className="outline text-[80px] absolute top-[50%] left-[50%] translate-y-[-50%] translate-x-[-50%] z-[9]">
-          {pathname.slice(13)}
+          {pathname?.slice(13)}
         </h1>
       </div>
       {isPending ? (

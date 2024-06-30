@@ -57,7 +57,7 @@ const CardTravelWithMoreDetails = ({
           <div
             className="text-large justify-between w-full flex"
           >
-            <b className="text-primary">{title.slice(0, 10)}...</b>
+            <b className="text-primary">{title?.slice(0, 13)}...</b>
             {statusDiscount == "true" ? (
               <div className="flex gap-2">
                 <h1 className="line-through text-danger">{price} $</h1>
