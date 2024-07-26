@@ -27,6 +27,8 @@ export const viewport: Viewport = {
     { media: "(prefers-color-scheme: dark)", color: "black" },
   ],
 };
+import { Suspense } from 'react'
+import Loader from "@/components/Loader";
 
 export default function RootLayout({
   children,
@@ -61,6 +63,7 @@ export default function RootLayout({
         )}
       >
         <Providers themeProps={{ attribute: "class", defaultTheme: "dark" }}>
+        <Suspense fallback={<Loader />}>
           <div className="flex flex-col h-fit relative gap-10">
             <div className="min-h-screen">
               <Navbar />
@@ -68,6 +71,7 @@ export default function RootLayout({
             </div>
             <Footer />
           </div>
+          </Suspense>
         </Providers>
       </body>
     </html>
