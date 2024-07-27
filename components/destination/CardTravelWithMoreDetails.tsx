@@ -2,7 +2,6 @@ import { memo } from "react";
 import RevalHorezontail from "../animation/RevalHorezontail";
 import { Card, CardBody, CardFooter } from "@nextui-org/card";
 import { Image } from "@nextui-org/image";
-import { useRouter } from "next/navigation";
 import { Swiper, SwiperSlide } from "swiper/react";
 // Import Swiper styles
 import "swiper/css";
@@ -29,11 +28,9 @@ const CardTravelWithMoreDetails = ({
   discount,
   statusDiscount,
 }: dataTypeProps) => {
-  let route = useRouter();
-  console.log(image);
   return (
-    <RevalHorezontail>
-      <Card className="!rounded-3xl !bg-transparent overflow-hidden max-w-[320px]">
+    <RevalHorezontail width="100%">
+      <Card className="!rounded-3xl !bg-transparent overflow-hidden max-w-[440px]">
         <CardBody className="overflow-visible p-0">
           <Swiper
           className="w-full"
@@ -43,10 +40,10 @@ const CardTravelWithMoreDetails = ({
             modules={[Autoplay]}
           >
             {image?.map((item: string, key: number) => (
-              <SwiperSlide key={key}>
+              <SwiperSlide key={key} className="w-full">
                 <Image
                   alt={"my image"}
-                  className="w-full object-cover max-w-full h-[360px]"
+                  className="!w-full object-cover max-w-full h-[360px]"
                   src={item}
                 />
               </SwiperSlide>

@@ -8,5 +8,6 @@ const fetchItems = async () => {
 };
 
 export async function GET() {
+  console.log(await fetchItems())
   return Response.json(await fetchItems());
 }

@@ -29,6 +29,9 @@ const Reviews = () => {
         .catch((error) => console.log(error));
     },
   });
+  if (error) {
+    return <h1>{error}</h1>;
+  }
   let [image, setImage]: any = useState("");
   let [location, setLocation]: any = useState("");
   let handleAddReview = async (e: any) => {
@@ -143,7 +146,7 @@ const Reviews = () => {
             ))
           : dataReviewState?.map((item: any, key: number) => (
               <CardReview
-              key={key}
+                key={key}
                 image={item?.urlTravel}
                 location={item?.travelId}
                 time={"Feb 27, 2023 . 4 min read"}

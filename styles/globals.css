@@ -15,18 +15,21 @@ body {
 iframe.skiptranslate {
   visibility: hidden !important;
 }
+
 .imageOne {
-  background-image: url("../public/statues-karnak-temple.jpg") !important;
-  box-shadow: inset 10px 10px 170px 10px rgb(94, 94, 94) !important;
+  background-image: url("https://res.cloudinary.com/dir8ao2mt/image/upload/v1718982794/columns-karnak-temple_bcbpbi.jpg") !important;
+  box-shadow: inset 3px -100px 49px -11px #00080b;
   max-width: 100%;
 }
+
 .imageTwo {
-  background-image: url("../public/columns-karnak-temple.jpg") !important;
-  box-shadow: inset 10px 10px 170px 10px rgb(94, 94, 94) !important;
+  background-image: url("https://res.cloudinary.com/dir8ao2mt/image/upload/v1718463521/samples/balloons.jpg") !important;
+  box-shadow: inset 3px -100px 49px -11px #00080b;
 }
+
 .imageTHREE {
-  background-image: url("../public/wall-karnak-temple-luxor-egypt.jpg") !important;
-  box-shadow: inset 10px 10px 170px 10px rgb(94, 94, 94) !important;
+  background-image: url("https://res.cloudinary.com/dir8ao2mt/image/upload/v1722031980/statues-karnak-temple_stcffm.jpg") !important;
+  box-shadow: inset 3px -100px 49px -11px #00080b;
 }
 .swiper-pagination-bullet-active {
   background-color: #d0ad50 !important;
@@ -92,13 +95,12 @@ a[href="https://elfsight.com/tripadvisor-reviews-widget/?utm_source=websites&utm
   background-color: theme(backgroundColor.primary) !important;
 }
 
-
 .loader {
-  width: 48px;
-  height: 48px;
+  width: 200px;
+  height: 200px;
   border-radius: 50%;
   position: relative;
-  animation: rotate 1s linear infinite
+  animation: rotate 1s linear infinite;
 }
 .loader::before {
   content: "";
@@ -106,18 +108,30 @@ a[href="https://elfsight.com/tripadvisor-reviews-widget/?utm_source=websites&utm
   position: absolute;
   inset: 0px;
   border-radius: 50%;
-  border: 5px solid #FFF;
-  animation: prixClipFix 2s linear infinite ;
+  border: 15px solid #fff;
+  animation: prixClipFix 2s linear infinite;
 }
 
 @keyframes rotate {
-  100%   {transform: rotate(360deg)}
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 @keyframes prixClipFix {
-    0%   {clip-path:polygon(50% 50%,0 0,0 0,0 0,0 0,0 0)}
-    25%  {clip-path:polygon(50% 50%,0 0,100% 0,100% 0,100% 0,100% 0)}
-    50%  {clip-path:polygon(50% 50%,0 0,100% 0,100% 100%,100% 100%,100% 100%)}
-    75%  {clip-path:polygon(50% 50%,0 0,100% 0,100% 100%,0 100%,0 100%)}
-    100% {clip-path:polygon(50% 50%,0 0,100% 0,100% 100%,0 100%,0 0)}
+  0% {
+    clip-path: polygon(50% 50%, 0 0, 0 0, 0 0, 0 0, 0 0);
+  }
+  25% {
+    clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 0, 100% 0, 100% 0);
+  }
+  50% {
+    clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 100%, 100% 100%, 100% 100%);
+  }
+  75% {
+    clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 100%, 0 100%, 0 100%);
+  }
+  100% {
+    clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 100%, 0 100%, 0 0);
+  }
 }

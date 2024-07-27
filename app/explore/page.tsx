@@ -8,19 +8,22 @@ import { useRouter } from "next/navigation";
 import CardSkeleton from "@/components/skeleton/CardSkeleton";
 import RevalHorezontail from "@/components/animation/RevalHorezontail";
 
+const fetchData = async () => {
+  const response = await fetch("/api/explore");
+  const data = await response.json();
+
+  return data;
+};
+
 const Explore = () => {
   let route: any = useRouter();
-  let [dataState, setDataState]: any[] = useState([]);
   const { isPending, error, data }: any = useQuery({
     queryKey: ["repoDataExplorePage"],
-    queryFn: () =>
-      fetch("/api/explore")
-        .then((res) => res.json())
-        .then((resData: any) => {
-          setDataState(resData);
-        })
-        .catch((error) => console.log(error)),
+    queryFn: fetchData,
   });
+  if (error) {
+    return <h1>{error}</h1>;
+  }
   return (
     <section>
       {/* start image destination */}
@@ -41,31 +44,38 @@ const Explore = () => {
         </div>
       </div>
       {/* end image destination */}
-      <div className="w-full h-fit min-h-[500px] flex  gap-6 px-10 py-10 flex-wrap">
+      <div className="w-full h-fit min-h-[500px] flex justify-between tablet:justify-between mobile:justify-center items-center  gap-6 px-10 py-10 flex-wrap">
         {isPending
           ? [1, 2, 3, 4, 5].map((item: number, key: number) => <CardSkeleton />)
-          : dataState?.map((item: any, key: any) => (
-              <RevalHorezontail key={key}>
-                <Card
-                  className="!rounded-3xl max-w-[400px] !bg-transparent"
-                  isPressable
-                  onPress={() =>
-                    route.push(`/destination/${item.location}/${item.id}`)
-                  }
-                >
-                  <CardBody className="overflow-visible p-0">
-                    <Image
-                      alt={"my image"}
-                      className="w-full object-cover h-[360px]"
-                      src={item?.url}
-                    />
-                  </CardBody>
-                  <CardFooter className="text-large justify-center items-start flex-col">
-                    <p className="text-sm font-light">{item.location}</p>
-                    <b className="text-primary font-semibold">{item?.title}</b>
-                  </CardFooter>
-                </Card>
-              </RevalHorezontail>
+          : data?.map((item: any, key: any) => (
+              <div
+                key={key}
+                className="max-w-[30%] tablet:max-w-[30%] mobile:max-w-full"
+              >
+                <RevalHorezontail width="100%">
+                  <Card
+                    className="!rounded-3xl max-w-[400px] !bg-transparent w-full"
+                    isPressable
+                    onPress={() =>
+                      route.push(`/destination/${item.location}/${item.id}`)
+                    }
+                  >
+                    <CardBody className="overflow-visible p-0">
+                      <Image
+                        alt={"my image"}
+                        className="w-full object-cover h-[360px]"
+                        src={item?.url[0]}
+                      />
+                    </CardBody>
+                    <CardFooter className="text-large justify-center items-start flex-col">
+                      <p className="text-sm font-light">{item.location}</p>
+                      <b className="text-primary font-semibold">
+                        {item?.title}
+                      </b>
+                    </CardFooter>
+                  </Card>
+                </RevalHorezontail>
+              </div>
             ))}
       </div>
     </section>

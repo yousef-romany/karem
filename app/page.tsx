@@ -1,11 +1,13 @@
 "use client";
 
 import RevalHorezontail from "@/components/animation/RevalHorezontail";
+import Loader from "@/components/Loader";
 import FirstLook from "@/components/mainPage/FirstLook";
 import FourLook from "@/components/mainPage/FourLook";
 import SecoundLook from "@/components/mainPage/SecoundLook";
 import TheredLook from "@/components/mainPage/TheredLook";
 import { Button } from "@nextui-org/button";
+import { Suspense } from "react";
 
 export default function Home() {
   return (
@@ -33,15 +35,20 @@ export default function Home() {
               <Button
                 color="primary"
                 variant="bordered"
-                // WIP: Set the real account tripadvisor
+                // TODO: Set the real account tripadvisor
                 // onPress={() => route.push("/destination")}
               >
                 View Account
               </Button>
             </RevalHorezontail>
           </div>
-          {/* WIP: set real widget */}
-          <div className="elfsight-app-2177c3e1-089e-46d7-8e03-74bb30fdd225 !bg-background" data-elfsight-app-lazy></div>
+          {/* TODO: set real widget */}
+          <Suspense fallback={<Loader />}>
+            <div
+              className="elfsight-app-2177c3e1-089e-46d7-8e03-74bb30fdd225 !bg-background"
+              data-elfsight-app-lazy
+            ></div>
+          </Suspense>
         </div>
       </section>
     </>

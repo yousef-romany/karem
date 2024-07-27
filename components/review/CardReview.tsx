@@ -23,9 +23,9 @@ const CardReview = ({
 }: dataTypeProps) => {
   let route = useRouter();
   return (
-    <RevalHorezontail>
+    <RevalHorezontail width="100%">
       <Card
-        className="!rounded-3xl !bg-success pb-4"
+        className="!rounded-3xl !bg-success pb-4 w-full"
         isPressable
         onPress={() => route.push(`/reviews/${id}`)}
       >

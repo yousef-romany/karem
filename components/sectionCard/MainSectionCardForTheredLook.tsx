@@ -18,20 +18,22 @@ import { useQuery } from "@tanstack/react-query";
 import CardSkeleton from "../skeleton/CardSkeleton";
 import { useRouter } from "next/navigation";
 
+let fetchData = async () => {
+  const response = await fetch("/api/explore");
+  const data = await response.json();
+
+  return data;
+};
+
 const MainSectionCardForTheredLook = () => {
   let route: any = useRouter();
-  let [dataState, setDataState]: any[] = useState([]);
   const { isPending, error, data }: any = useQuery({
     queryKey: ["repoDataExplore"],
-    queryFn: () =>
-      fetch("/api/explore")
-        .then((res) => res.json())
-        .then((resData: any) => {
-          setDataState(resData);
-          return resData;
-        })
-        .catch((error) => console.log(error)),
+    queryFn: fetchData,
   });
+  if (error) {
+    return <h1>{error}</h1>;
+  }
   return (
     <>
       <div className="flex flex-col w-full h-fit gap-6">
@@ -88,11 +90,11 @@ const MainSectionCardForTheredLook = () => {
                     <CardSkeleton />
                   </SwiperSlide>
                 ))
-              : dataState?.map((item: any, key: any) => (
-                  <SwiperSlide key={key}>
-                    <RevalHorezontail>
+              : data?.map((item: any, key: any) => (
+                  <SwiperSlide key={key} className="max-w-[30%] tablet:max-w-[30%] mobile:!max-w-[100%]">
+                    <RevalHorezontail width="100%">
                       <Card
-                        className="!rounded-3xl max-w-[400px] !bg-success pb-4"
+                        className="!rounded-3xl w-full !bg-success pb-4"
                         isPressable
                         onPress={() =>
                           route.push(`/destination/${item.location}/${item.id}`)
@@ -102,7 +104,7 @@ const MainSectionCardForTheredLook = () => {
                           <Image
                             alt={"my image"}
                             className="w-full object-cover h-[360px]"
-                            src={item?.url}
+                            src={item?.url[0]}
                           />
                         </CardBody>
                         <CardFooter className="text-large justify-center items-start flex-col">

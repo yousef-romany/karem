@@ -6,21 +6,18 @@ import { useRouter } from "next/navigation";
 import CardReview from "../review/CardReview";
 import { useQuery } from "@tanstack/react-query";
 import CardSkeleton from "../skeleton/CardSkeleton";
+const fetchData = async () => {
+  const response = await fetch("/api/reviews");
+  const data = await response.json();
+
+  return data;
+};
 
 const FourLook = () => {
   let route = useRouter();
-  let [dataState, setDataState]: any[] = useState([]);
-  let [dataReviewState, setDataReviewState]: any[] = useState([]);
   const { isPending, error, data }: any = useQuery({
     queryKey: ["repoDataReviewsPage"],
-    queryFn: async () =>
-      fetch("/api/reviews")
-        .then((res) => res.json())
-        .then((resData: any) => {
-          setDataReviewState(resData);
-          return resData;
-        })
-        .catch((error) => console.log(error)),
+    queryFn: fetchData,
   });
 
   return (
@@ -53,21 +50,22 @@ const FourLook = () => {
           </div>
           {/* end header */}
           {/* body */}
-          <div className="flex flex-wrap justify-between items-center gap-4 px-4">
+          <div className="flex flex-wrap justify-between tablet:justify-between mobile:justify-center items-center gap-4 px-4">
             {isPending
               ? [1, 2, 3, 4, 5]?.map((item: number, key: number) => (
                   <CardSkeleton key={key} />
                 ))
-              : dataReviewState?.map((item: any, key: number) => (
-                  <CardReview
-                    key={key}
-                    image={item?.urlTravel}
-                    location={item?.travelId}
-                    time={"Feb 27, 2023 . 4 min read"}
-                    title={item?.name}
-                    discript={item?.details}
-                    id={item?.id}
-                  />
+              : data?.map((item: any, key: number) => (
+                  <div className="max-w-[30%] tablet:max-w-[30%] mobile:!max-w-[100%]" key={key}>
+                    <CardReview
+                      image={item?.urlTravel}
+                      location={item?.travelId}
+                      time={"Feb 27, 2023 . 4 min read"}
+                      title={item?.name}
+                      discript={item?.details}
+                      id={item?.id}
+                    />
+                  </div>
                 ))}
           </div>
           {/* end body */}

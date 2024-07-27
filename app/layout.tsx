@@ -58,14 +58,14 @@ export default function RootLayout({
       </head>
       <body
         className={clsx(
-          "min-h-screen bg-background font-sans antialiased",
+          "min-h-screen bg-background font-sans antialiased !w-full",
           fontSans.variable
         )}
       >
         <Providers themeProps={{ attribute: "class", defaultTheme: "dark" }}>
         <Suspense fallback={<Loader />}>
-          <div className="flex flex-col h-fit relative gap-10">
-            <div className="min-h-screen">
+          <div className="flex flex-col h-fit relative gap-10 !w-full">
+            <div className="min-h-screen !w-full">
               <Navbar />
               {children}
             </div>

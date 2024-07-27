@@ -23,7 +23,9 @@ const RevalHorezontail = ({ children, width }: props) => {
       style={{
         position: "relative",
         overflow: "hidden",
+        width: width
       }}
+      className="!w-fit"
     >
       <motion.div
         variants={{
@@ -36,6 +38,7 @@ const RevalHorezontail = ({ children, width }: props) => {
           duration: 0.5,
           delay: 0.25,
         }}
+        className="!w-fit"
       >
         {children}
       </motion.div>

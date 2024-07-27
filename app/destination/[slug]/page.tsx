@@ -5,26 +5,28 @@ import CardSkeleton from "@/components/skeleton/CardSkeleton";
 import { Image } from "@nextui-org/image";
 import { useQuery } from "@tanstack/react-query";
 import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
+const fetchData = async (id: any) => {
+  const response = await fetch(`/api/destination/${id}`);
+  const data = await response.json();
+
+  return data;
+};
 const Posts = () => {
   const pathname = usePathname();
-  let [dataState, setDataState] = useState([{ url: [""] }]);
   const { isPending, error, data }: any = useQuery({
     queryKey: ["repoData"],
-    queryFn: () =>
-      fetch(`/api/destination/${pathname.slice(13)}`)
-        .then((res) => res.json())
-        .then((resData) => {
-          setDataState(resData);
-        })
-        .catch((error) => console.log(error)),
+    queryFn: () => fetchData(pathname.slice(13)),
   });
+  if (error) {
+    return <h1>{error}</h1>;
+  }
   return (
-    <div className="flex flex-col gap-4">
+    <div className="flex flex-col gap-4 w-full h-fit">
       <div className="max-h-[90vh] w-full h-auto relative opacity-90 !object-contain overflow-hidden">
         <Image
-          src={dataState[0]?.url[0]}
+          src={data?.at(0)?.url[0] || ""}
           alt={pathname?.slice(13)}
           className="w-full h-auto z-[9] !object-contain"
         />
@@ -39,19 +41,23 @@ const Posts = () => {
           ))}
         </div>
       ) : (
-        <div className="w-full h-fit flex flex-wrap px-6 py-2 gap-4">
-          {dataState?.map((item: any, key: number) => {
+        <div className="flex flex-wrap justify-between tablet:justify-between mobile:justify-center items-center gap-4 px-4 !w-full">
+          {data?.map((item: any, key: number) => {
             return (
-              <CardTravelWithMoreDetails
-                id={item?.id}
+              <div
+                className="max-w-[30%] tablet:max-w-[30%] mobile:max-w-[100%]"
                 key={key}
-                title={item?.title}
-                location={item?.location}
-                discount={item?.discount}
-                statusDiscount={item?.statusDiscount}
-                image={item?.url}
-                price={item?.price}
-              />
+              >
+                <CardTravelWithMoreDetails
+                  id={item?.id}
+                  title={item?.title}
+                  location={item?.location}
+                  discount={item?.discount}
+                  statusDiscount={item?.statusDiscount}
+                  image={item?.url}
+                  price={item?.price}
+                />
+              </div>
             );
           })}
         </div>

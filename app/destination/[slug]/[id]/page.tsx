@@ -1,5 +1,5 @@
 "use client";
-
+// TODO : rewrite code again
 import { Image } from "@nextui-org/image";
 import Head from "next/head";
 import { usePathname } from "next/navigation";

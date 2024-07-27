@@ -6,18 +6,21 @@ import CardSkeleton from "@/components/skeleton/CardSkeleton";
 import RevalHorezontail from "@/components/animation/RevalHorezontail";
 import CardTravelWithMoreDetails from "@/components/destination/CardTravelWithMoreDetails";
 
+const fetchData = async () => {
+  const response = await fetch("/api/offers");
+  const data = await response.json();
+
+  return data;
+};
+
 const Offers = () => {
-  let [dataState, setDataState]: any[] = useState([]);
   const { isPending, error, data }: any = useQuery({
     queryKey: ["repoDataOffersPage"],
-    queryFn: async () =>
-      fetch("/api/offers")
-        .then((res) => res.json())
-        .then((resData: any) => {
-          setDataState(resData);
-        })
-        .catch((error) => console.log(error)),
+    queryFn: fetchData
   });
+  if (error) {
+    return <h1>{error}</h1>;
+  }
   return (
     <section>
       {/* start image destination */}
@@ -43,7 +46,7 @@ const Offers = () => {
           ? [1, 2, 3, 4, 5].map((item: number, key: number) => (
               <CardSkeleton key={key} />
             ))
-          : dataState?.map((item: any, key: any) => (
+          : data?.map((item: any, key: any) => (
               <RevalHorezontail key={key}>
                 <CardTravelWithMoreDetails
                   id={item?.id}

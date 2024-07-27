@@ -1,36 +1,27 @@
 "use client";
 import { Button } from "@nextui-org/button";
-import { memo, useEffect, useState } from "react";
+import { memo } from "react";
 import RevalHorezontail from "../animation/RevalHorezontail";
 import CardDestiantion from "../destination/CardDestiantion";
 import { useRouter } from "next/navigation";
 
 import { useQuery } from "@tanstack/react-query";
 import CardSkeleton from "../skeleton/CardSkeleton";
+const fetchData = async () => {
+  const response = await fetch("/api/destination");
+  const data = await response.json();
 
+  return data;
+};
 const MainSectionCard = () => {
   let route = useRouter();
-  let [dataState, setDataState]: any[] = useState([]);
   const { isPending, error, data }: any = useQuery({
-    queryKey: ["repoData"],
-    queryFn: () =>
-      fetch("/api/destination")
-        .then((res) => res.json())
-        .then((resData: any) => {
-          let dataVar = resData.reduce((accumulator: any, current: any) => {
-            let exists = accumulator.find((item: any) => {
-              return item.location == current.location;
-            });
-            if (!exists) {
-              accumulator = accumulator.concat(current);
-            }
-            return accumulator;
-          }, []);
-          setDataState(dataVar);
-          return dataVar;
-        })
-        .catch((error) => console.log(error)),
+    queryKey: ["myData"],
+    queryFn: fetchData,
   });
+  if (error) {
+    return <h1>{error}</h1>;
+  }
   return (
     <>
       <div className="flex flex-col w-full h-fit gap-6">
@@ -67,14 +58,20 @@ const MainSectionCard = () => {
             ))}
           </div>
         ) : (
-          <div className="flex flex-wrap justify-between items-center gap-4 px-4">
-            {dataState?.slice(0, 3)?.map((item: any, key: number) => {
+          <div className="flex flex-wrap justify-between tablet:justify-between mobile:justify-center items-center gap-4 px-4 w-full">
+            {data?.slice(0, 6)?.map((item: any, key: number) => {
               return (
-                <CardDestiantion
+                <div
+                  className="max-w-[30%] tablet:max-w-[30%] mobile:!max-w-[100%]"
                   key={key}
-                  image={item?.url[0]}
-                  location={item?.location}
-                />
+                >
+                  <RevalHorezontail width="100%">
+                    <CardDestiantion
+                      image={item?.url[0]}
+                      location={item?.location}
+                    />
+                  </RevalHorezontail>
+                </div>
               );
             })}
           </div>
