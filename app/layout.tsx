@@ -3,19 +3,18 @@ import { Metadata, Viewport } from "next";
 import clsx from "clsx";
 
 import { Providers } from "./providers";
-
+import dynamic from "next/dynamic";
 import { siteConfig } from "@/config/site";
 import { fontSans } from "@/config/fonts";
 import Script from "next/script";
 import React, { Suspense } from "react";
 import Loader from "@/components/Loader";
 const NavbarComponent = dynamic(() => import("@/components/NavbarComponent"), {
-  loading: () => <h1>loading....</h1>
+  loading: () => <h1>loading ....</h1>
 })
 const FooterComponent = dynamic(() => import("@/components/FooterComponent"), {
-  loading: () => <h1>loading....</h1>
+  loading: () => <h1>loading ....</h1>
 })
-import dynamic from "next/dynamic";
 
 export const metadata: Metadata = {
   title: {
