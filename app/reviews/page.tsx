@@ -73,7 +73,12 @@ const Reviews = () => {
         {/* start select package travel */}
         <Card className={"w-full h-fit"}>
           <CardHeader className="flex justify-center items-center">
-            <Image src={image} className="max-h-[200px]" alt={"any"} />
+            <Image
+              loading="lazy"
+              src={image}
+              className="max-h-[200px]"
+              alt={"any"}
+            />
           </CardHeader>
           <CardBody className="w-full flex flex-col gap-2">
             <form

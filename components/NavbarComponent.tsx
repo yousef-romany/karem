@@ -25,7 +25,12 @@ const NavbarComponent = () => {
       <NavbarContent className="basis-1/5 mobile:basis-full" justify="start">
         <NavbarBrand as="li" className="gap-3 max-w-fit">
           <NextLink className="flex justify-start items-center gap-1" href="/">
-            <Image alt={"logo"} className="max-w-[50px] h-auto" src={logo} />
+            <Image
+              loading="lazy"
+              alt={"logo"}
+              className="max-w-[50px] h-auto"
+              src={logo}
+            />
           </NextLink>
         </NavbarBrand>
         <ul className="labtop:flex tablet:flex mobile:hidden gap-4 justify-start ml-2">
@@ -67,4 +72,4 @@ const NavbarComponent = () => {
     </NextUINavbar>
   );
 };
-export default memo(NavbarComponent)
+export default memo(NavbarComponent);

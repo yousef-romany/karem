@@ -17,7 +17,8 @@ const CardDestiantion = ({ image, location }: dataTypeProps) => {
     >
       <CardBody className="overflow-visible p-0">
         <Image
-          alt={"my image"}
+          loading="lazy"
+          alt={location}
           className="w-full object-cover max-w-full h-[360px]"
           src={image}
         />

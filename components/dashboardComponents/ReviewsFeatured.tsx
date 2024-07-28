@@ -13,7 +13,7 @@ import db from "@/utils/firestore";
 import { Image } from "@nextui-org/image";
 import { Checkbox } from "@nextui-org/checkbox";
 const ReviewsFeatured = () => {
-    let [items, setItems]: any = useState([]);
+  let [items, setItems]: any = useState([]);
   useEffect(() => {
     fetch("/api/reviews/reviewDash")
       .then((res) => res.json())
@@ -24,7 +24,7 @@ const ReviewsFeatured = () => {
     await updateDoc(doc(db, "reviews", id), {
       status: status,
     });
-    
+
     rerender();
   };
   const rerender = () => {
@@ -47,14 +47,17 @@ const ReviewsFeatured = () => {
         {items?.map((item: any, key: number) => (
           <TableRow key={key}>
             <TableCell>
-              <Image src={item?.urlTravel} alt={"logo"} className="max-w-[200px]" />
+              <Image
+                loading="lazy"
+                src={item?.urlTravel}
+                alt={"logo"}
+                className="max-w-[200px]"
+              />
             </TableCell>
             <TableCell className="!text-black">{item?.name}</TableCell>
             <TableCell className="!text-black">{item?.email}</TableCell>
             <TableCell className="!text-black">{item?.details}</TableCell>
-            <TableCell className="!text-black">
-              {item?.travelId}
-            </TableCell>
+            <TableCell className="!text-black">{item?.travelId}</TableCell>
             <TableCell>
               <Checkbox
                 defaultChecked={item?.status}
@@ -69,5 +72,5 @@ const ReviewsFeatured = () => {
       </TableBody>
     </Table>
   );
-}
+};
 export default ReviewsFeatured;

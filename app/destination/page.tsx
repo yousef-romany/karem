@@ -14,6 +14,7 @@ export default function DestinationPage() {
           </h1>
           <div className="relative w-full h-auto flex justify-center items-center !opacity-90">
             <Image
+              loading="lazy"
               src={destination}
               alt="destination"
               className="w-full h-auto z-[9]"

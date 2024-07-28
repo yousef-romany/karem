@@ -103,6 +103,7 @@ const ListTravel = () => {
                         className="flex justify-center items-center"
                       >
                         <Image
+                          loading="lazy"
                           alt={item?.title}
                           className="w-full object-cover max-w-[300px] h-[360px]"
                           src={itemImage}

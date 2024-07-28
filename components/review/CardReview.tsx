@@ -19,7 +19,7 @@ const CardReview = ({
   time,
   title,
   discript,
-  id
+  id,
 }: dataTypeProps) => {
   let route = useRouter();
   return (
@@ -31,6 +31,7 @@ const CardReview = ({
       >
         <CardBody className="overflow-visible p-0">
           <Image
+            loading="lazy"
             alt={"my image"}
             className="w-full object-cover h-[360px]"
             src={image}
@@ -38,12 +39,16 @@ const CardReview = ({
         </CardBody>
         <CardFooter className="flex flex-col items-start gap-4">
           <div className="text-large flex justify-between items-center w-full">
-            <b className="text-secondary font-semibold">Name Travel:  {location}</b>
+            <b className="text-secondary font-semibold">
+              Name Travel: {location}
+            </b>
             {/* <p className="text-sm font-light">{time}</p> */}
           </div>
           <div className="max-w-[530px] text-left flex flex-col gap-4">
-            <h1 className="text-primary text-2xl font-bold">Passenger: {title}</h1>
-            <p className="text-secondary">{discript.slice(0,30) + "....."}</p>
+            <h1 className="text-primary text-2xl font-bold">
+              Passenger: {title}
+            </h1>
+            <p className="text-secondary">{discript.slice(0, 30) + "....."}</p>
           </div>
         </CardFooter>
       </Card>

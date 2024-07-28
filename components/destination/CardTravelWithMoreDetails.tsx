@@ -33,7 +33,7 @@ const CardTravelWithMoreDetails = ({
       <Card className="!rounded-3xl !bg-transparent overflow-hidden max-w-[440px]">
         <CardBody className="overflow-visible p-0">
           <Swiper
-          className="w-full"
+            className="w-full"
             autoplay={{
               delay: 3000,
             }}
@@ -42,6 +42,7 @@ const CardTravelWithMoreDetails = ({
             {image?.map((item: string, key: number) => (
               <SwiperSlide key={key} className="w-full">
                 <Image
+                  loading="lazy"
                   alt={"my image"}
                   className="!w-full object-cover max-w-full h-[360px]"
                   src={item}
@@ -51,9 +52,7 @@ const CardTravelWithMoreDetails = ({
           </Swiper>
         </CardBody>
         <CardFooter className="flex flex-col items-center">
-          <div
-            className="text-large justify-between w-full flex"
-          >
+          <div className="text-large justify-between w-full flex">
             <b className="text-primary">{title?.slice(0, 13)}...</b>
             {statusDiscount == "true" ? (
               <div className="flex gap-2">
@@ -67,7 +66,9 @@ const CardTravelWithMoreDetails = ({
               <h1 className="text-primary">{price} $</h1>
             )}
           </div>
-          <Link className="underline" href={`/destination/${location}/${id}`}>View More</Link>
+          <Link className="underline" href={`/destination/${location}/${id}`}>
+            View More
+          </Link>
         </CardFooter>
       </Card>
     </RevalHorezontail>

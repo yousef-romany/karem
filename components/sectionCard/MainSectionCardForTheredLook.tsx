@@ -91,7 +91,10 @@ const MainSectionCardForTheredLook = () => {
                   </SwiperSlide>
                 ))
               : data?.map((item: any, key: any) => (
-                  <SwiperSlide key={key} className="max-w-[30%] tablet:max-w-[30%] mobile:!max-w-[100%]">
+                  <SwiperSlide
+                    key={key}
+                    className="max-w-[30%] tablet:max-w-[30%] mobile:!max-w-[100%]"
+                  >
                     <RevalHorezontail width="100%">
                       <Card
                         className="!rounded-3xl w-full !bg-success pb-4"
@@ -102,6 +105,7 @@ const MainSectionCardForTheredLook = () => {
                       >
                         <CardBody className="overflow-visible p-0">
                           <Image
+                            loading="lazy"
                             alt={"my image"}
                             className="w-full object-cover h-[360px]"
                             src={item?.url[0]}

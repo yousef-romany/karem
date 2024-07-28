@@ -19,7 +19,6 @@ import "swiper/css/pagination";
 import "swiper/css/autoplay";
 import { Autoplay } from "swiper/modules";
 
-
 const ExploreFeatured = () => {
   let [items, setItems]: any = useState([]);
   useEffect(() => {
@@ -58,51 +57,52 @@ const ExploreFeatured = () => {
         {items?.map((item: any, key: number) => (
           <TableRow key={key}>
             <TableCell>
-                  <Swiper
-                    className="w-[300px]"
-                    spaceBetween={0}
-                    pagination={{
-                      clickable: true,
-                    }}
-                    breakpoints={{
-                      320: {
-                        slidesPerView: 1,
-                        spaceBetween: 5,
-                      },
-                      // when window width is >= 480px
-                      480: {
-                        slidesPerView: 1,
-                        spaceBetween: 10,
-                      },
-                      // when window width is >= 640px
-                      640: {
-                        slidesPerView: 1,
-                        spaceBetween: 20,
-                      },
-                      860: {
-                        slidesPerView: 1,
-                        spaceBetween: 30,
-                      },
-                    }}
-                    autoplay={{
-                      delay: 3000,
-                    }}
-                    modules={[Autoplay]}
+              <Swiper
+                className="w-[300px]"
+                spaceBetween={0}
+                pagination={{
+                  clickable: true,
+                }}
+                breakpoints={{
+                  320: {
+                    slidesPerView: 1,
+                    spaceBetween: 5,
+                  },
+                  // when window width is >= 480px
+                  480: {
+                    slidesPerView: 1,
+                    spaceBetween: 10,
+                  },
+                  // when window width is >= 640px
+                  640: {
+                    slidesPerView: 1,
+                    spaceBetween: 20,
+                  },
+                  860: {
+                    slidesPerView: 1,
+                    spaceBetween: 30,
+                  },
+                }}
+                autoplay={{
+                  delay: 3000,
+                }}
+                modules={[Autoplay]}
+              >
+                {item["url"]?.map((itemImage: string, key: number) => (
+                  <SwiperSlide
+                    key={key}
+                    className="flex justify-center items-center"
                   >
-                    {item["url"]?.map((itemImage: string, key: number) => (
-                      <SwiperSlide
-                        key={key}
-                        className="flex justify-center items-center"
-                      >
-                        <Image
-                          alt={item?.title}
-                          className="w-full object-cover max-w-[300px] h-[360px]"
-                          src={itemImage}
-                        />
-                      </SwiperSlide>
-                    ))}
-                  </Swiper>
-                </TableCell>
+                    <Image
+                      loading="lazy"
+                      alt={item?.title}
+                      className="w-full object-cover max-w-[300px] h-[360px]"
+                      src={itemImage}
+                    />
+                  </SwiperSlide>
+                ))}
+              </Swiper>
+            </TableCell>
             <TableCell className="!text-black">{item?.title}</TableCell>
             <TableCell className="!text-black">{item?.details}</TableCell>
             <TableCell className="!text-black">{item?.price}</TableCell>

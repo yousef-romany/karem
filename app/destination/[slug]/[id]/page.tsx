@@ -29,7 +29,7 @@ const Posts = () => {
     url: [""],
     id: "",
     discountPay: "",
-    steps: []
+    steps: [],
   });
   useEffect(() => {
     setId(pathname.split("/")[3]);
@@ -86,6 +86,7 @@ const Posts = () => {
                   className="flex justify-center items-center"
                 >
                   <Image
+                    loading="lazy"
                     alt={data?.title}
                     className="w-full object-cover max-w-[360px] h-[360px]"
                     src={item}

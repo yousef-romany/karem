@@ -28,6 +28,7 @@ const Posts = () => {
         <div className="w-full h-fit flex justify-center overflow-hidden">
           <RevalHorezontail>
             <Image
+              loading="lazy"
               src={data?.urlTravel}
               alt={data?.travelId}
               className="h-auto !object-contain w-full max-w-[780px]"

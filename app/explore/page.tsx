@@ -39,6 +39,7 @@ const Explore = () => {
               }
               alt="destination"
               className="w-full h-auto z-[9]"
+              loading="lazy"
             />
           </div>
         </div>
@@ -62,7 +63,8 @@ const Explore = () => {
                   >
                     <CardBody className="overflow-visible p-0">
                       <Image
-                        alt={"my image"}
+                        loading="lazy"
+                        alt={item.location}
                         className="w-full object-cover h-[360px]"
                         src={item?.url[0]}
                       />

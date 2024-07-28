@@ -36,6 +36,8 @@ const Offers = () => {
               }
               alt="destination"
               className="w-full h-auto z-[9]"
+              loading="lazy"
+
             />
           </div>
         </div>

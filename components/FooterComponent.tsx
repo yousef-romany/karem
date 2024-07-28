@@ -35,6 +35,7 @@ const FooterComponent = () => {
         <Link href={"https://tripadvisor.com/"}>
           <li>
             <Image
+              loading="lazy"
               src={getYourGuid}
               alt="get your guid"
               className="text-primary max-w-[22.5px]"
@@ -44,6 +45,7 @@ const FooterComponent = () => {
         <Link href={"https://tripadvisor.com/"}>
           <li>
             <Image
+              loading="lazy"
               src={viaTour}
               alt="get your guid"
               className="text-primary max-w-[22.5px]"
@@ -58,7 +60,12 @@ const FooterComponent = () => {
       </ul>
       <div className="w-full h-fit flex  gap-12 flex-wrap justify-center">
         <div className="flex flex-col justify-center items-center gap-8 max-w-[300px]">
-          <Image src={Logo} className="max-w-[180px] h-auto" alt="logo" />
+          <Image
+            loading="lazy"
+            src={Logo}
+            className="max-w-[180px] h-auto"
+            alt="logo"
+          />
           <RevalHorezontail>
             <h1 className="text-secondary text-left">
               Welcome to our Trip and Tour Agency. Lorem simply text amet cing

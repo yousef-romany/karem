@@ -28,7 +28,7 @@ const PaymenetAndCalcMoney = ({
   minimal,
   title,
   location,
-  discountPay
+  discountPay,
 }: dataTypeProps) => {
   let [numberPassenger, setNumberPassenger]: any = useState(minimal);
   let [totalMoney, setTotalMoney]: any = useState(discount);
@@ -47,7 +47,13 @@ const PaymenetAndCalcMoney = ({
     <div className="w-full h-fit">
       <Card isBlurred className="w-full">
         <CardHeader className="flex gap-3">
-          <Image alt="nextui logo" height={40} src={logo} width={40} />
+          <Image
+            loading="lazy"
+            alt="nextui logo"
+            height={40}
+            src={logo}
+            width={40}
+          />
           <div className="flex flex-col">
             <p className="text-md">Zoe HoliDay Payment</p>
             <p className="text-small text-default-500">ZoeHoliDay.com</p>
@@ -63,7 +69,6 @@ const PaymenetAndCalcMoney = ({
             min={minimal}
             onChange={(e: any) => handleChange(e.target.value)}
           />
-          
         </CardBody>
         <Divider />
         <CardFooter className="w-full h-fit flex justify-center items-start flex-col gap-3">

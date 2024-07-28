@@ -44,8 +44,8 @@ const TravelFeatured = () => {
         });
         console.log("Document written with ID: ", docRef.id);
         e.target.reset();
-        setPreviewSteps([])
-        setUrlState([])
+        setPreviewSteps([]);
+        setUrlState([]);
       } catch (e) {
         console.error("Error adding document: ", e);
       }
@@ -96,7 +96,12 @@ const TravelFeatured = () => {
               <div className="w-full flex flex-col gap-4">
                 {urlState?.map((item: string, key: number) => (
                   <div key={key} className="flex gap-4 items-center">
-                    <Image src={item} alt="image" className="max-w-[100px]" />
+                    <Image
+                      loading="lazy"
+                      src={item}
+                      alt="image"
+                      className="max-w-[100px]"
+                    />
                   </div>
                 ))}
               </div>
