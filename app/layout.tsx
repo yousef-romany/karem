@@ -9,14 +9,8 @@ import { fontSans } from "@/config/fonts";
 import Script from "next/script";
 import React, { Suspense } from "react";
 import Loader from "@/components/Loader";
-import dynamic from "next/dynamic";
-
-const Navbar = dynamic((): any => import("@/components/Navbar"), {
-  loading: () => <h1>Loading....</h1>,
-});
-const Footer = dynamic((): any => import("@/components/Footer"), {
-  loading: () => <h1>Loading....</h1>,
-});
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
   title: {
