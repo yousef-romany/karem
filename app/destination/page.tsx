@@ -1,6 +1,5 @@
 "use client";
 import Image from "next/image";
-import destination from "@/public/destenation.png";
 import SearchComponentDestination from "@/components/destination/SearchComponentDestination";
 
 export default function DestinationPage() {
@@ -15,7 +14,9 @@ export default function DestinationPage() {
           <div className="relative w-full h-auto flex justify-center items-center !opacity-90">
             <Image
               loading="lazy"
-              src={destination}
+              src={
+                "https://res.cloudinary.com/dir8ao2mt/image/upload/v1718463521/samples/smile.jpg"
+              }
               alt="destination"
               className="w-full h-auto z-[9]"
             />
