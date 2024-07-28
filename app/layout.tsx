@@ -11,7 +11,7 @@ import React, { Suspense } from "react";
 import Loader from "@/components/Loader";
 import dynamic from "next/dynamic";
 
-const Navbar = dynamic((): any => import("@/components/navbar"), {
+const Navbar = dynamic((): any => import("@/components/Navbar"), {
   loading: () => <h1>Loading....</h1>,
 });
 const Footer = dynamic((): any => import("@/components/Footer"), {
@@ -47,14 +47,17 @@ export default function RootLayout({
         <Script
           src="/assets/scripts/lang-config.js"
           strategy="beforeInteractive"
+          defer
         />
         <Script
           src="/assets/scripts/translation.js"
           strategy="beforeInteractive"
+          defer
         />
         <Script
           src="//translate.google.com/translate_a/element.js?cb=TranslateInit"
           strategy="afterInteractive"
+          defer
         />
         <Script
           src="https://static.elfsight.com/platform/platform.js"

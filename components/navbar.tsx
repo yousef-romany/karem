@@ -17,8 +17,9 @@ import { ThemeSwitch } from "@/components/theme-switch";
 import logo from "@/public/mainLogo.png";
 import { LanguageSwitch } from "./LanguageSwitch";
 import RevalHorezontail from "./animation/RevalHorezontail";
+import { memo } from "react";
 
-export const Navbar = () => {
+const Navbar = () => {
   return (
     <NextUINavbar maxWidth="xl" position="sticky" className="bg-success">
       <NavbarContent className="basis-1/5 mobile:basis-full" justify="start">
@@ -66,3 +67,4 @@ export const Navbar = () => {
     </NextUINavbar>
   );
 };
+export default memo(Navbar)
