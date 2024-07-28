@@ -6,9 +6,12 @@ import { Providers } from "./providers";
 
 import { siteConfig } from "@/config/site";
 import { fontSans } from "@/config/fonts";
-import { Navbar } from "@/components/navbar";
 import Script from "next/script";
-import Footer from "@/components/Footer";
+import React, { Suspense } from "react";
+import Loader from "@/components/Loader";
+
+const Navbar = React.lazy((): any => import('@/components/navbar'));
+const Footer = React.lazy((): any => import("@/components/Footer"));
 
 export const metadata: Metadata = {
   title: {
@@ -27,8 +30,6 @@ export const viewport: Viewport = {
     { media: "(prefers-color-scheme: dark)", color: "black" },
   ],
 };
-import { Suspense } from 'react'
-import Loader from "@/components/Loader";
 
 export default function RootLayout({
   children,
@@ -63,14 +64,14 @@ export default function RootLayout({
         )}
       >
         <Providers themeProps={{ attribute: "class", defaultTheme: "dark" }}>
-        <Suspense fallback={<Loader />}>
-          <div className="flex flex-col h-fit relative gap-10 !w-full">
-            <div className="min-h-screen !w-full">
-              <Navbar />
-              {children}
+          <Suspense fallback={<Loader />}>
+            <div className="flex flex-col h-fit relative gap-10 !w-full">
+              <div className="min-h-screen !w-full">
+                <Navbar />
+                {children}
+              </div>
+              <Footer />
             </div>
-            <Footer />
-          </div>
           </Suspense>
         </Providers>
       </body>
