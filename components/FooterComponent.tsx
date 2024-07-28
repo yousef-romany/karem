@@ -13,7 +13,7 @@ import viaTour from "@/public/viatour.svg";
 import { Button } from "@nextui-org/button";
 import Link from "next/link";
 
-const Footer = () => {
+const FooterComponent = () => {
   return (
     <div className="w-full h-fit py-[78px] px-4 bg-success flex flex-col gap-[80px]">
       <ul className="w-full flex justify-center items-center gap-6">
@@ -176,4 +176,4 @@ const Footer = () => {
     </div>
   );
 };
-export default memo(Footer);
+export default memo(FooterComponent);

@@ -9,8 +9,13 @@ import { fontSans } from "@/config/fonts";
 import Script from "next/script";
 import React, { Suspense } from "react";
 import Loader from "@/components/Loader";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
+const NavbarComponent = dynamic(() => import("@/components/NavbarComponent"), {
+  loading: () => <h1>loading....</h1>
+})
+const FooterComponent = dynamic(() => import("@/components/FooterComponent"), {
+  loading: () => <h1>loading....</h1>
+})
+import dynamic from "next/dynamic";
 
 export const metadata: Metadata = {
   title: {
@@ -69,10 +74,10 @@ export default function RootLayout({
           <Suspense fallback={<Loader />}>
             <div className="flex flex-col h-fit relative gap-10 !w-full">
               <div className="min-h-screen !w-full">
-                <Navbar />
+                <NavbarComponent />
                 {children}
               </div>
-              <Footer />
+              <FooterComponent />
             </div>
           </Suspense>
         </Providers>

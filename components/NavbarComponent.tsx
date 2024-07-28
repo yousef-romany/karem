@@ -19,7 +19,7 @@ import { LanguageSwitch } from "./LanguageSwitch";
 import RevalHorezontail from "./animation/RevalHorezontail";
 import { memo } from "react";
 
-const Navbar = () => {
+const NavbarComponent = () => {
   return (
     <NextUINavbar maxWidth="xl" position="sticky" className="bg-success">
       <NavbarContent className="basis-1/5 mobile:basis-full" justify="start">
@@ -67,4 +67,4 @@ const Navbar = () => {
     </NextUINavbar>
   );
 };
-export default memo(Navbar)
+export default memo(NavbarComponent)
