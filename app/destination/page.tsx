@@ -1,5 +1,5 @@
 "use client";
-import Image from "next/image";
+import { Image } from "@nextui-org/image";
 import SearchComponentDestination from "@/components/destination/SearchComponentDestination";
 
 export default function DestinationPage() {
@@ -12,13 +12,13 @@ export default function DestinationPage() {
             Discovering the wonders of our planet, one adventure at a time
           </h1>
           <div className="relative w-full h-auto flex justify-center items-center !opacity-90">
-            <Image
-              loading="lazy"
+          <Image
               src={
                 "https://res.cloudinary.com/dir8ao2mt/image/upload/v1718463521/samples/smile.jpg"
               }
               alt="destination"
               className="w-full h-auto z-[9]"
+              loading="lazy"
             />
           </div>
         </div>
