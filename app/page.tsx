@@ -1,29 +1,34 @@
-"use client";
-
 import RevalHorezontail from "@/components/animation/RevalHorezontail";
 import Loader from "@/components/Loader";
 import TripadvisorWidget from "@/components/TripadvisorWidget";
-// import FirstLook from "@/components/mainPage/FirstLook";
-// import FourLook from "@/components/mainPage/FourLook";
-// import SecoundLook from "@/components/mainPage/SecoundLook";
-// import TheredLook from "@/components/mainPage/TheredLook";
 import { Button } from "@nextui-org/button";
 import dynamic from "next/dynamic";
 import { Suspense } from "react";
-const FirstLook = dynamic((): any => import("@/components/mainPage/FirstLook"), {
-  loading: () => <h1>Loading....</h1>,
-});
-const SecoundLook = dynamic((): any => import("@/components/mainPage/SecoundLook"), {
-  loading: () => <h1>Loading....</h1>,
-});
-const TheredLook = dynamic((): any => import("@/components/mainPage/TheredLook"), {
-  loading: () => <h1>Loading....</h1>,
-});
+const FirstLook = dynamic(
+  (): any => import("@/components/mainPage/FirstLook"),
+  {
+    loading: () => <h1>Loading....</h1>,
+    ssr: false,
+  }
+);
+const SecoundLook = dynamic(
+  (): any => import("@/components/mainPage/SecoundLook"),
+  {
+    loading: () => <h1>Loading....</h1>,
+    ssr: false,
+  }
+);
+const TheredLook = dynamic(
+  (): any => import("@/components/mainPage/TheredLook"),
+  {
+    loading: () => <h1>Loading....</h1>,
+    ssr: false,
+  }
+);
 const FourLook = dynamic((): any => import("@/components/mainPage/FourLook"), {
   loading: () => <h1>Loading....</h1>,
+  ssr: false,
 });
-
-
 
 export default function Home() {
   return (
