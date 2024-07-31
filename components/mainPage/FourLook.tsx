@@ -1,11 +1,13 @@
 "use client";
-import { memo, useState } from "react";
+import { memo } from "react";
 import RevalHorezontail from "../animation/RevalHorezontail";
 import { Button } from "@nextui-org/button";
 import { useRouter } from "next/navigation";
 import CardReview from "../review/CardReview";
 import { useQuery } from "@tanstack/react-query";
 import CardSkeleton from "../skeleton/CardSkeleton";
+import { InView } from "react-intersection-observer";
+
 const fetchData = async () => {
   const response = await fetch("/api/reviews");
   const data = await response.json();
@@ -21,8 +23,9 @@ const FourLook = () => {
   });
 
   return (
-    <>
-      <div className="w-full h-fit labtop:p-10 mobile:p-5 py-16 relative">
+    <InView>
+      {({ inView, ref, entry }) => (
+      <div ref={ref} className="w-full h-fit labtop:p-10 mobile:p-5 py-16 relative">
         <div className="flex flex-col w-full h-fit gap-6">
           {/* header */}
           <div className="flex justify-between items-center flex-wrap gap-4 bg-success px-4 py-2 !rounded-xl">
@@ -71,7 +74,8 @@ const FourLook = () => {
           {/* end body */}
         </div>
       </div>
-    </>
+    )}
+    </InView>
   );
 };
 export default memo(FourLook);

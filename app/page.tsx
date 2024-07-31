@@ -2,6 +2,7 @@
 
 import RevalHorezontail from "@/components/animation/RevalHorezontail";
 import Loader from "@/components/Loader";
+import TripadvisorWidget from "@/components/TripadvisorWidget";
 // import FirstLook from "@/components/mainPage/FirstLook";
 // import FourLook from "@/components/mainPage/FourLook";
 // import SecoundLook from "@/components/mainPage/SecoundLook";
@@ -59,10 +60,7 @@ export default function Home() {
           </div>
           {/* TODO: set real widget */}
           <Suspense fallback={<Loader />}>
-            <div
-              className="elfsight-app-2177c3e1-089e-46d7-8e03-74bb30fdd225 !bg-background"
-              data-elfsight-app-lazy
-            ></div>
+            <TripadvisorWidget />
           </Suspense>
         </div>
       </section>
