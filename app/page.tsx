@@ -1,3 +1,4 @@
+"use client"
 import RevalHorezontail from "@/components/animation/RevalHorezontail";
 import Loader from "@/components/Loader";
 import TripadvisorWidget from "@/components/TripadvisorWidget";
