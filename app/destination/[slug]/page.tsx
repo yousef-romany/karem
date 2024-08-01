@@ -5,8 +5,6 @@ import CardSkeleton from "@/components/skeleton/CardSkeleton";
 import { Image } from "@nextui-org/image";
 import { useQuery } from "@tanstack/react-query";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
-
 const fetchData = async (id: any) => {
   const response = await fetch(`/api/destination/${id}`);
   const data = await response.json();
@@ -46,7 +44,7 @@ const Posts = () => {
           {data?.map((item: any, key: number) => {
             return (
               <div
-                className="max-w-[30%] tablet:max-w-[30%] mobile:max-w-[100%]"
+                className="max-w-[30%] tablet:max-w-[30%] mobile:max-w-fit"
                 key={key}
               >
                 <CardTravelWithMoreDetails
