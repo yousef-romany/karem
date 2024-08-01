@@ -25,7 +25,7 @@ const CardReview = ({
   return (
     <RevalHorezontail width="100%">
       <Card
-        className="!rounded-3xl !bg-success pb-4 w-full"
+        className="!rounded-3xl !bg-transparent overflow-hidden labtop:max-w-[480px] tablet:max-w-[440px] mobile:max-w-[380px]"
         isPressable
         onPress={() => route.push(`/reviews/${id}`)}
       >
@@ -33,7 +33,7 @@ const CardReview = ({
           <Image
             loading="lazy"
             alt={"my image"}
-            className="w-full object-cover h-[360px]"
+            className="w-full object-cover labtop:w-[480px] tablet:w-[440px] mobile:w-[380px] h-[360px]"
             src={image}
           />
         </CardBody>
@@ -44,7 +44,7 @@ const CardReview = ({
             </b>
             {/* <p className="text-sm font-light">{time}</p> */}
           </div>
-          <div className="max-w-[530px] text-left flex flex-col gap-4">
+          <div className="max-w-full text-left flex flex-col gap-4">
             <h1 className="text-primary text-2xl font-bold">
               Passenger: {title}
             </h1>
