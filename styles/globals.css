@@ -16,20 +16,11 @@ iframe.skiptranslate {
 }
 
 .imageOne {
-  background-image: url("https://res.cloudinary.com/dir8ao2mt/image/upload/v1718982794/columns-karnak-temple_bcbpbi.jpg") !important;
+  /* background-image: url("https://res.cloudinary.com/dir8ao2mt/image/upload/v1718982794/columns-karnak-temple_bcbpbi.jpg") !important; */
   box-shadow: inset 3px -100px 49px -11px #00080b;
   max-width: 100%;
 }
 
-.imageTwo {
-  background-image: url("https://res.cloudinary.com/dir8ao2mt/image/upload/v1718463521/samples/balloons.jpg") !important;
-  box-shadow: inset 3px -100px 49px -11px #00080b;
-}
-
-.imageTHREE {
-  background-image: url("https://res.cloudinary.com/dir8ao2mt/image/upload/v1722031980/statues-karnak-temple_stcffm.jpg") !important;
-  box-shadow: inset 3px -100px 49px -11px #00080b;
-}
 .swiper-pagination-bullet-active {
   background-color: #d0ad50 !important;
   width: 30px !important;

@@ -53,22 +53,22 @@ export default function RootLayout({
       <head>
         <Script
           src="/assets/scripts/lang-config.js"
-          strategy="afterInteractive"
+          strategy="beforeInteractive"
           defer
         />
         <Script
           src="/assets/scripts/translation.js"
-          strategy="afterInteractive"
+          strategy="beforeInteractive"
           defer
         />
         <Script
           src="//translate.google.com/translate_a/element.js?cb=TranslateInit"
-          strategy="afterInteractive"
+          strategy="beforeInteractive"
           defer
         />
         <Script
           src="https://static.elfsight.com/platform/platform.js"
-          strategy="beforeInteractive"
+          strategy="afterInteractive"
           data-use-service-core
           defer
         />

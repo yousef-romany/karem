@@ -11,6 +11,7 @@ import { Autoplay, Pagination } from "swiper/modules";
 
 import RevalHorezontail from "../animation/RevalHorezontail";
 import { InView } from "react-intersection-observer";
+import Image from "next/image";
 
 const FirstLook = () => {
   return (
@@ -58,8 +59,19 @@ const FirstLook = () => {
                 modules={[Pagination, Autoplay]}
               >
                 <SwiperSlide>
-                  <div className="flex items-end justify-center p-6 h-full bg-cover bg-center imageOne !object-contain">
-                    <div className="w-full">
+                  <div className="flex items-end justify-center p-6 h-full bg-cover bg-center imageOne !object-contain !relative">
+                    <div className="w-full h-full absolute top-0 left-0 z-[-1]">
+                      <Image
+                        className="!w-full h-auto"
+                        src="https://res.cloudinary.com/dir8ao2mt/image/upload/v1718982794/columns-karnak-temple_bcbpbi.jpg"
+                        loading="lazy"
+                        quality={85}
+                        layout="fill"
+                        objectFit="cover"
+                        alt="image"
+                      />
+                    </div>
+                    <div className="w-full ">
                       <RevalHorezontail>
                         <Link className="text-[26px] flex cursor-pointer text-secondary font-medium max-w-[600px] gap-2">
                           Why you should reconsider The Inca Trail, Peru Trip
@@ -70,7 +82,17 @@ const FirstLook = () => {
                   </div>
                 </SwiperSlide>
                 <SwiperSlide>
-                  <div className="flex items-end justify-center p-6 h-full bg-cover bg-center imageTwo">
+                  <div className="flex items-end justify-center p-6 h-full bg-cover bg-center imageOne !object-contain !relative">
+                    <div className="!w-full !h-full absolute top-0 left-0 z-[-1]">
+                      <Image
+                        src="https://res.cloudinary.com/dir8ao2mt/image/upload/v1718463521/samples/balloons.jpg"
+                        loading="lazy"
+                        quality={85}
+                        layout="fill"
+                        objectFit="cover"
+                        alt="image"
+                      />
+                    </div>
                     <div className="w-full">
                       <RevalHorezontail>
                         <Link className="text-[26px] flex cursor-pointer text-secondary font-medium max-w-[600px] gap-2">
@@ -82,7 +104,17 @@ const FirstLook = () => {
                   </div>
                 </SwiperSlide>
                 <SwiperSlide>
-                  <div className="flex items-end justify-center p-6 h-full bg-cover bg-center imageTHREE">
+                  <div className="flex items-end justify-center p-6 h-full bg-cover bg-center imageOne !object-contain !relative">
+                    <div className="!w-full !h-full absolute top-0 left-0 z-[-1]">
+                      <Image
+                        src="https://res.cloudinary.com/dir8ao2mt/image/upload/v1722031980/statues-karnak-temple_stcffm.jpg"
+                        loading="lazy"
+                        quality={85}
+                        layout="fill"
+                        objectFit="cover"
+                        alt="image"
+                      />
+                    </div>
                     <div className="w-full">
                       <RevalHorezontail>
                         <Link className="text-[26px] flex cursor-pointer text-secondary font-medium max-w-[600px] gap-2">
