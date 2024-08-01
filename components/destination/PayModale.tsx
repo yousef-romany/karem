@@ -8,11 +8,11 @@ import {
   ModalFooter,
 } from "@nextui-org/modal";
 import { Tab, Tabs } from "@nextui-org/tabs";
-import { PayPalScriptProvider } from "@paypal/react-paypal-js";
-import {
-  PayPalButtons,
-  PayPalButtonsComponentProps,
-} from "@paypal/react-paypal-js";
+// import { PayPalScriptProvider } from "@paypal/react-paypal-js";
+// import {
+//   PayPalButtons,
+//   PayPalButtonsComponentProps,
+// } from "@paypal/react-paypal-js";
 import { Button } from "@nextui-org/button";
 import MassageWhatsApp from "./MassageWhatsApp";
 const paypalScriptOptions: any = {
@@ -34,40 +34,40 @@ const PayModale = ({
   totalPassenger,
   discountPay,
 }: any) => {
-  let paypalbuttonTransactionProps: PayPalButtonsComponentProps = {
-    style: { layout: "vertical" },
-    createOrder(data: any, actions: any) {
-      return actions.order.create({
-        purchase_units: [
-          {
-            amount: {
-              value: coast,
-              currency_code: "USD",
-            },
-          },
-        ],
-      });
-    },
-    onApprove(data: any, actions: any) {
-      /**
-       * data: {
-       *   orderID: string;
-       *   payerID: string;
-       *   paymentID: string | null;
-       *   billingToken: string | null;
-       *   facilitatorAccesstoken: string;
-       * }
-       */
-      return actions.order.capture({}).then((details: any) => {
-        alert(
-          "Transaction completed by" +
-            (details?.payer.name.given_name ?? "No details")
-        );
+  // let paypalbuttonTransactionProps: PayPalButtonsComponentProps = {
+  //   style: { layout: "vertical" },
+  //   createOrder(data: any, actions: any) {
+  //     return actions.order.create({
+  //       purchase_units: [
+  //         {
+  //           amount: {
+  //             value: coast,
+  //             currency_code: "USD",
+  //           },
+  //         },
+  //       ],
+  //     });
+  //   },
+  //   onApprove(data: any, actions: any) {
+  //     /**
+  //      * data: {
+  //      *   orderID: string;
+  //      *   payerID: string;
+  //      *   paymentID: string | null;
+  //      *   billingToken: string | null;
+  //      *   facilitatorAccesstoken: string;
+  //      * }
+  //      */
+  //     return actions.order.capture({}).then((details: any) => {
+  //       alert(
+  //         "Transaction completed by" +
+  //           (details?.payer.name.given_name ?? "No details")
+  //       );
 
-        alert("Data details: " + JSON.stringify(data, null, 2));
-      });
-    },
-  };
+  //       alert("Data details: " + JSON.stringify(data, null, 2));
+  //     });
+  //   },
+  // };
   let [selected, setSelected]: any = useState("1");
   return (
     <Modal
@@ -103,12 +103,12 @@ const PayModale = ({
                   title="Pay Now"
                   className="w-full h-fit flex justify-center items-center bg-white rounded-lg"
                 >
-                  <PayPalScriptProvider options={paypalScriptOptions}>
+                  {/* <PayPalScriptProvider options={paypalScriptOptions}>
                     <PayPalButtons
                       className="w-full flex justify-center items-center bg-transparent"
                       {...paypalbuttonTransactionProps}
                     />
-                  </PayPalScriptProvider>
+                  </PayPalScriptProvider> */}
                 </Tab>
                 <Tab key="2" title="Pay when you meet team" className="w-full">
                   <MassageWhatsApp
