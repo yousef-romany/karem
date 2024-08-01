@@ -1,6 +1,13 @@
 import "@/styles/globals.css";
 import { Metadata, Viewport } from "next";
 import clsx from "clsx";
+import { Roboto } from 'next/font/google'
+const robto = Roboto({
+  weight: '400',
+  subsets: ['latin'],
+  display: 'swap',
+})
+
 
 import { Providers } from "./providers";
 import dynamic from "next/dynamic";
@@ -10,11 +17,13 @@ import Script from "next/script";
 import React, { Suspense } from "react";
 import Loader from "@/components/Loader";
 const NavbarComponent = dynamic(() => import("@/components/NavbarComponent"), {
-  loading: () => <h1>loading ....</h1>
-})
+  loading: () => <h1>loading ....</h1>,
+  ssr: false
+});
 const FooterComponent = dynamic(() => import("@/components/FooterComponent"), {
-  loading: () => <h1>loading ....</h1>
-})
+  loading: () => <h1>loading ....</h1>,
+  ssr: false
+});
 
 export const metadata: Metadata = {
   title: {
@@ -40,25 +49,26 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html suppressHydrationWarning lang="en">
+    <html className={robto.className} suppressHydrationWarning lang="en">
       <head>
         <Script
           src="/assets/scripts/lang-config.js"
-          strategy="beforeInteractive"
+          strategy="lazyOnload"
           defer
         />
         <Script
           src="/assets/scripts/translation.js"
-          strategy="beforeInteractive"
+          strategy="lazyOnload"
           defer
         />
         <Script
           src="//translate.google.com/translate_a/element.js?cb=TranslateInit"
-          strategy="afterInteractive"
+          strategy="lazyOnload"
           defer
         />
         <Script
           src="https://static.elfsight.com/platform/platform.js"
+          strategy="lazyOnload"
           data-use-service-core
           defer
         />

@@ -8,6 +8,8 @@ const nextConfig = {
     ignoreBuildErrors: true, 
     
   },
+  exclude: ["**/media/**", "**/docs/**", "**/dev/**"],
+
 };
 
 module.exports = nextConfig;
