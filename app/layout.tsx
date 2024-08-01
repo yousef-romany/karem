@@ -53,22 +53,22 @@ export default function RootLayout({
       <head>
         <Script
           src="/assets/scripts/lang-config.js"
-          strategy="lazyOnload"
+          strategy="afterInteractive"
           defer
         />
         <Script
           src="/assets/scripts/translation.js"
-          strategy="lazyOnload"
+          strategy="afterInteractive"
           defer
         />
         <Script
           src="//translate.google.com/translate_a/element.js?cb=TranslateInit"
-          strategy="lazyOnload"
+          strategy="afterInteractive"
           defer
         />
         <Script
           src="https://static.elfsight.com/platform/platform.js"
-          strategy="lazyOnload"
+          strategy="beforeInteractive"
           data-use-service-core
           defer
         />

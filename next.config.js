@@ -29,7 +29,11 @@ const nextConfig = {
       "@nextui-org/table",
       "@nextui-org/tabs",
       "@nextui-org/theme",
-      "react-icons"
+      "react-icons",
+      "antd",
+      "react-intersection-observer",
+      "tailwindcss",
+      
     ],
   },
 };
