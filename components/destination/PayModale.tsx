@@ -68,7 +68,7 @@ const PayModale = ({
   //     });
   //   },
   // };
-  let [selected, setSelected]: any = useState("1");
+  let [selected, setSelected]: any = useState("2");
   return (
     <Modal
       backdrop="opaque"
@@ -100,9 +100,11 @@ const PayModale = ({
               <Tabs selectedKey={selected} onSelectionChange={setSelected}>
                 <Tab
                   key="1"
-                  title="Pay Now"
+                  title="Pay Now by Credite Card"
                   className="w-full h-fit flex justify-center items-center bg-white rounded-lg"
+                  disabled
                 >
+                  <h1 className="text-black">Sorry, is Not Work yet. 😢</h1>
                   {/* <PayPalScriptProvider options={paypalScriptOptions}>
                     <PayPalButtons
                       className="w-full flex justify-center items-center bg-transparent"

@@ -7,12 +7,18 @@ import { Button } from "@nextui-org/button";
 import { addDoc, collection } from "firebase/firestore";
 import db from "@/utils/firestore";
 import { Card, CardBody } from "@nextui-org/card";
+import { Checkbox } from "@nextui-org/checkbox";
+import { CgCheck, CgClose } from "react-icons/cg";
 
 const AddTravelCard = () => {
   let [urlState, setUrlState]: any = useState([]);
   let [previewSteps, setPreviewSteps]: any = useState([]);
   let [TitleStep, setTitleStepState]: any = useState("");
   let [DiscriptionStep, setDiscriptionStepState]: any = useState("");
+
+  let [titleInCludeState, setTitleInCludeState]: any = useState("");
+  let [stateInCludeState, setStateInCludeState]: any = useState(true);
+  let [includeArray, setIncludeArray]: any = useState([]);
   let [statusSubmitButton, setStatusSubmitButton]: any =
     useState<boolean>(true);
   let InputURLRef: any = useRef();
@@ -20,19 +26,21 @@ const AddTravelCard = () => {
     e?.preventDefault();
     let url = e?.target["url"].value;
     let title = e?.target["title"].value;
-    let details = e?.target["details"].value;
+    let overveiw = e?.target["overveiw"].value;
     let price = e?.target["price"].value;
     let minimal = e?.target["minimal"].value;
     let location = e?.target["location"].value;
     let discount = e?.target["discount"].value;
     let statusDiscount = e?.target["statusDiscount"].value;
     let discountPay = e?.target["discountPay"].value;
+
     if (urlState.length && previewSteps.length) {
       try {
         const docRef = await addDoc(collection(db, "travels"), {
           url: urlState,
           title: title,
-          details: details,
+          overview: overveiw,
+          includeANDExclude: includeArray,
           price: price,
           minimal: minimal,
           location: location,
@@ -111,12 +119,77 @@ const AddTravelCard = () => {
             id="title"
           />
           <Textarea
-            label="Details"
-            placeholder="Enter your Details"
+            label="overveiw"
+            placeholder="Enter your overveiw"
             className="max-w-3xl"
-            name="details"
-            id="details"
+            name="overveiw"
+            id="overveiw"
           />
+
+          <div className="flex flex-wrap justify-center items-center gap-2 w-full h-fit flex-col">
+            <div className="flex flex-wrap gap-2">
+              <Input
+                isRequired
+                type="text"
+                label="text"
+                placeholder="Enter text"
+                name="text"
+                id="text"
+                onChange={(e) => setTitleInCludeState(e.target.value)}
+              />
+              <Checkbox
+                onChange={() => setStateInCludeState((prev: boolean) => !prev)}
+                defaultSelected={stateInCludeState}
+                value={stateInCludeState}
+              >
+                True
+              </Checkbox>
+
+              <Button
+                size="lg"
+                onClick={() => {
+                  setIncludeArray((prev: any) => [
+                    ...prev,
+                    {
+                      title: titleInCludeState,
+                      status: `${stateInCludeState}`,
+                    },
+                  ]);
+                }}
+              >
+                +
+              </Button>
+              <Button
+                size="lg"
+                onClick={() => {
+                  setIncludeArray((prevItems: any) => prevItems.slice(0, -1));
+                }}
+              >
+                -
+              </Button>
+              <Button
+                size="lg"
+                color="danger"
+                onClick={() => setIncludeArray([])}
+              >
+                Reset
+              </Button>
+            </div>
+            <div className="flex flex-col gap-3">
+              {includeArray?.map((item: any, key: number) => (
+                <div key={key} className="flex gap-2">
+                  {item.status == "true" ? (
+                    <CgCheck size={20} className="text-success" />
+                  ) : (
+                    <CgClose size={20} className="text-danger" />
+                  )}
+
+                  <h1>{item.title}</h1>
+                </div>
+              ))}
+            </div>
+          </div>
+
           <div className="flex flex-wrap justify-center items-center gap-2 w-full h-fit flex-wrap">
             <div className="flex flex-wrap gap-2">
               <Input

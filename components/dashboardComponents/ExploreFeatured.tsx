@@ -18,26 +18,28 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/autoplay";
 import { Autoplay } from "swiper/modules";
-
+import { useRouter } from "next/navigation";
+import { useQuery } from "@tanstack/react-query";
+const fetchData = async () => {
+  const response = await fetch("/api/travel");
+  const data = await response.json();
+  return data;
+};
 const ExploreFeatured = () => {
-  let [items, setItems]: any = useState([]);
-  useEffect(() => {
-    fetch("/api/travel")
-      .then((res) => res.json())
-      .then((resData) => setItems(resData))
-      .catch((error) => console.log(error));
-  }, []);
+  const { isPending, error, data }: any = useQuery({
+    queryKey: ["repoDataExplore"],
+    queryFn: fetchData,
+  });
+  if (error) {
+    return <h1>{error}</h1>;
+  }
+
+  let route = useRouter();
   const handleChange = async (status: any, id: any) => {
     await updateDoc(doc(db, "travels", id), {
       explore: status,
     });
-    rerender();
-  };
-  const rerender = () => {
-    fetch("/api/travel")
-      .then((res) => res.json())
-      .then((resData) => setItems(resData))
-      .catch((error) => console.log(error));
+    route.refresh();
   };
   return (
     <Table aria-label="travels Items">
@@ -53,8 +55,11 @@ const ExploreFeatured = () => {
         <TableColumn className="!text-black">Status for Discount</TableColumn>
         <TableColumn className="!text-black">Check</TableColumn>
       </TableHeader>
-      <TableBody emptyContent={"No rows to display."}>
-        {items?.map((item: any, key: number) => (
+      <TableBody
+        loadingContent={isPending}
+        emptyContent={"No rows to display."}
+      >
+        {data?.map((item: any, key: number) => (
           <TableRow key={key}>
             <TableCell>
               <Swiper
@@ -110,15 +115,13 @@ const ExploreFeatured = () => {
             <TableCell className="!text-black">{item?.location}</TableCell>
             <TableCell className="!text-black">{item?.discount}</TableCell>
             <TableCell className="!text-black">
-              {item?.statusDiscount}
+              {item?.statusDiscount}/ {`${item?.explore}`}
             </TableCell>
             <TableCell>
               <Checkbox
                 defaultChecked={item?.explore}
                 isSelected={item?.explore}
-                onValueChange={async (status: any) =>
-                  await handleChange(status, item?.id)
-                }
+                onValueChange={(status: any) => handleChange(status, item?.id)}
               ></Checkbox>
             </TableCell>
           </TableRow>

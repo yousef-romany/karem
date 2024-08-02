@@ -18,12 +18,14 @@ import { Card, CardBody, CardHeader } from "@nextui-org/card";
 import { FaLocationPin } from "react-icons/fa6";
 import { RiMoneyDollarCircleFill, RiUserSearchFill } from "react-icons/ri";
 import { IoTextSharp } from "react-icons/io5";
+import { CgCheck, CgClose } from "react-icons/cg";
 
 const Posts = () => {
   const pathname = usePathname();
   let [id, setId]: any = useState("");
   let [data, setData] = useState({
-    details: "",
+    overview: "",
+    includeANDExclude: [],
     discount: 0,
     location: "",
     minimal: "",
@@ -48,7 +50,7 @@ const Posts = () => {
     <>
       <Head>
         <title>My Page | {data?.title}</title>
-        <meta name="description" content={data?.details} />
+        <meta name="description" content={data?.overview} />
       </Head>
       <div className="flex flex-col gap-4 justify-center items-start px-4 py-8">
         <div className="w-full h-fit flex justify-center overflow-hidden">
@@ -94,41 +96,63 @@ const Posts = () => {
             ))}
           </Swiper>
         </div>
-        <div className="flex flex-wrap justify-between items-start gap-y-4">
+        <div className="w-full flex flex-wrap justify-between items-start gap-y-4">
           <div className="w-[68%] tablet:w-[68%] mobile:w-full flex flex-col gap-4 justify-center items-start">
-            <RevalHorezontail>
-              <Card>
-                <CardHeader className="text-3xl border-b text-white dark:text-black font-semibold">
-                  OverView
-                </CardHeader>
-                <CardBody className="flex flex-col gap-3">
-                  <RevalHorezontail>
-                    <div className="text-primary text-[20px] flex !break-all">
-                      <h1 className="text-[20px] !break-all text-white dark:text-black flex gap-1 items-center">
-                        {data?.details}
-                      </h1>
-                    </div>
-                  </RevalHorezontail>
-                </CardBody>
-              </Card>
-            </RevalHorezontail>
+            <Card className="w-full">
+              <CardHeader className="text-3xl border-b text-white dark:text-black font-semibold">
+                OverView
+              </CardHeader>
+              <CardBody className="flex flex-col gap-3">
+                <RevalHorezontail>
+                  <div className="text-primary text-[20px] flex !break-all">
+                    <h1 className="text-[20px] !break-all text-white dark:text-black flex gap-1 items-center">
+                      {data?.overview}
+                    </h1>
+                  </div>
+                </RevalHorezontail>
+              </CardBody>
+            </Card>
+
             <Divider />
-            <RevalHorezontail>
-              <Card>
-                <CardHeader className="text-3xl border-b text-white dark:text-black font-semibold">
-                  Included/Exclude
-                </CardHeader>
-                <CardBody className="flex flex-col gap-3">
-                  <RevalHorezontail>
-                    <div className="text-primary text-[20px] flex !break-all">
-                      <h1 className="text-[20px] !break-all text-white dark:text-black flex gap-1 items-center">
-                        {data?.details}
-                      </h1>
-                    </div>
-                  </RevalHorezontail>
-                </CardBody>
-              </Card>
-            </RevalHorezontail>
+            <Card className="w-full">
+              <CardHeader className="text-3xl border-b text-white dark:text-black font-semibold">
+                Included/Exclude
+              </CardHeader>
+              <CardBody className="flex flex-wrap flex-row">
+                <div className="w-[50%] tablet:w-[50%] mobile:w-full h-full flex flex-col">
+                  {data?.includeANDExclude
+                    ?.filter((element: any) => element.status == "true")
+                    .map((item: any, key: number) => (
+                      <div className="flex items-center gap-1" key={key}>
+                        <div>
+                          <CgCheck
+                            size={20}
+                            className="text-success"
+                            color="success"
+                          />
+                        </div>
+                        <h1>{item.title}</h1>
+                      </div>
+                    ))}
+                </div>
+                <div className="w-[50%] tablet:w-[50%] mobile:w-full h-full flex flex-col">
+                  {data?.includeANDExclude
+                    ?.filter((element: any) => element.status == "false")
+                    .map((item: any, key: number) => (
+                      <div className="flex items-center gap-1" key={key}>
+                        <div>
+                          <CgClose
+                            size={20}
+                            className="text-danger"
+                            color="danger"
+                          />
+                        </div>
+                        <h1>{item.title}</h1>
+                      </div>
+                    ))}
+                </div>
+              </CardBody>
+            </Card>
           </div>
           <div className="w-[30%] tablet:w-[30%] mobile:w-full flex flex-wrap-reverse gap-4 ">
             <Card className="w-full">
