@@ -23,11 +23,11 @@ const Posts = () => {
   return (
     <div className="flex flex-col gap-4 w-full h-fit">
       <div className="max-h-[90vh] w-full h-auto relative opacity-90 !object-contain overflow-hidden">
-        <Image
+        <img
           loading="lazy"
           src={data?.at(0)?.url[0] || ""}
           alt={pathname?.slice(13)}
-          className="w-full h-auto z-[9] !object-contain"
+          className="!w-full h-auto z-[9] !object-contain"
         />
         <h1 className="outline text-[80px] absolute top-[50%] left-[50%] translate-y-[-50%] translate-x-[-50%] z-[9]">
           {pathname?.slice(13)}

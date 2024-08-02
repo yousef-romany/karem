@@ -1,9 +1,10 @@
 import { title } from "@/components/primitives";
+import { Image } from "@nextui-org/image";
 
 export default function AboutPage() {
   // WIP: content is undefiend
   return (
-    <div className="p-10 flex flex-col gap-8">
+    <div className="w-full p-10 flex flex-col gap-8">
       <div className="flex flex-col gap-4">
         <h1 className={title()}>
           About ZoeHolidays: Your Gateway to Egypt's Treasures
@@ -18,8 +19,13 @@ export default function AboutPage() {
           has to offer.
         </p>
       </div>
-      <div className="flex flex-col gap-4">
+      <div className="flex flex-col gap-4 items-center">
         <h1 className={title()}>Luxor: The World's Greatest Open-Air Museum</h1>
+        <Image
+          src="https://res.cloudinary.com/dir8ao2mt/image/upload/v1722522912/_1991e8d3-66dc-465c-a78b-36db1742d3ad_mf9irq.jpg"
+          alt="image about"
+          className="max-w-[350px] h-auto"
+        />
         <p>
           Luxor is often called the world's greatest open-air museum, and for
           good reason. It is home to the Valley of the Kings, where the tombs of
@@ -30,8 +36,13 @@ export default function AboutPage() {
           breathtaking scenery.
         </p>
       </div>
-      <div className="flex flex-col gap-4">
+      <div className="flex flex-col gap-4 items-center">
         <h1 className={title()}>Aswan: The Gateway to Nubia</h1>
+        <Image
+          src="https://res.cloudinary.com/dir8ao2mt/image/upload/v1722523149/_0d8a4251-3536-46d9-b59a-94f610f85a2d_obmtje.jpg"
+          alt="image about"
+          className="max-w-[350px] h-auto"
+        />
         <p>
           Aswan, with its picturesque Nile views and rich Nubian culture, is a
           must-visit destination. Explore the stunning Philae Temple, dedicated
@@ -42,8 +53,13 @@ export default function AboutPage() {
           the local way of life.
         </p>
       </div>
-      <div className="flex flex-col gap-4">
+      <div className="flex flex-col gap-4 items-center">
         <h1 className={title()}>Cairo: The City of a Thousand Minarets</h1>
+        <Image
+          src="https://res.cloudinary.com/dir8ao2mt/image/upload/v1722523304/_34b83f11-503c-4cb5-9562-e65e3db6e05b_nvdjmc.jpg"
+          alt="image about"
+          className="max-w-[350px] h-auto"
+        />
         <p>
           Cairo, Egypt's bustling capital, is a city where the past and present
           coexist in harmony. From the awe-inspiring Pyramids of Giza and the
@@ -54,8 +70,13 @@ export default function AboutPage() {
           Park, Cairo is a city of endless discovery.
         </p>
       </div>
-      <div className="flex flex-col gap-4">
+      <div className="flex flex-col gap-4 items-center">
         <h1 className={title()}>Hurghada: The Red Sea's Paradise</h1>
+        <Image
+          src="https://res.cloudinary.com/dir8ao2mt/image/upload/v1722523393/_73a48c67-b6b1-430e-aed8-a5b287b4a1cb_gb0goz.jpg"
+          alt="image about"
+          className="max-w-[350px] h-auto"
+        />
         <p>
           Hurghada, located on the Red Sea coast, is a haven for water sports
           enthusiasts and beach lovers. Dive into the crystal-clear waters to
@@ -66,8 +87,13 @@ export default function AboutPage() {
           thrilling safari or immerse yourself in local culture.
         </p>
       </div>
-      <div className="flex flex-col gap-4">
+      <div className="flex flex-col gap-4 !w-full items-center">
         <h1 className={title()}>Sharm El Sheikh: The Jewel of the Sinai</h1>
+        <Image
+          src="https://res.cloudinary.com/dir8ao2mt/image/upload/v1722523795/_e01d1d96-ac02-452c-8d46-3dbb940f5e23_n7rtv5.jpg"
+          alt="image about"
+          className="max-w-[350px] h-auto"
+        />
         <p>
           Sharm El Sheikh, at the southern tip of the Sinai Peninsula, is known
           for its stunning underwater landscapes and vibrant coral reefs. The

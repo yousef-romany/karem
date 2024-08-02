@@ -14,6 +14,10 @@ import "swiper/css/pagination";
 import "swiper/css/autoplay";
 import { Autoplay } from "swiper/modules";
 import { Steps } from "antd";
+import { Card, CardBody, CardHeader } from "@nextui-org/card";
+import { FaLocationPin } from "react-icons/fa6";
+import { RiMoneyDollarCircleFill, RiUserSearchFill } from "react-icons/ri";
+import { IoTextSharp } from "react-icons/io5";
 
 const Posts = () => {
   const pathname = usePathname();
@@ -46,107 +50,150 @@ const Posts = () => {
         <title>My Page | {data?.title}</title>
         <meta name="description" content={data?.details} />
       </Head>
-      <div className="flex flex-col gap-4 justify-center items-start px-4">
+      <div className="flex flex-col gap-4 justify-center items-start px-4 py-8">
         <div className="w-full h-fit flex justify-center overflow-hidden">
-          <RevalHorezontail>
-            <Swiper
-              className="w-full"
-              spaceBetween={0}
-              pagination={{
-                clickable: true,
-              }}
-              breakpoints={{
-                320: {
-                  slidesPerView: 2,
-                  spaceBetween: 5,
-                },
-                // when window width is >= 480px
-                480: {
-                  slidesPerView: 2,
-                  spaceBetween: 10,
-                },
-                // when window width is >= 640px
-                640: {
-                  slidesPerView: 2,
-                  spaceBetween: 20,
-                },
-                860: {
-                  slidesPerView: 3,
-                  spaceBetween: 30,
-                },
-              }}
-              autoplay={{
-                delay: 3000,
-              }}
-              modules={[Autoplay]}
-            >
-              {data["url"]?.map((item: string, key: number) => (
-                <SwiperSlide
-                  key={key}
-                  className="flex justify-center items-center"
-                >
-                  <Image
-                    loading="lazy"
-                    alt={data?.title}
-                    className="w-full object-cover max-w-[360px] h-[360px]"
-                    src={item}
-                  />
-                </SwiperSlide>
-              ))}
-            </Swiper>
-          </RevalHorezontail>
+          <Swiper
+            spaceBetween={0}
+            pagination={{
+              clickable: true,
+            }}
+            breakpoints={{
+              320: {
+                slidesPerView: 2,
+                spaceBetween: 5,
+              },
+              // when window width is >= 480px
+              480: {
+                slidesPerView: 2,
+                spaceBetween: 10,
+              },
+              // when window width is >= 640px
+              640: {
+                slidesPerView: 2,
+                spaceBetween: 20,
+              },
+              860: {
+                slidesPerView: 3,
+                spaceBetween: 30,
+              },
+            }}
+            autoplay={{
+              delay: 3000,
+            }}
+            modules={[Autoplay]}
+          >
+            {data["url"]?.map((item: string, key: number) => (
+              <SwiperSlide key={key}>
+                <Image
+                  loading="lazy"
+                  alt={data?.title}
+                  className="w-full object-cover max-w-[360px] h-[360px]"
+                  src={item}
+                />
+              </SwiperSlide>
+            ))}
+          </Swiper>
         </div>
-        <RevalHorezontail>
-          <div className="text-primary text-[20px] flex !break-all">
-            <h1 className="text-[20px] !break-all">Title : {data?.title}</h1>
+        <div className="flex flex-wrap justify-between items-start gap-y-4">
+          <div className="w-[68%] tablet:w-[68%] mobile:w-full flex flex-col gap-4 justify-center items-start">
+            <RevalHorezontail>
+              <Card>
+                <CardHeader className="text-3xl border-b text-white dark:text-black font-semibold">
+                  OverView
+                </CardHeader>
+                <CardBody className="flex flex-col gap-3">
+                  <RevalHorezontail>
+                    <div className="text-primary text-[20px] flex !break-all">
+                      <h1 className="text-[20px] !break-all text-white dark:text-black flex gap-1 items-center">
+                        {data?.details}
+                      </h1>
+                    </div>
+                  </RevalHorezontail>
+                </CardBody>
+              </Card>
+            </RevalHorezontail>
+            <Divider />
+            <RevalHorezontail>
+              <Card>
+                <CardHeader className="text-3xl border-b text-white dark:text-black font-semibold">
+                  Included/Exclude
+                </CardHeader>
+                <CardBody className="flex flex-col gap-3">
+                  <RevalHorezontail>
+                    <div className="text-primary text-[20px] flex !break-all">
+                      <h1 className="text-[20px] !break-all text-white dark:text-black flex gap-1 items-center">
+                        {data?.details}
+                      </h1>
+                    </div>
+                  </RevalHorezontail>
+                </CardBody>
+              </Card>
+            </RevalHorezontail>
           </div>
-        </RevalHorezontail>
-        <Divider />
-        <RevalHorezontail>
-          <div className="text-primary text-[20px] flex">
-            <h1 className="text-[20px]">Location : {data?.location}</h1>
-          </div>
-        </RevalHorezontail>
-        <Divider />
+          <div className="w-[30%] tablet:w-[30%] mobile:w-full flex flex-wrap-reverse gap-4 ">
+            <Card className="w-full">
+              <CardHeader className="text-3xl border-b text-white dark:text-black font-semibold">
+                Tour Information
+              </CardHeader>
+              <CardBody className="flex flex-col gap-3">
+                <RevalHorezontail>
+                  <div className="text-primary text-[20px] flex !break-all">
+                    <h1 className="text-[20px] !break-all text-white dark:text-black flex gap-1 items-center">
+                      <IoTextSharp /> Name : {data?.title}
+                    </h1>
+                  </div>
+                </RevalHorezontail>
 
-        <RevalHorezontail>
-          <div className="text-primary text-[20px] !break-all">
-            <p className="text-[20px] !break-all">Details : {data?.details}</p>
+                <RevalHorezontail>
+                  <div className="text-primary text-[20px] flex">
+                    <h1 className="text-[20px] flex gap-1 items-center text-white dark:text-black">
+                      <FaLocationPin /> Location : {data?.location}
+                    </h1>
+                  </div>
+                </RevalHorezontail>
+                <RevalHorezontail>
+                  <div className="text-primary text-[20px] flex">
+                    <h1 className="text-[20px] flex gap1 items-center text-white dark:text-black">
+                      <RiUserSearchFill /> Minimal Number of Passenger :{" "}
+                      {data?.minimal}
+                    </h1>
+                  </div>
+                </RevalHorezontail>
+                <RevalHorezontail>
+                  <div className="text-[20px]  text-white dark:text-black flex gap-3">
+                    <h1 className="text-[20px] flex gap-1 items-center">
+                      <RiMoneyDollarCircleFill /> Pricing :{" "}
+                    </h1>
+                    {data?.statusDiscount == "true" ? (
+                      <div className="flex gap-2">
+                        <h1 className="line-through text-danger">
+                          {data?.price} $
+                        </h1>
+                        to
+                        <h1 className="text-primary">
+                          {data?.price - (data?.discount / 100) * data?.price} $
+                          For One
+                        </h1>
+                      </div>
+                    ) : (
+                      <h1 className="">{data?.price} $ For One </h1>
+                    )}
+                  </div>
+                </RevalHorezontail>
+              </CardBody>
+            </Card>
+            <div className="flex flex-col gap-2">
+              <h1 className="text-3xl">Steps</h1>
+              <Steps
+                className="!text-primary"
+                direction="vertical"
+                size="small"
+                current={0}
+                items={data?.steps}
+              />
+            </div>
           </div>
-        </RevalHorezontail>
-        <Divider />
-        <RevalHorezontail>
-          <div className="text-primary text-[20px] flex">
-            <h1 className="text-[20px]">
-              Minimal Number of Passenger : {data?.minimal}
-            </h1>
-          </div>
-        </RevalHorezontail>
-        <Divider />
-        <RevalHorezontail>
-          <div className="text-primary text-[20px]">
-            <h1 className="text-[20px]">Pricing : </h1>
-            {data?.statusDiscount == "true" ? (
-              <div className="flex gap-2">
-                <h1 className="line-through text-danger">{data?.price} $</h1>
-                to
-                <h1 className="text-primary">
-                  {data?.price - (data?.discount / 100) * data?.price} $ For One
-                </h1>
-              </div>
-            ) : (
-              <h1 className="text-primary">{data?.price} $ For One </h1>
-            )}
-          </div>
-        </RevalHorezontail>
-        <Divider />
-        <Steps
-          className="!text-primary"
-          direction="vertical"
-          size="small"
-          current={0}
-          items={data?.steps}
-        />
+        </div>
 
         <Divider />
         <PaymenetAndCalcMoney

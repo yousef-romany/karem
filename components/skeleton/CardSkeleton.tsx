@@ -1,5 +1,6 @@
 import { Card } from "@nextui-org/card";
 import { Skeleton } from "@nextui-org/skeleton";
+import { memo } from "react";
 
 const CardSkeleton = () => {
   return (
@@ -21,4 +22,4 @@ const CardSkeleton = () => {
     </Card>
   );
 };
-export default CardSkeleton;
+export default memo(CardSkeleton);
