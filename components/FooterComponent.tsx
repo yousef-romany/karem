@@ -17,11 +17,11 @@ const FooterComponent = () => {
   return (
     <div className="w-full h-fit py-[78px] px-4 bg-success flex flex-col gap-[80px]">
       <ul className="w-full flex justify-center items-center gap-6">
-        <Link href={"https://tripadvisor.com/"}>
+        {/* <Link href={"https://tripadvisor.com/"}>
           <li>
             <LiaTripadvisor size={25} className="text-primary" />
           </li>
-        </Link>
+        </Link> */}
         <Link href={"https://tripadvisor.com/"}>
           <li>
             <RiFacebookBoxFill size={25} className="text-primary" />
@@ -32,7 +32,7 @@ const FooterComponent = () => {
             <IoLogoInstagram size={25} className="text-primary" />
           </li>
         </Link>
-        <Link href={"https://tripadvisor.com/"}>
+        {/* <Link href={"https://tripadvisor.com/"}>
           <li>
             <Image
               loading="lazy"
@@ -41,8 +41,8 @@ const FooterComponent = () => {
               className="text-primary max-w-[22.5px]"
             />
           </li>
-        </Link>
-        <Link href={"https://tripadvisor.com/"}>
+        </Link> */}
+        {/* <Link href={"https://tripadvisor.com/"}>
           <li>
             <Image
               loading="lazy"
@@ -51,7 +51,7 @@ const FooterComponent = () => {
               className="text-primary max-w-[22.5px]"
             />
           </li>
-        </Link>
+        </Link> */}
         <Link href={"https://tripadvisor.com/"}>
           <li>
             <IoLogoWhatsapp size={25} className="text-primary" />

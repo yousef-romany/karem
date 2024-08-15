@@ -66,12 +66,12 @@ export default function RootLayout({
           strategy="beforeInteractive"
           defer
         />
-        <Script
+        {/* <Script
           src="https://static.elfsight.com/platform/platform.js"
           strategy="afterInteractive"
           data-use-service-core
           defer
-        />
+        /> */}
       </head>
       <body
         className={clsx(

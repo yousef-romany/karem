@@ -65,9 +65,9 @@ export default function Home() {
             </RevalHorezontail>
           </div>
           {/* TODO: set real widget */}
-          <Suspense fallback={<Loader />}>
+          {/* <Suspense fallback={<Loader />}>
             <TripadvisorWidget />
-          </Suspense>
+          </Suspense> */}
         </div>
       </section>
     </>
